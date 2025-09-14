@@ -1,0 +1,41 @@
+---
+import { generateId5 } from "@/utils/ran/generateId5"
+import type { ButtonSize, ButtonVariant } from "@/ui/button/buttonCva"
+import Modal from "./Modal.astro"
+import { classesTextGray } from "@/ui/text/classesTextGray"
+import { classArr } from "@/ui_utils/classArr"
+import Button from "@/ui/button/Button.astro"
+
+interface Props {
+  button: {
+    title?: string
+    text?: string
+    variant?: ButtonVariant
+    size?: ButtonSize
+    icon?: string
+    iconRight?: string
+    iconClass?: string
+    class?: string
+  }
+  id?: string
+  title?: string
+  class?: string
+  classContentArea?: string
+}
+const props = Astro.props
+const id = props.id ?? `modal-id-${generateId5()}`
+const button = props.button
+const title = props.title ?? "Dialog Title"
+const classContentArea = props.classContentArea
+---
+
+<Button id={id} {...button} />
+<Modal
+  triggerId={id}
+  title={title}
+  titleClass={classArr(classesTextGray, "text-xl", "mb-2")}
+  class={props.class}
+  classContentArea={classContentArea}
+>
+  <slot />
+</Modal>

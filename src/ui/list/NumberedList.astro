@@ -1,0 +1,14 @@
+---
+import { classMerge } from "@/ui_utils/classMerge.ts"
+
+interface Props {
+  points: string[] | Readonly<string[]>
+  classText?: string
+  class?: string
+}
+const props = Astro.props
+---
+
+<ol class={classMerge("list-decimal", props.class)} style={{ paddingInlineStart: "18px" }}>
+  {props.points.map((l) => <li class={props.classText}>{l}</li>)}
+</ol>

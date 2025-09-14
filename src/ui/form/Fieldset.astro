@@ -1,0 +1,21 @@
+---
+import { classesFieldset } from "./classesFieldset.ts"
+import { classMerge } from "@/ui_utils/classMerge.ts"
+
+interface Props {
+  title: string
+  titleClass?: string
+  subtitles?: string | string[]
+  subtitleClass?: string
+  class?: string
+}
+const props = Astro.props
+---
+
+<fieldset class={classMerge(classesFieldset, props.class)}>
+  <legend class={classMerge("px-1", props.titleClass)}>
+    {props.title}
+    <!--{props.subtitles && <PopoverI title={props.title} points={props.subtitles} />}-->
+  </legend>
+  <slot />
+</fieldset>

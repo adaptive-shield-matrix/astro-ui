@@ -1,0 +1,19 @@
+---
+import LinkText from "@/ui/link/LinkText.astro"
+import { classMerge } from "@/ui_utils/classMerge.ts"
+
+interface Props {
+  text: string
+  class?: string
+}
+const props = Astro.props
+const text = props.text
+---
+
+{
+  text.startsWith("http") ? (
+    <LinkText href={text}>{text}</LinkText>
+  ) : (
+    <p class={classMerge("leading-relaxed", props.class)}>{text}</p>
+  )
+}

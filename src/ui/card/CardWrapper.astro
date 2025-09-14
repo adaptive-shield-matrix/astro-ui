@@ -1,0 +1,13 @@
+---
+import { classesCardWrapperP4 } from "@/ui/card/classesCardWrapper"
+import { classArr } from "@/ui_utils/classArr.ts"
+
+interface Props {
+  class?: string
+}
+const props = Astro.props
+---
+
+<div class={classArr(classesCardWrapperP4, props.class)}>
+  <slot />
+</div>
