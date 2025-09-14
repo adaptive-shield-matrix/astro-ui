@@ -1,0 +1,40 @@
+{
+  "name": "@adaptive-sm/astro-ui",
+  "module": "src/index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "astro": "astro",
+    "dev": "nice -5 astro dev",
+    "build": "nice -15 astro build",
+    "update": "nice -15 bun x npm-check-updates -u && bun i",
+    "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push",
+    "generateImports": "bun run src/gen/generateImports.ts"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@mdi/js": "^7.4.47",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/bun": "latest",
+    "astro": "^5.13.7",
+    "dayjs": "^1.11.18",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-toc": "^9.0.0",
+    "rollup-plugin-visualizer": "^6.0.3",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.35.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 120,
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-astro"
+    ]
+  }
+}

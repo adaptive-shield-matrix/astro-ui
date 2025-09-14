@@ -1,0 +1,23 @@
+---
+import { classMerge } from "@/ui_utils/classMerge.ts"
+
+interface Props {
+  title?: string
+  href: string
+  newTab?: boolean
+  class?: string
+}
+const props = Astro.props
+const title = props.title
+const href = props.href
+const newTab = props.newTab
+---
+
+<a
+  href={href}
+  class={classMerge("text-blue-500 no-underline hover:underline", props.class)}
+  target={newTab ? "_blank" : undefined}
+  title={title}
+>
+  <slot/>
+</a>

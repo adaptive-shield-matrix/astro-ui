@@ -1,0 +1,12 @@
+---
+interface Props {
+  lines: string[] | Readonly<string[]>
+  class?: string
+}
+const props = Astro.props
+const lines = props.lines
+---
+
+<>
+  {lines.map((line) => <p class={props.class}>{line}</p>)}
+</>

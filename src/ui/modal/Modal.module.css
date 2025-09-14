@@ -1,0 +1,19 @@
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  filter: blur(6px);
+}
+
+/* Animation */
+dialog[open],
+dialog[open]::backdrop {
+  animation: fadein 0.2s ease-in-out;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

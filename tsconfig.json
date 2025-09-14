@@ -1,0 +1,53 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "src/gen/**/*",
+    "src/ui/**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    //
+    // my configs
+    //
+    "allowJs": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "moduleDetection": "force",
+    "noUncheckedSideEffectImports": true,
+    //
+    // absolute import paths
+    //
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    //
+    // type imports - https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax
+    //
+    "verbatimModuleSyntax": true,
+    // https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/#the---erasablesyntaxonly-option
+    "erasableSyntaxOnly": true,
+    "allowImportingTsExtensions": true,
+    //
+    // code quality settings
+    //
+    "strict": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
