@@ -12,22 +12,30 @@
     "module": "preserve",
     "target": "esnext",
     "moduleResolution": "bundler",
+    //
     // library settings
-    "declaration": true,
+    //
     "composite": true,
-    "sourceMap": true,
-    // "declarationMap": true,
-    // dom
+    "declaration": true,
+    "declarationMap": true,
+    // "sourceMap": true,
+    //
+    // included libraries
+    //
     "lib": [
       "es2022",
       "dom",
       "dom.iterable"
     ],
+    //
     // my performance setting
+    //
     "skipLibCheck": true,
     "incremental": true,
     "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+    //
     // my setting
+    //
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
