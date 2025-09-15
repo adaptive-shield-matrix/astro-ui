@@ -1,14 +1,18 @@
 {
   "name": "@adaptive-sm/astro-ui",
   "module": "src/index.js",
+  "types": "src/index.d.ts",
   "type": "module",
   "private": true,
   "scripts": {
     "astro": "astro",
     "dev": "nice -5 astro dev",
-    "build": "nice -15 astro build",
+    "build": "bun run generateImports && bun run tsc",
+    "tsc": "tsc",
+    "check": "astro check",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
     "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push",
+    "generate": "bun run generateImports",
     "generateImports": "bun run src/gen/generateImports.ts"
   },
   "devDependencies": {
