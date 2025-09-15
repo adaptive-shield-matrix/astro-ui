@@ -1,7 +1,8 @@
 {
   "include": [
     ".astro/types.d.ts",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.astro"
   ],
   "exclude": [
     "dist"
