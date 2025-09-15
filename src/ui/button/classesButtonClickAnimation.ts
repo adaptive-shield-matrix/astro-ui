@@ -1,4 +1,4 @@
-import { classArr } from "@/ui_utils/classArr.ts"
+import { classArr } from "@/ui/utils/classArr"
 
 export const classesButtonClickAnimation = classArr(
   // "duration-300",

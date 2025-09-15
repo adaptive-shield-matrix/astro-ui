@@ -1,7 +1,7 @@
-import { classArr } from "@/ui_utils/classArr.ts"
-import { classMerge } from "@/ui_utils/classMerge.ts"
-import { classesButtonClickAnimation } from "./classesButtonClickAnimation.ts"
-import { classesButtonDisabled } from "./classesButtonDisabled.ts"
+import { classArr } from "@/ui/utils/classArr"
+import { classMerge } from "@/ui/utils/classMerge"
+import { classesButtonClickAnimation } from "./classesButtonClickAnimation"
+import { classesButtonDisabled } from "./classesButtonDisabled"
 
 export type ButtonVariant = keyof typeof buttonVariant
 export const buttonVariant = {

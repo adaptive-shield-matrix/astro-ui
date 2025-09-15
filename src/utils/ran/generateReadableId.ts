@@ -1,4 +1,4 @@
-import { urlAlphabet32 } from "./urlAlphabet32.ts"
+import { urlAlphabet32 } from "./urlAlphabet32"
 
 /**
  * * works in browser
