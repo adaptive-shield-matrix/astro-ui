@@ -1,30 +1,44 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "include": [
     ".astro/types.d.ts",
-    "src/gen/**/*",
-    "src/ui/**/*"
+    "src/**/*.ts"
   ],
   "exclude": [
     "dist"
   ],
   "compilerOptions": {
-    //
-    // my configs
-    //
-    "allowJs": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "preserve",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    // library settings
+    "declaration": true,
+    "composite": true,
+    "sourceMap": true,
+    // "declarationMap": true,
+    // dom
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
+    // my performance setting
+    "skipLibCheck": true,
     "incremental": true,
     "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+    // my setting
+    "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": true,
     "downlevelIteration": true,
-    "baseUrl": ".",
     "moduleDetection": "force",
-    "noUncheckedSideEffectImports": true,
+    "jsx": "preserve",
     //
     // absolute import paths
     //
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -34,9 +48,8 @@
     // type imports - https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax
     //
     "verbatimModuleSyntax": true,
-    // https://devblogs.microsoft.com/typescript/announcing-typescript-5-8/#the---erasablesyntaxonly-option
-    "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
+    // "emitDeclarationOnly": true,
     //
     // code quality settings
     //
@@ -48,6 +61,7 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true
   }
 }
