@@ -1,6 +1,6 @@
-import { classMerge } from "@/ui_utils/classMerge.ts"
-import type { TailwindBreakpoint } from "@/ui_utils/TailwindBreakpoint.ts"
-import { tailwindBreakpoint } from "@/ui_utils/TailwindBreakpoint.ts"
+import { classMerge } from "@/ui/utils/classMerge"
+import type { TailwindBreakpoint } from "@/ui/utils/tailwindBreakpoint"
+import { tailwindBreakpoint } from "@/ui/utils/tailwindBreakpoint"
 
 function tableDesktopClassName(b: TailwindBreakpoint) {
   const tb = tailwindBreakpoint
