@@ -1,7 +1,7 @@
 ---
 import "./Modal.module.css"
-import { classesTextHeader } from "@/ui/text/classesTextHeader.ts"
-import { classMerge } from "@/ui_utils/classMerge"
+import { classesTextHeader } from "@/ui/text/classesTextHeader"
+import { classMerge } from "@/ui/utils/classMerge"
 import { buttonVariant } from "@/ui/button/buttonCva"
 import Button from "@/ui/button/Button.astro"
 
@@ -49,6 +49,6 @@ const closeId = `${triggerId}-close`
 </dialog>
 
 <script>
-  import { modal } from "./modal.ts"
+  import { modal } from "./modal"
   modal()
 </script>
