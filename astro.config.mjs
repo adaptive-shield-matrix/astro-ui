@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config"
 import remarkToc from "remark-toc"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import { visualizer } from "rollup-plugin-visualizer"
 import tailwindcss from "@tailwindcss/vite"
 
 // https://astro.build/config
@@ -26,7 +25,7 @@ export default defineConfig({
         "@": new URL("src", import.meta.url).pathname,
       },
     },
-    plugins: [tailwindcss(), visualizer({ filename: "dist/bundle-size.html", gzipSize: true })],
+    plugins: [tailwindcss()],
   },
   markdown: {
     // https://github.com/remarkjs/remark-toc
