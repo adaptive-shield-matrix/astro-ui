@@ -1,6 +1,7 @@
 {
   "include": [
     ".astro/types.d.ts",
+    "pages/**/*",
     "gen/**/*.ts",
     "src/**/*.ts",
     "src/**/*.astro"
