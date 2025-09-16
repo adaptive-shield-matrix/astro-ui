@@ -1,0 +1,17 @@
+---
+import PageCenteredCard from "~/page/PageCenteredCard.astro"
+import { classMerge } from "~/utils/ui/classMerge"
+import { classArr } from "~/utils/ui/classArr"
+
+import "./parts/markdown.css"
+
+interface Props {
+  class?: string
+}
+
+const p = Astro.props
+---
+
+<PageCenteredCard class={classMerge("max-w-5xl my-12", p.class)} classInner={classArr("markdown-body", p.class)}>
+  <slot />
+</PageCenteredCard>
