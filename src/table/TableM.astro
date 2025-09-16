@@ -1,14 +1,14 @@
 ---
-import { type MobileTableClassNames } from "./MobileTableClassNames"
 import { classMerge } from "@/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
 import TableMEntry from "./TableMEntry.astro"
+import type { MobileTableClassses } from "@/table/MobileTableClassses"
 
 interface Props {
   rows: string[]
   noEntriesText?: string
   columns: TableColumnDef[]
-  mobileClasses?: MobileTableClassNames
+  mobileClasses?: MobileTableClassses
   class?: string
 }
 const props = Astro.props

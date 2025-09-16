@@ -1,4 +1,4 @@
-export type MobileTableClassNames = {
+export type MobileTableClassses = {
   class?: string
   entry?: string
   first?: string

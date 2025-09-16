@@ -2,7 +2,7 @@ import { classMerge } from "@/utils/ui/classMerge"
 import type { TailwindBreakpoint } from "@/utils/ui/tailwindBreakpoint"
 import { tailwindBreakpoint } from "@/utils/ui/tailwindBreakpoint"
 
-function tableDesktopClassName(b: TailwindBreakpoint) {
+function tableDesktopclass(b: TailwindBreakpoint) {
   const tb = tailwindBreakpoint
   return classMerge(
     "hidden",
@@ -12,7 +12,7 @@ function tableDesktopClassName(b: TailwindBreakpoint) {
     b === tb.xl && "xl:table",
   )
 }
-function tableMobileClassName(b: TailwindBreakpoint) {
+function tableMobileclass(b: TailwindBreakpoint) {
   const tb = tailwindBreakpoint
   return classMerge(
     "w-full",
@@ -23,6 +23,6 @@ function tableMobileClassName(b: TailwindBreakpoint) {
   )
 }
 export const tableVisibilityClasses = {
-  desktop: tableDesktopClassName,
-  mobile: tableMobileClassName,
+  desktop: tableDesktopclass,
+  mobile: tableMobileclass,
 }

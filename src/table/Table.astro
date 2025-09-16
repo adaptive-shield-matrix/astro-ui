@@ -1,6 +1,6 @@
 ---
-import type { DesktopTableClassNames } from "./DesktopTableClassNames"
-import type { MobileTableClassNames } from "./MobileTableClassNames"
+import type { DesktopTableClassses } from "./DesktopTableClassses"
+import type { MobileTableClassses } from "./MobileTableClassses"
 import { tableVisibilityClasses } from "./tableVisibilityClasses"
 import { classMerge } from "@/utils/ui/classMerge"
 import { type TailwindBreakpoint, tailwindBreakpoint } from "@/utils/ui/tailwindBreakpoint"
@@ -11,8 +11,8 @@ import TableM from "./TableM.astro"
 interface Props {
   rows: string[]
   columns: TableColumnDef[]
-  mobileClasses?: MobileTableClassNames
-  desktopClasses?: DesktopTableClassNames
+  mobileClasses?: MobileTableClassses
+  desktopClasses?: DesktopTableClassses
   breakpoint?: TailwindBreakpoint
   class?: string
   noEntriesText?: string

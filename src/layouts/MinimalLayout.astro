@@ -7,7 +7,7 @@ export interface Props {
   title: string
   description?: string
   meta?: Record<string, string>
-  className?: string
+  class?: string
 }
 
 const props = Astro.props
@@ -54,7 +54,7 @@ const props = Astro.props
         "relative min-h-dvh",
         "w-full",
         "flex flex-col items-center",
-        props.className,
+        props.class,
         //
       )}
     >
