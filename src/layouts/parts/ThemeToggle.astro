@@ -16,10 +16,15 @@ import { astroElementId } from "~/layouts/parts/astroElementId"
 interface Props {
   class?: string
   iconClass?: string
+  iconLightClass?: string
+  iconDarkClass?: string
   variant?: ButtonVariant
   title?: string
   textLight?: string
   textDark?: string
+  textClass?: string
+  textLightClass?: string
+  textDarkClass?: string
 }
 const p = Astro.props
 const title = p.title ?? "Toggle theme"
@@ -35,10 +40,10 @@ const textDark = p.textLight ?? "Dark"
   class={classArr(p.class)}
   contentClass={classArr("flex flex-row gap-1")}
 >
-  <Icon1 path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", p.iconClass)} />
-  <Icon1 path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", p.iconClass)} />
-  <p id="theme-toggle-text-light" class={"dark:hidden"}>{textLight}</p>
-  <p id="theme-toggle-text-dark" class={"hidden dark:block"}>{textDark}</p>
+  <Icon1 path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", p.iconClass, p.iconLightClass)} />
+  <Icon1 path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", p.iconClass, p.iconDarkClass)} />
+  <p id="theme-toggle-text-light" class={classArr("dark:hidden", p.textClass, p.textLightClass)}>{textLight}</p>
+  <p id="theme-toggle-text-dark" class={classArr("hidden dark:block", p.textClass, p.textDarkClass)}>{textDark}</p>
 </Button>
 
 <script is:inline>
