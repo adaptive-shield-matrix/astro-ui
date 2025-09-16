@@ -1,0 +1,16 @@
+---
+import { classMerge } from "@/utils/classMerge"
+
+interface Props {
+  class?: string
+}
+const props = Astro.props
+---
+
+<span
+  class={classMerge("text-xs text-blue-500 select-none mr-1 mt-1.5", props.class)}
+  aria-hidden={true}
+  style={{ fontSize: "0.5rem" }}
+>
+  ●</span
+>

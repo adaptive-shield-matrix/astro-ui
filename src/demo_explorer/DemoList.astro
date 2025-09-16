@@ -1,0 +1,31 @@
+---
+import { classesTextLink } from "@/link/classesTextLink"
+import { classArr } from "@/utils/classArr"
+import { type DemoPageListType } from "./DemoPageListType"
+
+interface Props {
+  demos: DemoPageListType
+  class?: string
+}
+const props = Astro.props
+
+// Extract categories and their demo pages
+const categories = Object.entries(props.demos)
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {
+    categories.map(([category, pages]) => (
+      <section class="bg-white dark:bg-zinc-700 rounded-lg shadow-md p-4 border border-gray-200 dark:border-zinc-600">
+        <h2 class="text-xl font-bold mb-2 capitalize">{category.replace(/_/g, " ")}</h2>
+        <ul class="list-disc pl-4 space-y-1">
+          {pages.map((page) => (
+            <li class={classArr(classesTextLink)}>
+              <a href={`/demos/${category}/${page}`}>{page.replace(/_/g, " ").replaceAll("demo ", "")}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>

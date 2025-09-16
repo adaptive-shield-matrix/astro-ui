@@ -1,0 +1,57 @@
+---
+import Icon1 from "@/icon/Icon1.astro"
+import { classArr } from "@/utils/classArr"
+import { classMerge } from "@/utils/classMerge"
+import { mdiChevronDown } from "@mdi/js"
+
+interface Props {
+  icon?: string
+  title?: string
+  subtitle?: string
+  class?: string
+  summaryClass?: string
+}
+const props = Astro.props
+const icon = props.icon
+const title = props.title
+const subtitle = props.subtitle
+const summaryClass = props.summaryClass
+const hasSummary = Astro.slots.has("summary")
+---
+
+<details
+  class={classMerge(
+    "group",
+    "bg-white dark:bg-gray-800",
+    "rounded-lg border border-gray-200",
+    "shadow-sm",
+    "overflow-hidden",
+    props.class,
+  )}
+>
+  <summary
+    class={classArr(
+      "flex flex-col sm:flex-row items-center justify-between",
+      "p-6",
+      "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors",
+    )}
+  >
+    {
+      !hasSummary && title && (
+        <div class={"flex flex-col sm:flex-row gap-4"}>
+          {icon && <Icon1 path={icon} class="size-7 mt-1" />}
+          <div>
+            <h3 class={"text-xl font-semibold"}>{title}</h3>
+            {subtitle && <p class={"text-muted-foreground mt-1"}>{subtitle}</p>}
+          </div>
+        </div>
+      )
+    }
+    <slot name="summary" />
+    <Icon1
+      path={mdiChevronDown}
+      class={classArr("size-7", "text-gray-400 dark:text-gray-600", "transition-transform group-open:rotate-180")}
+    />
+  </summary>
+  <slot />
+</details>

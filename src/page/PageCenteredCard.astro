@@ -1,0 +1,17 @@
+---
+import { classMerge } from "@/utils/classMerge"
+import PageCentered from "./PageCentered.astro"
+import { classesCardWrapperPage } from "@/card/classesCardWrapper"
+
+interface Props {
+  class?: string
+  classInner?: string
+}
+const props = Astro.props
+---
+
+<PageCentered class={props.class}>
+  <div class={classMerge(classesCardWrapperPage, props.classInner)}>
+    <slot />
+  </div>
+</PageCentered>

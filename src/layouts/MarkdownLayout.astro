@@ -1,0 +1,19 @@
+---
+import PageCenteredCard from "@/page/PageCenteredCard.astro"
+import MinimalLayout from "./MinimalLayout.astro"
+import "./parts/markdown.css"
+
+interface Props {
+  title: string
+  meta?: Record<string, string>
+  className?: string
+}
+
+const p = Astro.props
+---
+
+<MinimalLayout {...p}>
+  <PageCenteredCard class={"max-w-5xl my-12"} classInner={"markdown-body"}>
+    <slot />
+  </PageCenteredCard>
+</MinimalLayout>
