@@ -14,25 +14,31 @@ import { astroElementId } from "@/layouts/parts/astroElementId"
  * https://github.com/Toxocious/toxocious.github.io/blob/main/src/components/theme_toggle/theme_toggle.astro
  */
 interface Props {
-  className?: string
+  class?: string
   iconClass?: string
   variant?: ButtonVariant
+  title?: string
+  textLight?: string
+  textDark?: string
 }
-const { className, iconClass, variant } = Astro.props
+const p = Astro.props
+const title = p.title ?? "Toggle theme"
+const textLight = p.textLight ?? "Light"
+const textDark = p.textLight ?? "Dark"
 ---
 
 <Button
-  variant={variant ?? buttonVariant.ghost}
+  variant={p.variant ?? buttonVariant.ghost}
   id={astroElementId.themeToggle}
   transition:name={astroElementId.themeToggle}
-  title={"Toggle theme"}
-  class={classArr(className)}
+  title={title}
+  class={classArr(p.class)}
   contentClass={classArr("flex flex-row gap-1")}
 >
-  <Icon1 path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", iconClass)} />
-  <Icon1 path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", iconClass)} />
-  <p id="theme-toggle-text-light" class={"dark:hidden"}>{"Light"}</p>
-  <p id="theme-toggle-text-dark" class={"hidden dark:block"}>{"Dark"}</p>
+  <Icon1 path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", p.iconClass)} />
+  <Icon1 path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", p.iconClass)} />
+  <p id="theme-toggle-text-light" class={"dark:hidden"}>{textLight}</p>
+  <p id="theme-toggle-text-dark" class={"hidden dark:block"}>{textDark}</p>
 </Button>
 
 <script is:inline>
