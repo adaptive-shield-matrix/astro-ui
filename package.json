@@ -10,12 +10,13 @@
   "scripts": {
     "astro": "astro",
     "dev": "nice -5 astro dev",
-    "build": "tsc --build && bun run copyAstroFiles",
+    "check": "clear && nice -15 astro check --minimumSeverity error",
+    "build": "tsc --build && bash scripts/copyAstroFiles.sh",
     "tsc": "tsc",
-    "check": "astro check",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
     "copyAstroFiles": "bash scripts/copyAstroFiles.sh",
-    "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push"
+    "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push",
+    "clean": "rm -rf ./dist"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
