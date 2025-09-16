@@ -1,4 +1,4 @@
-import { classArr } from "@/utils/classArr"
+import { classArr } from "@/utils/ui/classArr"
 
 /**
  * unused because it's a little to fancy

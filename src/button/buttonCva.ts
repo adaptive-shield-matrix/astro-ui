@@ -1,5 +1,5 @@
-import { classArr } from "@/utils/classArr"
-import { classMerge } from "@/utils/classMerge"
+import { classArr } from "@/utils/ui/classArr"
+import { classMerge } from "@/utils/ui/classMerge"
 import { classesButtonClickAnimation } from "./classesButtonClickAnimation"
 import { classesButtonDisabled } from "./classesButtonDisabled"
 
