@@ -1,6 +1,6 @@
 ---
-import { type DesktopTableClassNames } from "./DesktopTableClassNames"
-import { sharedTableRowClassName } from "./sharedTableRowClassName"
+import { type DesktopTableClassses } from "./DesktopTableClassses"
+import { sharedTableRowClasses } from "./sharedTableRowClasses"
 // import { t4table } from "@/ui_tables/table3/t4table"
 import { classMerge } from "@/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
@@ -9,7 +9,7 @@ interface Props {
   rows: string[]
   noEntriesText?: string
   columns: TableColumnDef[]
-  desktopClasses?: DesktopTableClassNames
+  desktopClasses?: DesktopTableClassses
   class?: string
 }
 const props = Astro.props
@@ -43,7 +43,7 @@ const noEntriesText = props.noEntriesText ?? "No Entries"
       </thead>
       <tbody>
         {rows.map((d: any, y: number) => (
-          <tr class={classMerge(sharedTableRowClassName, c?.row)}>
+          <tr class={classMerge(sharedTableRowClasses, c?.row)}>
             {columns.map((h: any) => {
               return <td class={classMerge(c?.data, h.classData)}>{h.cell(d)}</td>
             })}

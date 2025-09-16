@@ -1,4 +1,4 @@
-export type DesktopTableClassNames = {
+export type DesktopTableClassses = {
   class?: string
   row?: string
   header?: string

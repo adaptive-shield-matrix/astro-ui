@@ -1,24 +1,25 @@
 ---
-import { type MobileTableClassNames } from "./MobileTableClassNames"
 import { classMerge } from "@/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
+import type { MobileTableClassses } from "@/table/MobileTableClassses"
 
 interface Props {
   row: string
   columns: TableColumnDef[]
-  mobileClasses?: MobileTableClassNames
+  mobileClasses?: MobileTableClassses
 }
-const { row, columns, mobileClasses: c } = Astro.props
+const p = Astro.props
+const c = p.mobileClasses
 ---
 
 <div class={classMerge("flex flex-col flex-wrap gap-2", c?.entry)}>
   {
-    columns.map((column: TableColumnDef, i: number) => {
-      if (i == 0) return <span class={classMerge("font-semibold", c?.first)}>{column.cell(row)}</span>
+    p.columns.map((column: TableColumnDef, i: number) => {
+      if (i == 0) return <span class={classMerge("font-semibold", c?.first)}>{column.cell(p.row)}</span>
       return (
         <span class={classMerge("flex flex-wrap justify-between", c?.entry)}>
           <span class={classMerge("text-muted-foreground", c?.header)}>{column.name + ":"}</span>
-          <span class={classMerge("text-right", c?.other)}>{column.cell(row)}</span>
+          <span class={classMerge("text-right", c?.other)}>{column.cell(p.row)}</span>
         </span>
       )
     })
