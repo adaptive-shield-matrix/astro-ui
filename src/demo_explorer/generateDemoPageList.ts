@@ -3,8 +3,7 @@ import { join } from "node:path"
 import { runCmdAsync } from "~/utils/bun/runCmdAsync"
 import type { DemoPageListType } from "./DemoPageListType"
 
-export async function generateDemoPageList(basePath: string) {
-  const demosPath = join(process.cwd(), basePath)
+export async function generateDemoPageList(demosPath: string, outputPath: string) {
   const categories = await readdir(demosPath, { withFileTypes: true })
 
   const demoPageList: DemoPageListType = {}
@@ -21,10 +20,9 @@ export async function generateDemoPageList(basePath: string) {
   }
   sortDemoPageList(demoPageList)
 
-  const outputPath = join(process.cwd(), "src/demo_explorer/demoPageList.ts")
-  const outputContent = `import type { DemoPageListType } from "./DemoPageListType";
+  const outputContent = `import type { DemoPageListType } from "~/demo_explorer/DemoPageListType"
 
-export const demoPageList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoPageListType;
+export const demoList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoPageListType;
 `
 
   await writeFile(outputPath, outputContent, "utf-8")
