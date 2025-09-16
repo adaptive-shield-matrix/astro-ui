@@ -9,17 +9,16 @@
     "dist"
   ],
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
     "module": "preserve",
     "target": "esnext",
     "moduleResolution": "bundler",
     //
     // library settings
     //
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
+    "noEmit": true,
+    // "composite": true,
+    // "declaration": true,
+    // "declarationMap": true,
     // "sourceMap": true,
     //
     // included libraries
@@ -33,8 +32,6 @@
     // my performance setting
     //
     "skipLibCheck": true,
-    "incremental": true,
-    "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
     //
     // my setting
     //
@@ -59,7 +56,6 @@
     //
     "verbatimModuleSyntax": true,
     // "allowImportingTsExtensions": true,
-    // "emitDeclarationOnly": true,
     //
     // code quality settings
     //
