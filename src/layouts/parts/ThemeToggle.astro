@@ -4,7 +4,7 @@ import { buttonVariant, type ButtonVariant } from "@/button/buttonCva"
 import Button from "@/button/Button.astro"
 import Icon1 from "@/icon/Icon1.astro"
 import { classArr } from "@/utils/ui/classArr"
-import { astroElementId } from "./astroElementId"
+import { astroElementId } from "@/layouts/parts/astroElementId"
 
 /*
  * have to use "is:inline" script to run/apply theme before page render -> white flash on page reload otherwise
@@ -23,8 +23,8 @@ const { className, iconClass, variant } = Astro.props
 
 <Button
   variant={variant ?? buttonVariant.ghost}
-  id={"themeToggle"}
-  transition:name={"themeToggle"}
+  id={astroElementId.themeToggle}
+  transition:name={astroElementId.themeToggle}
   title={"Toggle theme"}
   class={classArr(className)}
   contentClass={classArr("flex flex-row gap-1")}
