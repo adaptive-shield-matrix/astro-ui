@@ -1,0 +1,66 @@
+---
+import { classArr } from "../utils/classArr"
+import { objectKeys } from "@/utils/obj/objectKeys"
+import TailwindIndicator from "@/dev/TailwindIndicator.astro"
+
+export interface Props {
+  title: string
+  description?: string
+  meta?: Record<string, string>
+  className?: string
+}
+
+const props = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Base -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Site -->
+    <title>{props.title}</title>
+    {props.description && <meta name="description" content={props.description} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Crawlers -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    {
+      props.meta && (
+        <Fragment>
+          {objectKeys(props.meta).map((k) => (
+            <meta property={k} content={props.meta![k]} />
+          ))}
+        </Fragment>
+      )
+    }
+  </head>
+  <body class="min-h-dvh font-sans antialiased w-full">
+    <slot name="navbar" />
+    <main
+      class={classArr(
+        "relative min-h-dvh",
+        "w-full",
+        "flex flex-col items-center",
+        props.className,
+        //
+      )}
+    >
+      <slot />
+    </main>
+    <slot name="footer" />
+    <TailwindIndicator />
+  </body>
+</html>
