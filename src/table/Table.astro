@@ -1,0 +1,41 @@
+---
+import type { DesktopTableClassNames } from "./DesktopTableClassNames"
+import type { MobileTableClassNames } from "./MobileTableClassNames"
+import { tableVisibilityClasses } from "./tableVisibilityClasses"
+import { classMerge } from "@/utils/classMerge"
+import { type TailwindBreakpoint, tailwindBreakpoint } from "@/utils/tailwindBreakpoint"
+import type { TableColumnDef } from "./TableColumnDef"
+import TableD from "./TableD.astro"
+import TableM from "./TableM.astro"
+
+interface Props {
+  rows: string[]
+  columns: TableColumnDef[]
+  mobileClasses?: MobileTableClassNames
+  desktopClasses?: DesktopTableClassNames
+  breakpoint?: TailwindBreakpoint
+  class?: string
+  noEntriesText?: string
+}
+const props = Astro.props
+const rows = props.rows
+const columns = props.columns
+const desktopClasses = props.desktopClasses
+const mobileClasses = props.mobileClasses
+const breakpoint = props.breakpoint ?? tailwindBreakpoint.sm
+---
+
+<TableD
+  rows={rows}
+  columns={columns}
+  class={classMerge(props.class, tableVisibilityClasses.desktop(breakpoint))}
+  desktopClasses={desktopClasses}
+  noEntriesText={props.noEntriesText}
+/>
+<TableM
+  rows={rows}
+  columns={columns}
+  class={classMerge(props.class, tableVisibilityClasses.mobile(breakpoint))}
+  mobileClasses={mobileClasses}
+  noEntriesText={props.noEntriesText}
+/>

@@ -1,0 +1,25 @@
+---
+import { classesImgZoomInOnHover } from "./classesImgZoomInOnHover"
+import { classMerge } from "@/utils/classMerge"
+
+interface Props {
+  alt: string
+  src: string
+  zoomIn?: boolean
+  class?: string
+  size?: number
+  width?: number | null | undefined
+  height?: number | null | undefined
+}
+const p = Astro.props
+---
+
+<img
+  src={p.src}
+  alt={p.alt}
+  class={classMerge(p.zoomIn && classesImgZoomInOnHover, p.class)}
+  loading="lazy"
+  decoding="async"
+  width={p.size ?? p.width}
+  height={p.size ?? p.height}
+/>

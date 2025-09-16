@@ -1,0 +1,13 @@
+---
+import { classMerge } from "@/utils/classMerge"
+import { classesPageCentered } from "./classesPageCentered"
+
+interface Props {
+  class?: string
+}
+const props = Astro.props
+---
+
+<div class={classMerge(classesPageCentered, props.class)}>
+  <slot />
+</div>
