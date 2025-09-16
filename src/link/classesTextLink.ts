@@ -1,4 +1,4 @@
-import { classArr } from "@/utils/ui/classArr"
+import { classArr } from "../utils/ui/classArr"
 
 export const classesTextLink = classArr(
   "text-blue-600 hover:text-black", // light

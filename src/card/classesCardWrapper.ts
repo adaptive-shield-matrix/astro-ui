@@ -1,4 +1,4 @@
-import { classArr } from "@/utils/ui/classArr"
+import { classArr } from "~/utils/ui/classArr"
 
 export const classesCardWrapper = classArr(
   "rounded-lg shadow-lg", // card shadows/padding

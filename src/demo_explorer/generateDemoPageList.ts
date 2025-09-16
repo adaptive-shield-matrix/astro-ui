@@ -1,6 +1,6 @@
-import { runCmdAsync } from "@/utils/bun/runCmdAsync"
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
+import { runCmdAsync } from "~/utils/bun/runCmdAsync"
 import type { DemoPageListType } from "./DemoPageListType"
 
 export async function generateDemoPageList(basePath: string) {

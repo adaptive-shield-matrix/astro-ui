@@ -1,9 +1,8 @@
 ---
-import { buttonCva2, type ButtonSize, type ButtonVariant } from '@/button/buttonCva'
-import { buttonIconCva } from '@/button/buttonIconCva'
-import { classesButtonClickAnimation } from '@/button/classesButtonClickAnimation'
-import Icon1 from '@/icon/Icon1.astro'
-
+import { buttonCva2, buttonVariant, type ButtonSize, type ButtonVariant } from "~/button/buttonCva"
+import { buttonIconCva } from "~/button/buttonIconCva"
+import { classesButtonClickAnimation } from "~/button/classesButtonClickAnimation"
+import Icon1 from "~/icon/Icon1.astro"
 
 interface Props {
   title?: string
@@ -16,19 +15,34 @@ interface Props {
   newTab?: boolean
   class?: string
   id?: string
-  clickAnimation?:boolean
+  clickAnimation?: boolean
 }
 const props = Astro.props
 const hasChildren = Astro.slots.has("default")
-const classes = buttonCva2(props.variant ?? "link", props.size, (props.clickAnimation ?? true) ?? classesButtonClickAnimation, props.class)
+const classes = buttonCva2(
+  props.variant ?? buttonVariant.link,
+  props.size,
+  props.clickAnimation ?? classesButtonClickAnimation,
+  props.class,
+)
 ---
 
 <a href={props.href} class={classes} target={props.newTab ? "_blank" : undefined} id={props.id} title={props.title}>
-  {props.icon && <Icon1 path={props.icon} class={buttonIconCva(props.variant ?? "link", (props.title || hasChildren) && "mr-2", props.iconClass)} />}
+  {
+    props.icon && (
+      <Icon1
+        path={props.icon}
+        class={buttonIconCva(props.variant ?? "link", (props.title || hasChildren) && "mr-2", props.iconClass)}
+      />
+    )
+  }
   <slot />
   {
     props.iconRight && (
-      <Icon1 path={props.iconRight} class={buttonIconCva(props.variant ?? "link", (props.title || hasChildren) && "ml-2", props.iconClass)} />
+      <Icon1
+        path={props.iconRight}
+        class={buttonIconCva(props.variant ?? "link", (props.title || hasChildren) && "ml-2", props.iconClass)}
+      />
     )
   }
 </a>
