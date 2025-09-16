@@ -1,5 +1,5 @@
-import { classArr } from "@/utils/classArr"
-import { classMerge } from "@/utils/classMerge"
+import { classArr } from "@/utils/ui/classArr"
+import { classMerge } from "@/utils/ui/classMerge"
 import { type ButtonVariant, buttonVariant } from "./buttonCva"
 
 const classesTextFillBlack = "text-black fill-black"
