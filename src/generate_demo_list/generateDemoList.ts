@@ -1,12 +1,12 @@
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
 import { runCmdAsync } from "~/utils/bun/runCmdAsync"
-import type { DemoPageListType } from "./DemoPageListType"
+import type { DemoListType } from "./DemoListType"
 
-export async function generateDemoPageList(demosPath: string, outputPath: string) {
+export async function generateDemoList(demosPath: string, outputPath: string) {
   const categories = await readdir(demosPath, { withFileTypes: true })
 
-  const demoPageList: DemoPageListType = {}
+  const demoPageList: DemoListType = {}
 
   for (const category of categories) {
     if (category.isDirectory()) {
@@ -20,16 +20,16 @@ export async function generateDemoPageList(demosPath: string, outputPath: string
   }
   sortDemoPageList(demoPageList)
 
-  const outputContent = `import type { DemoPageListType } from "~/demo_explorer/DemoPageListType"
+  const outputContent = `import type { DemoListType } from "~/demo_explorer/DemoListType"
 
-export const demoList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoPageListType;
+export const demoList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoListType;
 `
 
   await writeFile(outputPath, outputContent, "utf-8")
   await formatGeneratedCodeFile(outputPath)
 }
 
-function sortDemoPageList(demoPageList: DemoPageListType) {
+function sortDemoPageList(demoPageList: DemoListType) {
   for (const list of Object.values(demoPageList)) {
     sortStringsByLengthThenByCharactersInPlace(list)
   }
