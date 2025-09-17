@@ -109,6 +109,8 @@ const textDark = p.textLight ?? "Dark"
     if (event.altKey && event.key === "s") {
       event.preventDefault()
       handleToggleClick()
+    } else if (event.altKey && event.key === "a") {
+      window.location.href = "/demos"
     }
   })
 
