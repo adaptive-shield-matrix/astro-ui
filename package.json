@@ -18,11 +18,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@biomejs/biome": "^2.2.4",
     "@mdi/js": "^7.4.47",
     "@tailwindcss/vite": "^4.1.13",
     "@types/bun": "latest",
     "astro": "^5.13.7",
     "dayjs": "^1.11.18",
+    "image-size": "^2.0.2",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "rehype-autolink-headings": "^7.1.0",
