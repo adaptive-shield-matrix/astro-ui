@@ -1,0 +1,45 @@
+---
+import Icon1 from "~/icon/Icon1.astro"
+import { buttonVariant, type ButtonVariant, buttonCva2 } from "~/button/buttonCva"
+import { classArr } from "~/utils/ui/classArr"
+import { setupPopoverListeners } from "./setupPopoverListeners"
+
+interface Props {
+  id: string
+  icon: string
+  title: string
+  variant?: ButtonVariant
+}
+
+const { id, icon, title, variant = buttonVariant.link } = Astro.props
+const summaryClasses = buttonCva2(variant, null, "flex flex-wrap gap-2 text-xl font-semibold list-none")
+---
+
+<details
+  id={id}
+  class={classArr(
+    "relative",
+    "popover-details", // used by popover
+  )}
+>
+  <summary class={summaryClasses}>
+    <Icon1 path={icon} />
+    {title}
+  </summary>
+  <div
+    class={classArr(
+      "absolute", // layout
+      "bg-white dark:bg-gray-800", // background
+      "border border-gray-300 dark:border-gray-600 rounded shadow-lg", // borders/shadows
+      "p-2 mt-1", // spacing
+      "z-10", // z-index
+    )}
+  >
+    <slot />
+  </div>
+</details>
+
+<script>
+  import { setupPopoverListeners } from "./setupPopoverListeners"
+  setupPopoverListeners()
+</script>
