@@ -7,8 +7,8 @@ import tailwindcss from "@tailwindcss/vite"
 // https://astro.build/config
 export default defineConfig({
   server: {
-    allowedHosts: ["astro.localhost"],
-    port: 3010,
+    allowedHosts: ["astro-ui.com", "astro-ui.localhost"],
+    port: 3030,
   },
   cacheDir: "./astro/cache",
   output: "static",
