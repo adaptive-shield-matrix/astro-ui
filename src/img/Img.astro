@@ -10,6 +10,8 @@ interface Props {
   size?: number
   width?: number | null | undefined
   height?: number | null | undefined
+  loadingLazy?:boolean
+  decodeAsync?:boolean
 }
 const p = Astro.props
 ---
@@ -18,8 +20,8 @@ const p = Astro.props
   src={p.src}
   alt={p.alt}
   class={classMerge(p.zoomIn && classesImgZoomInOnHover, p.class)}
-  loading="lazy"
-  decoding="async"
+  loading={p.loadingLazy ?? true ? "lazy" : undefined}
+  decoding={p.decodeAsync ?? true ? "async" : undefined}
   width={p.size ?? p.width}
   height={p.size ?? p.height}
 />
