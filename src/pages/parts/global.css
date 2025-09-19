@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@source '../../**/*.{astro,html,md,mdx,ts,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 2560px;
+  --breakpoint-3xl: 3840px;
+}
+
+/* shadcn setup - https://ui.shadcn.com/docs/installation */
+/* shadcn theming - https://ui.shadcn.com/docs/theming */
+/* background colors - https://tailwindcss.com/docs/background-color */
+@layer base {
+  /*
+  [Tutorial] How to make use of Tailwind Colors directly in CSS Variables
+  https://github.com/shadcn-ui/ui/issues/669
+   */
+  :root {
+    /* Updated color tokens to match DCC design brief with professional orange/neutral palette */
+    --background: oklch(1 0 0); /* #ffffff */
+    --foreground: oklch(0.35 0 0); /* #4b5563 */
+    --primary: oklch(0.65 0.18 45); /* #ea580c */
+    --primary-foreground: oklch(1 0 0); /* #ffffff */
+    --muted: oklch(0.97 0.01 20); /* #fef2f2 */
+    --muted-foreground: oklch(0.35 0 0); /* #4b5563 */
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --primary: oklch(0.7 0.2 40); /* Brighter orange for dark mode */
+    --primary-foreground: oklch(0.145 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(82.812% 0.02718 104.695);
+  }
+}
+
+/* remove number input native spinner */
+/* https://stackoverflow.com/questions/71296535/how-to-remove-arrow-on-input-type-number-with-tailwind-css */
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

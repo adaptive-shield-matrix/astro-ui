@@ -1,0 +1,36 @@
+---
+import { mdiInformationOutline } from "@mdi/js"
+import ModalButton from "~/modal/ModalButton.astro"
+import { buttonVariant } from "~/button/buttonCva"
+import { classArr } from "~/utils/ui/classArr"
+import BaseLayout from "~/pages/parts/BaseLayout.astro"
+---
+
+<BaseLayout title={"Demo dialogs"}>
+  <div class={classArr("grid grid-cols-4 gap-4 items-center", "mt-4")}>
+    <ModalButton
+      title={"modal 1"}
+      button={{
+        text: "Open modal 1",
+        icon: mdiInformationOutline,
+        variant: buttonVariant.ghost,
+      }}
+      id={"modal-1"}
+      class={"max-w-5xl"}
+    >
+      <p>content of modal 1</p>
+      <ModalButton
+        title={"modal 2"}
+        button={{
+          text: "Open modal 2",
+          icon: mdiInformationOutline,
+          variant: buttonVariant.ghost,
+        }}
+        id={"modal-2"}
+        class={"max-w-5xl"}
+      >
+        modal 2
+      </ModalButton>
+    </ModalButton>
+  </div>
+</BaseLayout>

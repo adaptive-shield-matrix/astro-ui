@@ -1,0 +1,9 @@
+---
+import DemoList from "~/generate_demo_list/DemoList.astro"
+import BaseLayout from "./parts/BaseLayout.astro"
+import { demoList } from "~/pages/demos/demoList"
+---
+
+<BaseLayout title="Demos" class="">
+  <DemoList demos={demoList} />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import { classMerge } from "~/utils/ui/classMerge"
+import LogoIconText from "./LogoIconText.astro"
+import { classArr } from "~/utils/ui/classArr"
+import ThemeToggle from "~/layouts/parts/ThemeToggle.astro"
+import { astroElementId } from "~/layouts/parts/astroElementId"
+import { buttonVariant } from "~/button/buttonCva"
+
+interface Props {
+  logoClass?: string
+  logoImgClass?: string
+  logoTextClass?: string
+  class?: string
+  innerClass?: string
+  themeToggleClass?: string
+}
+
+const p = Astro.props
+const iconClass = ""
+const textClass = ""
+---
+
+<nav id={astroElementId.navbar} class={classMerge("w-full px-6 pb-4", p.class)}>
+  <div class={classArr("flex flex-wrap gap-2 justify-between items-center", "max-w-7xl mx-auto", p.innerClass)}>
+    <LogoIconText
+      class={p.logoClass}
+      imageClass={classArr(iconClass, p.logoImgClass)}
+      textClass={classArr(textClass, p.logoTextClass)}
+    />
+
+    <ThemeToggle class={p.themeToggleClass} iconClass={iconClass} textClass={textClass} variant={buttonVariant.link} />
+  </div>
+</nav>
