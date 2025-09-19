@@ -12,21 +12,27 @@ export async function generateDemoList(demosPath: string, outputPath: string) {
     if (category.isDirectory()) {
       const categoryPath = join(demosPath, category.name)
       const demoFiles = await readdir(categoryPath)
-
-      demoPageList[category.name] = demoFiles
-        .filter((file) => file.endsWith(".astro"))
-        .map((file) => file.replace(/\.astro$/, ""))
+      const files = demoFiles.filter(isDemoFile).map((file) => file.replace(/\.astro$/, ""))
+      if (files.length > 0) {
+        demoPageList[category.name] = files
+      }
     }
   }
   sortDemoPageList(demoPageList)
 
-  const outputContent = `import type { DemoListType } from "~/demo_explorer/DemoListType"
+  const outputContent = `import type { DemoListType } from "~/generate_demo_list/DemoListType"
 
 export const demoList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoListType;
 `
 
   await writeFile(outputPath, outputContent, "utf-8")
   await formatGeneratedCodeFile(outputPath)
+}
+
+function isDemoFile(file: string) {
+  if (!file.endsWith(".astro")) return false
+  if (!file.startsWith("demo")) return false
+  return true
 }
 
 function sortDemoPageList(demoPageList: DemoListType) {
