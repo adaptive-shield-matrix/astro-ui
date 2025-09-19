@@ -1,0 +1,28 @@
+---
+import Img from "~/img/Img.astro"
+import LinkButton from "~/link/LinkButton.astro"
+import { classMerge } from "~/utils/ui/classMerge"
+
+interface Props {
+  class?: string
+  imageClass?: string
+  textClass?: string
+}
+
+const p = Astro.props
+---
+
+<LinkButton href="/" class={classMerge("flex gap-2", p.class)}>
+  <Img
+    src={"/logo.svg"}
+    alt="Logo"
+    class={classMerge("size-6", p.imageClass)}
+    loadingLazy={false}
+    decodeAsync={false}
+  />
+  <!-- <Icon1 path={iconPathLogo} />
+  <svg class={p.imageClass} viewBox="0 0 24 24" fill="currentColor">
+    <path d={iconPathLogo}></path>
+  </svg> -->
+  <span class={classMerge("text-lg text-bold", p.textClass)}>astro-ui</span>
+</LinkButton>
