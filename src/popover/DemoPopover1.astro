@@ -1,0 +1,22 @@
+---
+import Popover1 from "./Popover1.astro"
+import { mdiAccount } from "@mdi/js"
+---
+
+<Popover1 id="user-menu" icon={mdiAccount} title="User">
+  <div class="p-4">
+    <p>menu 1</p>
+    <p>Profile</p>
+    <p>Settings</p>
+    <p>Logout</p>
+  </div>
+</Popover1>
+
+<Popover1 id="user-menu-2" icon={mdiAccount} title="Big User Menu">
+  <div class="p-4">
+    <p>Welcome to your user menu! Here you can manage your account settings, view your profile information, and access various features available on our platform.</p>
+    <p>Your profile includes your personal details, such as name, email address, and profile picture. You can update these anytime to keep your information current.</p>
+    <p>In the settings section, you have the ability to customize your experience, including notification preferences, privacy settings, and theme options.</p>
+    <p>Don't forget to log out securely when you're done to protect your account. If you need help, our support team is always available.</p>
+  </div>
+</Popover1>
