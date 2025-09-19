@@ -1,0 +1,55 @@
+---
+import { mdiArrowRight, mdiInformationOutline, mdiLink } from "@mdi/js"
+import Button from "~/button/Button.astro"
+import { type ButtonVariant, buttonVariant } from "~/button/buttonCva"
+import BaseLayout from "~/pages/parts/BaseLayout.astro"
+import { classArr } from "~/utils/ui/classArr"
+
+const variants = Object.values(buttonVariant)
+const icons = ["", mdiInformationOutline, ""]
+const iconsRight = ["", "", mdiArrowRight]
+
+function buttonLabel(v: ButtonVariant, icon: string, iconRight: string) {
+  return v
+}
+
+function buttonId(v: ButtonVariant, icon: string, iconRight: string) {
+  return `${v}${icon && "-i"}${iconRight && "-i-r"}`
+}
+
+function buttonProps(v: ButtonVariant, i: number) {
+  const icon = icons[i % icons.length] ?? ""
+  const iconRight = iconsRight[i % iconsRight.length] ?? ""
+  return {
+    variant: v,
+    icon: icon,
+    iconRight: iconRight,
+    text: buttonLabel(v, icon, iconRight),
+    id: buttonId(v, icon, iconRight),
+    // class: "justify-start",
+  }
+}
+---
+
+<BaseLayout title={"Demo buttons"}>
+  <!--<CardWrapper class={classMerge("max-w-5xl")}>-->
+  <!--  aaa-->
+  <!--</CardWrapper>-->
+
+  <div class={classArr("grid grid-cols-4 gap-4 text-center items-center", "mt-4")}>
+    <span>header</span>
+    <span>text</span>
+    <span>icon left</span>
+    <span>icon right</span>
+    {
+      variants.map((v) => (
+        <>
+          <span>{v}</span>
+          <Button {...buttonProps(v, 0)} />
+          <Button {...buttonProps(v, 1)} />
+          <Button {...buttonProps(v, 2)} />
+        </>
+      ))
+    }
+  </div>
+</BaseLayout>
