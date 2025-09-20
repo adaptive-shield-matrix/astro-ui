@@ -22,7 +22,7 @@
     "@mdi/js": "^7.4.47",
     "@tailwindcss/vite": "^4.1.13",
     "@types/bun": "latest",
-    "astro": "^5.13.7",
+    "astro": "^5.13.9",
     "dayjs": "^1.11.18",
     "image-size": "^2.0.2",
     "prettier": "^3.6.2",
@@ -34,7 +34,7 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
-    "wrangler": "^4.37.0"
+    "wrangler": "^4.38.0"
   },
   "prettier": {
     "semi": false,
