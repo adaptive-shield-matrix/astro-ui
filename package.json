@@ -1,9 +1,6 @@
 {
   "name": "@adaptive-sm/astro-ui",
   "type": "module",
-  "files": [
-    "src"
-  ],
   "private": false,
   "scripts": {
     "astro": "astro",
@@ -47,7 +44,10 @@
       "prettier-plugin-astro"
     ]
   },
+  "files": [
+    "lib"
+  ],
   "exports": {
-    "./*": "./src/*"
+    "./*": "./lib/*"
   }
 }
