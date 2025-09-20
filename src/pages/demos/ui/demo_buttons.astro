@@ -4,6 +4,7 @@ import Button from "~/button/Button.astro"
 import { type ButtonVariant, buttonVariant } from "~/button/buttonCva"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { classArr } from "~/utils/ui/classArr"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 
 const variants = Object.values(buttonVariant)
 const icons = ["", mdiInformationOutline, ""]
@@ -35,6 +36,7 @@ function buttonProps(v: ButtonVariant, i: number) {
   <!--<CardWrapper class={classMerge("max-w-5xl")}>-->
   <!--  aaa-->
   <!--</CardWrapper>-->
+  <BgColorSelect/>
 
   <div class={classArr("grid grid-cols-4 gap-4 text-center items-center", "mt-4")}>
     <span>header</span>

@@ -1,0 +1,30 @@
+---
+import Select from "~/select/Select.astro"
+import { classesBg } from "~/page/classesBg"
+
+const options = Object.keys(classesBg)
+---
+
+<div class="mb-4">
+  <p>Select a background color for the page:</p>
+</div>
+
+<div class="mb-4">
+  <Select initialValue="white" options={options} id="bg-select" />
+</div>
+
+<script define:vars={{ classesBg }}>
+  const select = document.getElementById("bg-select")
+  const mainElement = document.getElementById("main")
+
+  // Get existing classes and add new background class
+  select.addEventListener("change", (e) => {
+    const value = e.target.value
+    const bgClass = classesBg[value]
+    // const previousClasses = mainElement.className
+    const baseClasses = "relative min-h-dvh w-full flex flex-col items-center"
+    const newClasses = `${baseClasses} ${bgClass}`
+
+    mainElement.className = newClasses
+  })
+</script>
