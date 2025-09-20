@@ -1,0 +1,45 @@
+---
+import { classArr } from "~/utils/ui/classArr"
+
+type ValueDisplayFn = (value: string) => string
+
+type NativeSingleSelectProps = {
+  initialValue: string
+  options: string[]
+  optionClass?: string
+  valueDisplay?: ValueDisplayFn
+  id?: string
+  class?: string
+}
+
+const props = Astro.props as NativeSingleSelectProps
+
+const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
+  if (!valueDisplay) return itemValue
+  const hasValue = valueDisplay(itemValue)
+  if (!hasValue) return itemValue
+  return hasValue
+}
+---
+
+<select
+  id={props.id}
+  class={classArr(
+    "block w-full p-2.5",
+    "text-gray-900 dark:text-white text-sm",
+    "dark:placeholder-gray-400",
+    "bg-gray-50 dark:bg-gray-700",
+    "rounded-lg border border-gray-300 dark:border-gray-600",
+    "focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500",
+    props.class,
+  )}
+  value={props.initialValue}
+>
+  {
+    props.options.map((option: string) => (
+      <option value={option} class={props.optionClass}>
+        {getDisplayValue(option, props.valueDisplay)}
+      </option>
+    ))
+  }
+</select>
