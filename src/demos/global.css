@@ -12,6 +12,17 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 2560px;
   --breakpoint-3xl: 3840px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
 }
 
 /* shadcn setup - https://ui.shadcn.com/docs/installation */
@@ -30,6 +41,8 @@
     --primary-foreground: oklch(1 0 0); /* #ffffff */
     --muted: oklch(0.97 0.01 20); /* #fef2f2 */
     --muted-foreground: oklch(0.35 0 0); /* #4b5563 */
+
+    --radius: 0.5rem;
   }
 
   .dark {
