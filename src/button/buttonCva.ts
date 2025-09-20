@@ -12,18 +12,17 @@ export const buttonVariant = {
   // filled black/white/gray
   filled: "filled",
   subtle: "subtle",
-  default: "default",
+  contrast: "contrast",
   // filled colors
   filledYellow: "filledYellow",
-  filledOrange: "filledOrange",
   filledAmber: "filledAmber",
-  primary: "primary",
-  destructive: "destructive",
-  warning: "warning",
-  success: "success",
-  info: "info",
+  filledOrange: "filledOrange",
+  filledRed: "filledRed",
+  filledGreen: "filledGreen",
+  filledSky: "filledSky",
+  filledIndigo: "filledIndigo",
   // outlined colors
-  error: "error",
+  outlineRed: "outlineRed",
 } as const
 
 export type ButtonSize = keyof typeof buttonSize
@@ -86,7 +85,7 @@ const variantClasses = {
     "bg-slate-100 dark:bg-slate-700", // bg
     "hover:bg-slate-200 dark:hover:bg-slate-600", // bg hover
   ),
-  default: classArr(
+  contrast: classArr(
     "text-white dark:text-slate-900 dark:hover:text-slate-900", // text
     "bg-slate-900 dark:bg-slate-50", // bg
     "hover:bg-slate-700 dark:hover:bg-slate-300", // bg hover
@@ -100,51 +99,45 @@ const variantClasses = {
     "hover:bg-yellow-700 dark:hover:bg-yellow-600", // bg hover
     "focus:ring-yellow-400 dark:focus:ring-yellow-400", // focus
   ),
-  filledOrange: classArr(
-    "text-white dark:text-orange-100 ", // text
-    "bg-orange-500 dark:bg-orange-800 ", // bg
-    "hover:bg-orange-700 dark:hover:bg-orange-600", // bg hover
-    "focus:ring-orange-400 dark:focus:ring-orange-400", // focus
-  ),
   filledAmber: classArr(
     "text-white dark:text-amber-100 ", // text
     "bg-amber-500 dark:bg-amber-800 ", // bg
     "hover:bg-amber-700 dark:hover:bg-amber-600", // bg hover
     "focus:ring-amber-400 dark:focus:ring-amber-400", // focus
   ),
-  primary: classArr(
-    "text-white dark:text-indigo-100 ", // text
-    "bg-indigo-500 dark:bg-indigo-800 ", // bg
-    "hover:bg-indigo-700 dark:hover:bg-indigo-600", // bg hover
-    "focus:ring-indigo-400 dark:focus:ring-indigo-400", // focus
+  filledOrange: classArr(
+    "text-white dark:text-orange-100 ", // text
+    "bg-orange-500 dark:bg-orange-800 ", // bg
+    "hover:bg-orange-700 dark:hover:bg-orange-600", // bg hover
+    "focus:ring-orange-400 dark:focus:ring-orange-400", // focus
   ),
-  destructive: classArr(
+  filledRed: classArr(
     "text-white", // text
     "bg-red-500 dark:bg-red-700", // bg
     "hover:bg-red-600 dark:hover:bg-red-600", // bg hover
     "focus:ring-red-400 dark:focus:ring-red-400", // focus
   ),
-  warning: classArr(
-    "text-white dark:text-indigo-100 ", // text
-    "bg-yellow-500 dark:bg-yellow-700 ", // bg
-    "hover:bg-yellow-600 dark:hover:bg-yellow-600", // bg hover
-    "focus:ring-yellow-400 dark:focus:ring-yellow-400", // focus
-  ),
-  success: classArr(
+  filledGreen: classArr(
     "text-white", // text
     "bg-green-500 hover:bg-green-700 dark:hover:bg-green-700", // bg
     "focus:ring-green-400 dark:focus:ring-green-400", // focus
   ),
-  info: classArr(
+  filledSky: classArr(
     "text-white", // text
     "bg-sky-500 hover:bg-sky-700 dark:hover:bg-sky-700", // bg
     "focus:ring-sky-400 dark:focus:ring-sky-400", // focus
   ),
+  filledIndigo: classArr(
+    "text-white dark:text-indigo-100 ", // text
+    "bg-indigo-500 dark:bg-indigo-800 ", // bg
+    "hover:bg-indigo-700 dark:hover:bg-indigo-600", // bg hover
+    "focus:ring-indigo-400 dark:focus:ring-indigo-400", // focus
+  ),
   //
   // outline toast colors
   //
-  error: classArr(
-    "text-destructive dark:text-red-500", // text
+  outlineRed: classArr(
+    "text-red-500 dark:text-red-500", // text
     "border border-red-200 dark:border-red-700", // border
     "bg-transparent", // bg
     "hover:bg-red-100 dark:hover:bg-red-950", // bg hover
@@ -160,29 +153,25 @@ const sizeClasses = {
   lg: "px-8 py-4 text-lg",
 } as const satisfies Record<ButtonSize, string>
 
-const defaultVariant = buttonVariant.default
 const defaultSize = buttonSize.default
 
-export function buttonCva1(
-  variant: ButtonVariant | null = defaultVariant,
-  ...customClasses: (string | boolean | undefined | null | 0)[]
-) {
+export function buttonCva1(variant: ButtonVariant, ...customClasses: (string | boolean | undefined | null | 0)[]) {
   return buttonCva2(variant, null, ...customClasses)
 }
 
 export function buttonCva2(
-  variant: ButtonVariant | null = defaultVariant,
+  variant: ButtonVariant,
   size: ButtonSize | null = defaultSize,
   ...customClasses: (string | boolean | undefined | null | 0)[]
 ) {
-  const v = variant ?? defaultVariant
+  const v = variant
   const s = size ?? defaultSize
   return classMerge(baseClasses, variantClasses[v], sizeClasses[s], combinedClasses(v, s), customClasses)
 }
 
 function combinedClasses(variant: ButtonVariant, size: ButtonSize) {
   const variantGroup1 =
-    variant === buttonVariant.outline || variant === buttonVariant.warning || variant === buttonVariant.error
+    variant === buttonVariant.outline || variant === buttonVariant.filledYellow || variant === buttonVariant.outlineRed
   if (variantGroup1 && size === buttonSize.lg) {
     return "border-2"
   }
@@ -190,7 +179,7 @@ function combinedClasses(variant: ButtonVariant, size: ButtonSize) {
 }
 
 export function buttonCvaIconOnly(
-  variant: ButtonVariant | undefined,
+  variant: ButtonVariant,
   isLoading: boolean | undefined,
   isDisabled: boolean | undefined,
   ...customClasses: (string | boolean | undefined | null | 0)[]
