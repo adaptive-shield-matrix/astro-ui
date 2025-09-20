@@ -16,8 +16,6 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
@@ -38,8 +36,6 @@
     /* Updated color tokens to match DCC design brief with professional orange/neutral palette */
     --background: oklch(1 0 0); /* #ffffff */
     --foreground: oklch(0.35 0 0); /* #4b5563 */
-    --primary: oklch(0.65 0.18 45); /* #ea580c */
-    --primary-foreground: oklch(1 0 0); /* #ffffff */
     --muted: oklch(0.97 0.01 20); /* #fef2f2 */
     --muted-foreground: oklch(0.35 0 0); /* #4b5563 */
 
@@ -49,8 +45,6 @@
   .dark {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
-    --primary: oklch(0.7 0.2 40); /* Brighter orange for dark mode */
-    --primary-foreground: oklch(0.145 0 0);
     --muted: oklch(0.269 0 0);
     --muted-foreground: oklch(82.812% 0.02718 104.695);
   }
