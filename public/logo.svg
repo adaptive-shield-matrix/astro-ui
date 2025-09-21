@@ -1,7 +1,9 @@
 <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <circle transform="translate(0 .15)" cx="12" cy="11.9" r="12" fill="#fd5" style="paint-order:stroke fill markers"/>
-  <path transform="matrix(.886 0 0 .886 .739 1.35)" d="m14 11 4-4 4 4" fill="none" stroke="#504416" stroke-linecap="round" stroke-width="2" style="paint-order:normal"/>
-  <path transform="matrix(.886 0 0 .886 .739 1.35)" d="m18 16v-9" fill="none" stroke="#504416" stroke-linecap="round" stroke-width="2" style="paint-order:normal"/>
-  <path transform="matrix(.886 0 0 .886 2.59 2.23)" d="m2 16 4.04-9.69a.5.5 0 01.923 0l4.04 9.69" fill="none" stroke="#504416" stroke-linecap="round" stroke-width="2" style="paint-order:normal"/>
-  <path transform="matrix(.886 0 0 .886 2.59 2.23)" d="m3.3 13h6.39" fill="none" stroke="#504416" stroke-width="2" style="paint-order:normal"/>
+  <circle transform="translate(.51 -.905)" cx="11.5" cy="12.9" r="12" fill="#fd5"/>
+  <g transform="matrix(.767 0 0 .767 2.8 2.8)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="m15.2 22a3 3 0 00-2.2-5"/>
+    <path d="m16 20a3 3 0 013-3h1a2 2 0 002-2v-2a4 4 0 00-4-4v-5"/>
+    <path d="m18 13h.01"/>
+    <path d="m18 6a4 4 0 00-4 4 7 7 0 00-7 7c0-5 4-5 4-10.5a4.5 4.5 0 10-9 0 2.5 2.5 0 005 0c0 3.5-4 4.5-4 10.5 0 2.8 2.2 5 5 5h10"/>
+  </g>
 </svg>
