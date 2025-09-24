@@ -54,3 +54,12 @@ astro-ui.com, astro-ui.localhost {
 	}
 	reverse_proxy localhost:3030
 }
+
+dist.astro-ui.com, dist.astro-ui.localhost {
+	import shared_config_astro_ui
+	header {
+		Routed "astro-dist"
+	}
+	root * /home/david/Coding/adaptive-astro-ui/dist
+	file_server
+}
