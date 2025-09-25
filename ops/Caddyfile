@@ -1,44 +1,8 @@
 
 (shared_config_astro_ui) {
-	encode zstd gzip
-	# tls internal
-	tls /home/david/.config/mkcert/local.pem /home/david/.config/mkcert/local-key.pem {
-		on_demand
-	}
-	log {
-		output stdout
-	}
-	# log {
-	# 	output file /var/log/caddy.log
-	# 	format json
-	# }
-
-	#
-	# analytics
-	#
-	handle_path /ph-api* {
-		rewrite * {path}
-		header {
-			Routed "posthog-api"
-		}
-		reverse_proxy https://eu.posthog.com:443 {
-			header_up Host eu.posthog.com
-			header_down -Access-Control-Allow-Origin
-		}
-	}
-	handle_path /ph-ui* {
-		rewrite * {path}
-		header {
-			Routed "posthog-ui"
-		}
-		reverse_proxy https://eu.posthog.com:443 {
-			header_up Host eu.posthog.com
-			header_down -Access-Control-Allow-Origin
-		}
-	}
 	handle_path /media-b2* {
 		rewrite * {path}
-		root * /home/david/Coding/postmaschine-astro-media
+		root * /home/david/Coding/adaptive-astro-ui-media
 		file_server
 		header {
 			Routed "astro-media-b2"
@@ -48,7 +12,9 @@
 }
 
 astro-ui.com, astro-ui.localhost {
+	import shared_config_web
 	import shared_config_astro_ui
+	import shared_config_caching
 	header {
 		Routed "astro"
 	}
@@ -56,7 +22,9 @@ astro-ui.com, astro-ui.localhost {
 }
 
 dist.astro-ui.com, dist.astro-ui.localhost {
+	import shared_config_web
 	import shared_config_astro_ui
+	import shared_config_caching
 	header {
 		Routed "astro-dist"
 	}
