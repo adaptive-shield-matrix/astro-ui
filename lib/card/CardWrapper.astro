@@ -4,11 +4,12 @@ import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
 
 interface Props {
+  id?:string
   class?: string
 }
-const props = Astro.props
+const p = Astro.props
 ---
 
-<div class={classMerge(classesCardWrapperP4, props.class)}>
+<div id={p.id} class={classMerge(classesCardWrapperP4, p.class)}>
   <slot />
 </div>
