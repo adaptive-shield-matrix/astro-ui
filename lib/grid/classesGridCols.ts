@@ -28,6 +28,18 @@ export const classesGridCols4xl = classArr("grid grid-cols-1", "sm:grid-cols-2",
 export const classesGridCols4xl3 = classArr(classesGridCols4xl, "2xl:grid-cols-8", "3xl:grid-cols-12")
 
 /**
+ * ~256 px (16rem, ~26ch) / col
+ * 5 = 5x1
+ * xl: 1280/256 = 5
+ * lg: 1024/256 = 4
+ * md: 768/256 = 3
+ * sm: 640/256 = 2.5
+ * xs: 400/256 = 1.56
+ */
+export const classesGridCols5xl = classArr("grid grid-cols-1", "sm:grid-cols-2", "md:grid-cols-3", "lg:grid-cols-4", "xl:grid-cols-5")
+export const classesGridCols5xl3 = classArr(classesGridCols5xl, "2xl:grid-cols-10", "3xl:grid-cols-15")
+
+/**
  *
  * ~200 px (13rem, ~20ch) / col
  * 6 = 6x1, 3x2, 2x3
