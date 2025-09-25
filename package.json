@@ -14,7 +14,8 @@
     "generateImageList": "bun run ./src/pages/images/generateImageList.cli.ts",
     "update": "nice -15 bun x npm-check-updates -u && bun i",
     "update:commit": "bun x npm-check-updates -u && bun i && git add package.json && bun run tsc && git commit -m \"update dependencies\" && git push",
-    "clean": "rm -rf ./dist"
+    "clean": "rm -rf ./dist",
+    "reset": "rm -rf ./node_modules"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
