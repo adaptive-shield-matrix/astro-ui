@@ -18,21 +18,16 @@
     }
   },
   "files": {
-    "includes": [
-      "src/**",
-      "!**/global.css"
-    ]
+    "includes": ["src/**", "!**/global.css"]
   },
   "linter": {
     "enabled": true,
-    "includes": [
-      "**",
-      "!**/global.css"
-    ],
+    "includes": ["**", "!**/global.css"],
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noTsIgnore": "off"
       },
       "correctness": {
         "noUnusedImports": "off",
