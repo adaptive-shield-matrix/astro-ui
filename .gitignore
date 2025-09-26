@@ -1,47 +1,79 @@
-# dependencies (bun install)
+# Dependencies
 node_modules
-
-# output
-out
-dist
-*.tgz
-
-# code coverage
-coverage
-*.lcov
-
-# logs
-logs
-_.log
-report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
-# caches
-.eslintcache
-.cache
-*.tsbuildinfo
-
-# IntelliJ based IDEs
-.idea
-
-# Finder (MacOS) folder config
-.DS_Store
+.pnp
+.pnp.js
 
 # Bun package managers
 bun.lock
 bun.lockb
 
-# Secrets
-.env*
+# Output
+out
+dist
+*.tgz
+/build/
 
-# data
-data
+# Code coverage
+coverage
+*.lcov
+
+# Logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# Finder (MacOS) folder config
+.DS_Store
+
+# Unlighthouse
+/.unlighthouse/
+
+# Next.js
+.next
+
+# Turbo
+.turbo
+
+# Dotenv secrets
+.env
+.env.*
+
+# Cache
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.gradle
+*.iml
+.idea
+
+# Package manager debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Ignore package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+bun.lock
+
+# vscode
+.vscode
+*.code-workspace
+
+# Vite
+vite.config.d.ts
+vite.config.js
+
+# Data
+/data
+
+# Convex
+convex/_generated
 
 ## Gemini cli
 .sentry-native
@@ -53,3 +85,7 @@ data
 # Astro
 .astro
 astro
+
+# ai, ethereal and auto generated
+.roo/rules-code
+AGENTS.md
