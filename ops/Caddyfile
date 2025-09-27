@@ -2,26 +2,25 @@
 (shared_config_astro_ui) {
 	handle_path /media-b2* {
 		rewrite * {path}
-		root * /home/david/Coding/adaptive-astro-ui-media
-		file_server
 		header {
 			Routed "astro-media-b2"
 			Cache-Control "public, max-age=60, immutable"
 		}
+		root * /home/david/Coding/adaptive-astro-ui-media
+		file_server
 	}
 }
 
-astro-ui.com, astro-ui.localhost {
+astro-ui.com {
 	import shared_config_web
 	import shared_config_astro_ui
-	import shared_config_caching
 	header {
 		Routed "astro"
 	}
 	reverse_proxy localhost:3030
 }
 
-dist.astro-ui.com, dist.astro-ui.localhost {
+dist.astro-ui.com {
 	import shared_config_web
 	import shared_config_astro_ui
 	import shared_config_caching
