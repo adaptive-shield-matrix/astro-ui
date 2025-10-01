@@ -19,5 +19,6 @@
 
 # Aggressive caching for fingerprinted assets (Astro build outputs to /assets/)
 # Safe for static mode as files are hashed and immutable until rebuild
-/assets/*
+# 1 year (31556952 seconds)
+ /assets/*
   Cache-Control: public, max-age=31556952, immutable
