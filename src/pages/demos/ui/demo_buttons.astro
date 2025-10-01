@@ -1,10 +1,10 @@
 ---
 import { mdiArrowRight, mdiInformationOutline, mdiLink } from "@mdi/js"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
 import Button from "~/button/Button.astro"
 import { type ButtonVariant, buttonVariant } from "~/button/buttonCva"
-import BaseLayout from "@/layouts/BaseLayout.astro"
 import { classArr } from "~/utils/ui/classArr"
-import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 
 const variants = Object.values(buttonVariant)
 const icons = ["", mdiInformationOutline, ""]
