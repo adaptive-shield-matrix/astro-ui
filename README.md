@@ -2,6 +2,11 @@
 
 A library of reusable UI components for Astro projects. Built with TypeScript, Tailwind CSS, and Astro in static output mode. Components are designed to be accessible, customizable, and easy to integrate.
 
+Quick link
+- code - https://github.com/adaptive-shield-matrix/astro-ui
+- npm - https://www.npmjs.com/package/@adaptive-sm/astro-ui
+- component demo - https://adaptive-astro-ui.pages.dev/
+
 ## Installation
 
 Install the package using Bun:
@@ -10,7 +15,17 @@ Install the package using Bun:
 bun add @adaptive-sm/astro-ui
 ```
 
-## Recommended configuration
+## Tailwind CSS Configuration
+
+To ensure Tailwind scans the library's source files for classes (since components are published as source without a build step), add the following `@source` directive to your project's `src/layouts/global.css` (or equivalent global stylesheet):
+
+```css
+@source '/node_modules/@adaptive-sm/astro-ui/lib/**/*.{astro,html,md,mdx,ts,tsx}';
+```
+
+This tells Tailwind to include classes from the library's `.astro`, `.ts`, and other relevant files in the purge process, preventing unused classes from being purged during the build. Without it, Tailwind might not detect classes used in imported components, leading to missing styles.
+
+## Option configuration: import alias
 
 In your `astro.config.mjs`, set up the `~` alias to point to the library:
 
@@ -28,19 +43,9 @@ export default defineConfig({
 });
 ```
 
-## Tailwind CSS Configuration
-
-To ensure Tailwind scans the library's source files for classes (since components are published as source without a build step), add the following `@source` directive to your project's `src/layouts/global.css` (or equivalent global stylesheet):
-
-```css
-@source '/node_modules/@adaptive-sm/astro-ui/lib/**/*.{astro,html,md,mdx,ts,tsx}';
-```
-
-This tells Tailwind to include classes from the library's `.astro`, `.ts`, and other relevant files in the purge process, preventing unused classes from being purged during the build. Without it, Tailwind might not detect classes used in imported components, leading to missing styles.
-
 ## Usage
 
-## No Build Step Required
+### No Build Step Required
 
 This library ships source `.astro` and `.ts` files directly—no pre-build needed. Benefits include:
 
@@ -105,13 +110,28 @@ Refer to individual component documentation in the source code for props and var
 ### Icons
 - [Icon1.astro](lib/icon/Icon1.astro) (replaces SVG icons)
 
+usage:
+
+- Choose from over 7000 icons: https://pictogrammers.com/library/mdi/
+- Import name from "@mdi/js" library
+- Passed on as `path` prop
+
 ### Images
 - [Img.astro](lib/img/Img.astro)
+
+  A small wrapper setting loading lazy and decoding to async.
+
 - [TypedImg.astro](lib/img/TypedImg.astro)
+
+  An image with given width and height to prevent layout shifts.
+
+  Generate types using `lib/generate_image_list/generateImageList.ts`
 
 ### Layouts
 - [MinimalLayout.astro](lib/layouts/MinimalLayout.astro)
 - [MarkdownWrapper.astro](lib/layouts/MarkdownWrapper.astro)
+
+### Navigation bar
 - [ThemeToggle.astro](lib/layouts/parts/ThemeToggle.astro)
 
 ### Links
