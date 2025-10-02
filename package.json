@@ -9,6 +9,7 @@
     "deploy": "bun run build && bun run upload && bun run tag",
     "upload": "bun run wrangler pages deploy ./dist --project-name=adaptive-astro-ui --commit-dirty",
     "tag": "git branch -f deployed",
+    "publish": "bunx npm publish --access public",
     "generateDemoList": "bun run ./src/pages/demos/generateDemoList.cli.ts",
     "generateImageList": "bun run ./src/pages/images/generateImageList.cli.ts",
     "generateAiRulesLib": "bash ./lib/generate_ai_rules/generate_agent_rules_1_lib.bash",
