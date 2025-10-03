@@ -44,7 +44,7 @@ In your `tsconfig.json`, set up the `~` alias to point to the library:
 }
 ```
 
-### astro
+### Astro
 
 In your `astro.config.mjs`, set up the `~` alias to point to the library:
 
