@@ -3,6 +3,7 @@
 A library of reusable UI components for Astro projects. Built with TypeScript, Tailwind CSS, and Astro in static output mode. Components are designed to be accessible, customizable, and easy to integrate.
 
 Quick link
+
 - code - https://github.com/adaptive-shield-matrix/astro-ui
 - npm - https://www.npmjs.com/package/@adaptive-sm/astro-ui
 - component demo - https://adaptive-astro-ui.pages.dev/
@@ -27,20 +28,38 @@ This tells Tailwind to include classes from the library's `.astro`, `.ts`, and o
 
 ## Option configuration: import alias
 
+### Typescript
+
+In your `tsconfig.json`, set up the `~` alias to point to the library:
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "~/*": ["node_modules/@adaptive-sm/astro-ui/lib/*"]
+    }
+  }
+}
+```
+
+### astro
+
 In your `astro.config.mjs`, set up the `~` alias to point to the library:
 
 ```js
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config"
 
 export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': new URL('./node_modules/@adaptive-sm/astro-ui/lib', import.meta.url).pathname,
+        "~": new URL("./node_modules/@adaptive-sm/astro-ui/lib", import.meta.url).pathname,
       },
     },
   },
-});
+})
 ```
 
 ## Usage
@@ -62,7 +81,7 @@ Import and use components directly in your Astro files. For example:
 
 ```astro
 ---
-import { Button } from '~/button/Button.astro';
+import { Button } from "~/button/Button.astro"
 ---
 
 <Button variant="primary">Click me</Button>
@@ -72,19 +91,17 @@ import { Button } from '~/button/Button.astro';
 
 ```astro
 ---
-import { CardWrapper } from '~/card/CardWrapper.astro';
+import { CardWrapper } from "~/card/CardWrapper.astro"
 ---
 
-<CardWrapper>
-  Card content here.
-</CardWrapper>
+<CardWrapper> Card content here. </CardWrapper>
 ```
 
 ### Image Component
 
 ```astro
 ---
-import { Img } from '~/img/Img.astro';
+import { Img } from "~/img/Img.astro"
 ---
 
 <Img src="/path/to/image.jpg" alt="Description" />
@@ -95,19 +112,24 @@ Refer to individual component documentation in the source code for props and var
 ## Components
 
 ### Buttons
+
 - [Button.astro](lib/button/Button.astro)
 - Button variants and animations via CVAs in `buttonCva.ts`, `buttonIconCva.ts`
 
 ### Cards
+
 - [CardWrapper.astro](lib/card/CardWrapper.astro)
 
 ### Details
+
 - [Details.astro](lib/details/Details.astro)
 
 ### Forms
+
 - [Fieldset.astro](lib/form/Fieldset.astro)
 
 ### Icons
+
 - [Icon1.astro](lib/icon/Icon1.astro) (replaces SVG icons)
 
 usage:
@@ -117,6 +139,7 @@ usage:
 - Passed on as `path` prop
 
 ### Images
+
 - [Img.astro](lib/img/Img.astro)
 
   A small wrapper setting loading lazy and decoding to async.
@@ -128,35 +151,44 @@ usage:
   Generate types using `lib/generate_image_list/generateImageList.ts`
 
 ### Layouts
+
 - [MinimalLayout.astro](lib/layouts/MinimalLayout.astro)
 - [MarkdownWrapper.astro](lib/layouts/MarkdownWrapper.astro)
 
 ### Navigation bar
+
 - [ThemeToggle.astro](lib/layouts/parts/ThemeToggle.astro)
 
 ### Links
+
 - [LinkText.astro](lib/link/LinkText.astro)
 - [LinkButton.astro](lib/link/LinkButton.astro)
 
 ### Lists
+
 - [BlackBulletPoints.astro](lib/list/BlackBulletPoints.astro)
 - [CheckPoints.astro](lib/list/CheckPoints.astro)
 - [NumberedList.astro](lib/list/NumberedList.astro)
 
 ### Modals
+
 - [ModalButton.astro](lib/modal/ModalButton.astro)
 
 ### Pages
+
 - [PageCentered.astro](lib/page/PageCentered.astro)
 - [PageCenteredCard.astro](lib/page/PageCenteredCard.astro)
 
 ### Popovers
+
 - [Popover1.astro](lib/popover/Popover1.astro)
 
 ### Selects
+
 - [Select.astro](lib/select/Select.astro)
 
 ### Table
+
 - [Table.astro](lib/table/Table.astro)
 
 ## Demos
@@ -201,3 +233,11 @@ Follow the coding rules in `.roo/rules-code/` for style and best practices.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built on top of [Astro](https://astro.build).
+- Styled with [Tailwind CSS](https://tailwindcss.com/).
+- Icons from [MDI](https://pictogrammers.com/library/mdi/).
+
+For more information, visit the [GitHub repository](https://github.com/adaptive-shield-matrix/astro-ui).
