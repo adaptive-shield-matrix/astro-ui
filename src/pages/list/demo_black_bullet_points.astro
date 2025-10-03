@@ -1,0 +1,70 @@
+---
+import { mdiCircle } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import BlackBulletPoints from "~/list/BlackBulletPoints.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo BlackBulletPoints">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Black Bullet Points</h3>
+      <BlackBulletPoints 
+        points={[
+          "First bullet point with default styling",
+          "Second bullet point",
+          "Third bullet point that is a bit longer to demonstrate wrapping"
+        ]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Bullet Class</h3>
+      <BlackBulletPoints 
+        points={[
+          "Custom bullet color and size",
+          "Another custom bullet point"
+        ]}
+        classBullet="w-2 h-2 text-red-500 mt-3.5"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Text Class</h3>
+      <BlackBulletPoints 
+        points={[
+          "Text with custom styling",
+          "Another point with different text styling"
+        ]}
+        classText="text-green-600 font-semibold"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Longer List with Wrapping</h3>
+      <BlackBulletPoints 
+        points={[
+          "This is a much longer bullet point that will demonstrate how the component handles text wrapping and maintains proper alignment with the bullet points",
+          "Another long item that spans multiple lines when the container width is constrained",
+          "Short item for contrast",
+          "Final item in the list"
+        ]}
+        class="max-w-md"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Mixed Content (with potential links)</h3>
+      <BlackBulletPoints 
+        points={[
+          "Item that could contain a link: https://example.com",
+          "Regular text item without any special formatting",
+          "Another item that might need different styling in the future"
+        ]}
+      />
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import { mdiCheck } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import CheckPoints from "~/list/CheckPoints.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo CheckPoints">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Check Points List</h3>
+      <CheckPoints 
+        points={[
+          "First completed task with green check icon",
+          "Second completed task",
+          "Third completed task with longer description to show wrapping behavior"
+        ]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Text Styling</h3>
+      <CheckPoints 
+        points={[
+          "Styled completed items",
+          "Another styled completed task"
+        ]}
+        classText="text-purple-600 font-medium"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Check Icon Styling</h3>
+      <CheckPoints 
+        points={[
+          "Custom sized check icon",
+          "Custom colored check icon"
+        ]}
+        classBullet="size-5 fill-blue-500 mr-2"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Comprehensive List Example</h3>
+      <CheckPoints 
+        points={[
+          "Project planning phase completed",
+          "Design mockups approved by stakeholders",
+          "Development environment set up successfully",
+          "Initial code implementation finished",
+          "Testing phase completed with all checks passed",
+          "Documentation updated and reviewed"
+        ]}
+        class="max-w-lg"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Mixed Content with Potential Links</h3>
+      <CheckPoints 
+        points={[
+          "Task completed with link reference: https://docs.example.com",
+          "Standard completed task without special formatting",
+          "Final completed step in the process"
+        ]}
+      />
+    </div>
+  </div>
+</BaseLayout>

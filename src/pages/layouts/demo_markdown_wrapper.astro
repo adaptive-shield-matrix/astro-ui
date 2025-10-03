@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import MarkdownWrapper from "~/layouts/MarkdownWrapper.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo MarkdownWrapper">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4")}>
+    <MarkdownWrapper>
+      # Heading 1
+
+      ## Heading 2
+
+      This is some **bold** and *italic* text.
+
+      - List item 1
+      - List item 2
+      - List item 3
+
+      > This is a blockquote.
+
+      [Link example](https://example.com)
+
+      ### Code Block
+      ```javascript
+      function hello() {
+        console.log("Hello, world!")
+      }
+      ```
+
+      ![Image alt text](https://via.placeholder.com/300x200/007bff/ffffff?text=Sample+Image)
+    </MarkdownWrapper>
+  </div>
+</BaseLayout>

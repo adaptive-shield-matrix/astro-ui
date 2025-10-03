@@ -1,0 +1,93 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import Select from "~/select/Select.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo Select">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Select</h3>
+      <label class="block text-sm font-medium mb-2">Choose an option:</label>
+      <Select
+        initialValue="option2"
+        options={["option1", "option2", "option3", "option4"]}
+        id="default-select"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Class Select</h3>
+      <label class="block text-sm font-medium mb-2">Custom styled select:</label>
+      <Select
+        initialValue="custom1"
+        options={["custom1", "custom2", "custom3"]}
+        class="border-2 border-red-500 focus:border-red-500 rounded-lg p-3"
+        id="custom-select"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Select with Value Display Function</h3>
+      <label class="block text-sm font-medium mb-2">Options with display formatting:</label>
+      <Select
+        initialValue="val2"
+        options={["val1", "val2", "val3"]}
+        valueDisplay={(value: string) => value.toUpperCase()}
+        id="display-select"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Long Options Select</h3>
+      <label class="block text-sm font-medium mb-2">Select with longer options:</label>
+      <Select
+        initialValue="long2"
+        options={[
+          "First short option",
+          "This is a much longer option that will wrap in the dropdown",
+          "Third option",
+          "Fourth short option"
+        ]}
+        class="max-w-md"
+        id="long-select"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Option Class</h3>
+      <label class="block text-sm font-medium mb-2">Select with styled options:</label>
+      <Select
+        initialValue="styled1"
+        options={["styled1", "styled2", "styled3"]}
+        optionClass="bg-blue-100 text-blue-800"
+        id="option-class-select"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Multiple Select Examples</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-2">Colors:</label>
+          <Select
+            initialValue="blue"
+            options={["red", "blue", "green", "yellow"]}
+            id="color-select"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Sizes:</label>
+          <Select
+            initialValue="medium"
+            options={["small", "medium", "large", "extra-large"]}
+            id="size-select"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

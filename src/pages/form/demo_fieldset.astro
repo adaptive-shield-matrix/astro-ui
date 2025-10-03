@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import Fieldset from "~/form/Fieldset.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo Fieldset">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-4")}>
+    <Fieldset title="Example Fieldset" class="max-w-md">
+      <label class="block text-sm font-medium mb-2">Name</label>
+      <input type="text" class="w-full p-2 border rounded" placeholder="Enter name"/>
+    </Fieldset>
+
+    <Fieldset title="Another Fieldset" subtitles={["Optional subtitle"]}>
+      <label class="block text-sm font-medium mb-2">Email</label>
+      <input type="email" class="w-full p-2 border rounded" placeholder="Enter email"/>
+      <label class="block text-sm font-medium mb-2 mt-4">Message</label>
+      <textarea class="w-full p-2 border rounded" rows="3" placeholder="Enter message"></textarea>
+    </Fieldset>
+  </div>
+</BaseLayout>

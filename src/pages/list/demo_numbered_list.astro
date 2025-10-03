@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import NumberedList from "~/list/NumberedList.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo NumberedList">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Numbered List</h3>
+      <NumberedList 
+        points={[
+          "First step in the process",
+          "Second step with some additional description",
+          "Third step that demonstrates how longer text wraps properly in the list"
+        ]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Text Styling</h3>
+      <NumberedList 
+        points={[
+          "Styled numbered list item",
+          "Another styled item with different formatting"
+        ]}
+        classText="text-green-600 font-semibold"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Comprehensive Numbered List</h3>
+      <NumberedList 
+        points={[
+          "Project initialization and setup",
+          "Requirements gathering and analysis",
+          "Design and architecture planning",
+          "Implementation and development phase",
+          "Testing and quality assurance",
+          "Deployment and maintenance"
+        ]}
+        class="max-w-md"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Short List Example</h3>
+      <NumberedList 
+        points={[
+          "Item one",
+          "Item two",
+          "Item three"
+        ]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Long Wrapping Items</h3>
+      <NumberedList 
+        points={[
+          "This is a very long numbered list item that will wrap to multiple lines when the container width is constrained, showing proper indentation and alignment",
+          "Another long item that spans multiple lines for demonstration purposes",
+          "Shorter item for contrast"
+        ]}
+        class="max-w-sm"
+      />
+    </div>
+  </div>
+</BaseLayout>

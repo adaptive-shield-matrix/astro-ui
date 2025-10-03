@@ -1,0 +1,29 @@
+---
+import { mdiInformationOutline } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import Details from "~/details/Details.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo Details">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-4")}>
+    <Details 
+      icon={mdiInformationOutline}
+      title="Example Title"
+      subtitle="Example subtitle"
+    >
+      <p>This is the content inside the details element.</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    </Details>
+
+    <Details title="No Icon">
+      <p>Content without icon.</p>
+    </Details>
+  </div>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import ThemeToggle from "~/layouts/parts/ThemeToggle.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo ThemeToggle">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 flex items-center justify-center")}>
+    <ThemeToggle 
+      variant="outline"
+      class="fixed top-4 right-4"
+    />
+  </div>
+
+  <div class={classArr("mt-20 text-center")}>
+    <h1 class="text-3xl font-bold mb-4">Theme Toggle Demo</h1>
+    <p class="text-lg mb-8">Toggle the theme using the button in the top-right corner. You can also use Alt + S keyboard shortcut.</p>
+    
+    <div class="space-y-4">
+      <p class="text-muted-foreground">This text should change color based on the theme.</p>
+      <div class="bg-background p-4 rounded-lg border">
+        <p>Background panel that adapts to the theme.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
