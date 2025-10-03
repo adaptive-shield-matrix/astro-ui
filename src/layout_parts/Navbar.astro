@@ -5,6 +5,9 @@ import ThemeToggle from "~/layouts/parts/ThemeToggle.astro"
 import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
 import LogoIconText from "./LogoIconText.astro"
+import LinkButton from "~/link/LinkButton.astro"
+import { iconGithub } from "@/layout_parts/iconGithub"
+import { iconNpm } from "@/layout_parts/iconNpm"
 
 interface Props {
   logoClass?: string
@@ -18,6 +21,9 @@ interface Props {
 const p = Astro.props
 const iconClass = ""
 const textClass = ""
+
+const githubUrl = "https://github.com/adaptive-shield-matrix/astro-ui"
+const npmUrl = "https://www.npmjs.com/package/@adaptive-sm/astro-ui"
 ---
 
 <nav id={astroElementId.navbar} class={classMerge("w-full pt-1 px-6 pb-4", p.class)}>
@@ -27,7 +33,8 @@ const textClass = ""
       imageClass={classArr(iconClass, p.logoImgClass)}
       textClass={classArr(textClass, p.logoTextClass)}
     />
-
+    <LinkButton icon={iconGithub} href={githubUrl} title="Github">Code</LinkButton>
+    <LinkButton icon={iconNpm} iconClass="size-8" href={npmUrl} title="NPM">Package</LinkButton>
     <ThemeToggle class={p.themeToggleClass} iconClass={iconClass} textClass={textClass} variant={buttonVariant.link} />
   </div>
 </nav>
