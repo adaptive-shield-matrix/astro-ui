@@ -1,0 +1,83 @@
+---
+import { mdiArrowRight, mdiInformationOutline } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import LinkButton from "~/link/LinkButton.astro"
+import { buttonVariant } from "~/button/buttonCva"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo LinkButton">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Link Button</h3>
+      <LinkButton
+        href="/"
+        variant={buttonVariant.filled}
+      >
+        Filled Link Button
+      </LinkButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Link with Icon Left</h3>
+      <LinkButton 
+        href="/"
+        variant={buttonVariant.outline}
+        icon={mdiInformationOutline}
+      >
+        Link with Icon
+      </LinkButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Link with Icon Right</h3>
+      <LinkButton 
+        href="/"
+        variant={buttonVariant.ghost}
+        iconRight={mdiArrowRight}
+      >
+        Link with Right Icon
+      </LinkButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">New Tab Link</h3>
+      <LinkButton 
+        href="https://example.com"
+        variant={buttonVariant.link}
+        newTab={true}
+        title="Opens in new tab"
+      >
+        External Link (New Tab)
+      </LinkButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Small Size with Both Icons</h3>
+      <LinkButton
+        href="/"
+        variant={buttonVariant.filledRed}
+        size="sm"
+        icon={mdiInformationOutline}
+        iconRight={mdiArrowRight}
+      >
+        Small Link with Icons
+      </LinkButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Class</h3>
+      <LinkButton
+        href="/"
+        variant={buttonVariant.subtle}
+        class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+        iconRight={mdiArrowRight}
+      >
+        Custom Styled Link
+      </LinkButton>
+    </div>
+  </div>
+</BaseLayout>

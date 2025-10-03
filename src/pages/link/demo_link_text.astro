@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import LinkText from "~/link/LinkText.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo LinkText">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Text Link</h3>
+      <LinkText 
+        href="/"
+      >
+        This is a default text link
+      </LinkText>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Link with Custom Class</h3>
+      <LinkText 
+        href="/"
+        class="text-red-500 hover:text-red-700 font-bold"
+        title="Custom styled link"
+      >
+        Custom styled text link
+      </LinkText>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">New Tab External Link</h3>
+      <LinkText 
+        href="https://example.com"
+        newTab={true}
+        title="Opens in new tab"
+      >
+        External link (opens in new tab)
+      </LinkText>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Link with No Hover Underline</h3>
+      <LinkText 
+        href="/"
+        class="no-underline hover:no-underline text-blue-600"
+      >
+        Link without underline
+      </LinkText>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Long Link Text</h3>
+      <LinkText 
+        href="/long-path"
+        title="A longer path example"
+      >
+        This is a longer text link that demonstrates how the component handles extended content and wrapping if necessary
+      </LinkText>
+    </div>
+  </div>
+</BaseLayout>

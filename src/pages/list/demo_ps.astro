@@ -1,0 +1,65 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import Ps from "~/list/Ps.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo Ps">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Paragraphs</h3>
+      <Ps 
+        lines={[
+          "This is the first paragraph rendered from the Ps component.",
+          "This is the second paragraph with some additional content.",
+          "This is the third paragraph demonstrating how multiple lines are handled automatically."
+        ]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Class Styling</h3>
+      <Ps 
+        lines={[
+          "First paragraph with custom styling applied to all paragraphs.",
+          "Second paragraph that will inherit the same custom styling.",
+          "Third paragraph showing consistent formatting across all lines."
+        ]}
+        class="text-blue-600 font-medium leading-relaxed"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Short Single Line</h3>
+      <Ps 
+        lines={["This is a single short paragraph."]}
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Long Wrapping Paragraphs</h3>
+      <Ps 
+        lines={[
+          "This is a very long paragraph that will wrap to multiple lines when the container width is constrained, demonstrating how the Ps component handles text wrapping and maintains proper paragraph spacing.",
+          "Another long paragraph that spans multiple lines to show the component's behavior with extended content.",
+          "Shorter paragraph for contrast in the demo."
+        ]}
+        class="max-w-md text-sm"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Mixed Length Paragraphs</h3>
+      <Ps 
+        lines={[
+          "Short.",
+          "This paragraph is medium length and provides a good example of varied content lengths.",
+          "This final paragraph is quite long and will demonstrate how the component handles different paragraph lengths while maintaining consistent spacing and readability throughout the content."
+        ]}
+      />
+    </div>
+  </div>
+</BaseLayout>
