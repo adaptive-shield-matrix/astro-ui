@@ -1,0 +1,70 @@
+---
+import { mdiCheck } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import CheckPoint from "~/list/CheckPoint.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo CheckPoint">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Default Check Points</h3>
+      <div class="space-y-2">
+        <CheckPoint point="First check point with default green check icon" />
+        <CheckPoint point="Second check point" />
+        <CheckPoint point="Third check point that demonstrates longer text wrapping" />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Text Class</h3>
+      <div class="space-y-2">
+        <CheckPoint 
+          point="Custom text styling applied"
+          classText="text-blue-600 font-semibold"
+        />
+        <CheckPoint 
+          point="Another custom styled point"
+          classText="text-red-500 italic"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Custom Bullet (Check Icon) Class</h3>
+      <div class="space-y-2">
+        <CheckPoint 
+          point="Larger check icon"
+          classBullet="size-6 fill-green-800 mr-2"
+        />
+        <CheckPoint 
+          point="Smaller check icon with different color"
+          classBullet="size-4 fill-blue-500 mr-3"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">With Additional Content in Slot</h3>
+      <div class="space-y-2">
+        <CheckPoint point="Point with additional slot content">
+          <span class="text-sm text-gray-500 ml-2">(extra info)</span>
+        </CheckPoint>
+        <CheckPoint point="Another point with slot">
+          <button class="ml-2 px-2 py-1 bg-gray-200 rounded text-xs">Action</button>
+        </CheckPoint>
+      </div>
+    </div>
+
+    <div class="space-y-2 max-w-md">
+      <h3 class="text-lg font-semibold">Constrained Width for Wrapping</h3>
+      <div class="space-y-2">
+        <CheckPoint point="This is a very long check point text that will wrap to multiple lines when the container width is limited, demonstrating proper alignment and spacing maintenance." />
+        <CheckPoint point="Shorter wrapped item" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

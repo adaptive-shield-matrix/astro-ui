@@ -1,0 +1,152 @@
+---
+import { mdiInformationOutline, mdiAlertOutline } from "@mdi/js"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import { buttonVariant } from "~/button/buttonCva"
+import ModalButton from "~/modal/ModalButton.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo ModalButton">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Simple ModalButton</h3>
+      <ModalButton
+        title="Simple Modal"
+        button={{
+          text: "Open Simple Modal",
+          icon: mdiInformationOutline,
+          variant: buttonVariant.filled,
+        }}
+        id="simple-modal"
+      >
+        <div class="space-y-3">
+          <p>This is a simple modal opened by a button with icon.</p>
+          <p>The ModalButton component combines a trigger button and modal in one.</p>
+        </div>
+      </ModalButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">ModalButton with Custom ID</h3>
+      <ModalButton
+        id="custom-id-modal"
+        title="Custom ID Modal"
+        button={{
+          text: "Open Custom Modal",
+          variant: buttonVariant.outline,
+          size: "sm",
+        }}
+      >
+        <p>Modal with explicit ID for advanced usage.</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Custom button size</li>
+          <li>Explicit ID prop</li>
+          <li>Different variant</li>
+        </ul>
+      </ModalButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Nested ModalButton</h3>
+      <ModalButton
+        title="Parent Modal"
+        button={{
+          text: "Open Parent Modal",
+          icon: mdiInformationOutline,
+          variant: buttonVariant.ghost,
+        }}
+        id="parent-modal"
+        class="max-w-2xl"
+      >
+        <div class="space-y-4">
+          <p>This is a parent modal containing a nested child modal.</p>
+          
+          <ModalButton
+            title="Nested Child Modal"
+            button={{
+              text: "Open Nested Modal",
+              icon: mdiAlertOutline,
+              variant: buttonVariant.filledRed,
+            }}
+            id="nested-modal"
+          >
+            <div class="space-y-2">
+              <p>Nested modal inside parent modal.</p>
+              <p>Demonstrates modal stacking and management.</p>
+              <p>Each modal has its own independent state.</p>
+            </div>
+          </ModalButton>
+
+          <p>Content below the nested modal trigger.</p>
+        </div>
+      </ModalButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">ModalButton with Custom Content Area</h3>
+      <ModalButton
+        title="Custom Content Modal"
+        button={{
+          text: "Open Custom Content Modal",
+          variant: buttonVariant.subtle,
+          iconRight: mdiInformationOutline,
+        }}
+        id="custom-content-modal"
+        classContentArea="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl"
+      >
+        <div class="space-y-4">
+          <p>Modal with custom content area styling.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-3 bg-white dark:bg-gray-700 rounded">
+              <p>Custom section 1</p>
+            </div>
+            <div class="p-3 bg-white dark:bg-gray-700 rounded">
+              <p>Custom section 2</p>
+            </div>
+          </div>
+        </div>
+      </ModalButton>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Multiple ModalButtons</h3>
+      <div class="space-y-3">
+        <ModalButton
+          title="Modal 1"
+          button={{
+            text: "Open Modal 1",
+            variant: buttonVariant.filled,
+          }}
+          id="modal-1"
+        >
+          <p>Content for Modal 1.</p>
+        </ModalButton>
+
+        <ModalButton
+          title="Modal 2"
+          button={{
+            text: "Open Modal 2",
+            variant: buttonVariant.outline,
+          }}
+          id="modal-2"
+        >
+          <p>Content for Modal 2.</p>
+        </ModalButton>
+
+        <ModalButton
+          title="Modal 3"
+          button={{
+            text: "Open Modal 3",
+            variant: buttonVariant.ghost,
+          }}
+          id="modal-3"
+        >
+          <p>Content for Modal 3.</p>
+        </ModalButton>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

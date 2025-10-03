@@ -1,0 +1,104 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import Modal from "~/modal/Modal.astro"
+import { classArr } from "~/utils/ui/classArr"
+---
+
+<BaseLayout title="Demo Modal">
+  <BgColorSelect/>
+
+  <div class={classArr("mt-4 space-y-6")}>
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Basic Modal</h3>
+      <p>Click the button below to open the modal:</p>
+      <button id="basic-modal-trigger" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Open Basic Modal
+      </button>
+
+      <Modal triggerId="basic-modal-trigger" title="Basic Modal Example" class="max-w-md">
+        <div class="space-y-4">
+          <p>This is the content of a basic modal dialog. It demonstrates the default styling and behavior.</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Modal with custom title</li>
+            <li>Content slot for flexible content</li>
+            <li>Automatic close button</li>
+          </ul>
+        </div>
+      </Modal>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Modal with Custom Content Area</h3>
+      <p>Click to open a modal with custom content styling:</p>
+      <button id="custom-modal-trigger" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+        Open Custom Modal
+      </button>
+
+      <Modal 
+        triggerId="custom-modal-trigger" 
+        title="Custom Styled Modal" 
+        classContentArea="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg"
+      >
+        <div class="space-y-3">
+          <p>This modal has a custom content area with additional padding and background color.</p>
+          <div class="bg-white dark:bg-gray-700 p-3 rounded">
+            <p>Nested content panel inside the modal.</p>
+          </div>
+          <p>You can pass any HTML content through the slot.</p>
+        </div>
+      </Modal>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Large Modal Example</h3>
+      <p>Click to open a larger modal:</p>
+      <button id="large-modal-trigger" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">
+        Open Large Modal
+      </button>
+
+      <Modal 
+        triggerId="large-modal-trigger" 
+        title="Large Modal with More Content"
+        class="max-w-4xl"
+        classContentArea="p-8"
+      >
+        <div class="space-y-6">
+          <p>This is a larger modal that can accommodate more complex content layouts.</p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
+              <h4 class="font-semibold mb-2">Left Panel</h4>
+              <p>Content in the left section.</p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded">
+              <h4 class="font-semibold mb-2">Right Panel</h4>
+              <p>Content in the right section.</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+            <p>Footer content area with border separator.</p>
+          </div>
+        </div>
+      </Modal>
+    </div>
+
+    <div class="space-y-2">
+      <h3 class="text-lg font-semibold">Modal with Custom Title Styling</h3>
+      <p>Click to open a modal with custom title styling:</p>
+      <button id="title-modal-trigger" class="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">
+        Open Custom Title Modal
+      </button>
+
+      <Modal 
+        triggerId="title-modal-trigger" 
+        title="Custom Title Styling" 
+        titleClass="text-2xl font-bold text-red-600 dark:text-red-400 underline"
+      >
+        <p>This modal features a custom styled title with larger font, bold weight, color, and underline.</p>
+        <p>The titleClass prop allows complete customization of the heading element.</p>
+      </Modal>
+    </div>
+  </div>
+</BaseLayout>

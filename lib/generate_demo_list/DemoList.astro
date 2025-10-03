@@ -21,7 +21,7 @@ const categories = Object.entries(props.demos)
         <ul class="list-disc pl-4 space-y-1">
           {pages.map((page) => (
             <li class={classArr(classesTextLink)}>
-              <a href={`/demos/${category}/${page}`}>{page.replace(/_/g, " ").replaceAll("demo ", "")}</a>
+              <a href={`/${category}/${page}`}>{page.replace(/_/g, " ").replaceAll("demo ", "")}</a>
             </li>
           ))}
         </ul>
