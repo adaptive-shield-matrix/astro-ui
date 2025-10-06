@@ -3,4 +3,5 @@ export type ImageType = {
   height: number
   width: number
   alt: string
+  mimeType?: string
 }
