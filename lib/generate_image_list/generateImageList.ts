@@ -6,6 +6,28 @@ import { runCmdAsync } from "~/utils/bun/runCmdAsync"
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".tiff", ".svg"])
 
+function getMimeType(ext: string): string {
+  switch (ext) {
+    case ".jpg":
+    case ".jpeg":
+      return "image/jpeg"
+    case ".png":
+      return "image/png"
+    case ".gif":
+      return "image/gif"
+    case ".webp":
+      return "image/webp"
+    case ".avif":
+      return "image/avif"
+    case ".tiff":
+      return "image/tiff"
+    case ".svg":
+      return "image/svg+xml"
+    default:
+      return "application/octet-stream"
+  }
+}
+
 export async function generateImageList(
   imageDirectory: string,
   existingImages: Record<string, ImageType>,
@@ -55,12 +77,14 @@ async function processImageFiles(
 
       const prevAlt = existingImages[key]?.alt
       const alt = prevAlt || fileName.replace(/[-_]/g, " ")
+      const mimeType = getMimeType(ext)
 
       imageMap[key] = {
         path: relativePath,
         width: dimensions.width,
         height: dimensions.height,
         alt,
+        mimeType,
       }
     } catch (error) {
       console.error(`Error processing ${filePath}:`, error)
