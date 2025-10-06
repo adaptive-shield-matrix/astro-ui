@@ -5,12 +5,13 @@ import { type DemoListType } from "./DemoListType"
 
 interface Props {
   demos: DemoListType
+  urlPrefix?:string
   class?: string
 }
-const props = Astro.props
+const p = Astro.props
 
 // Extract categories and their demo pages
-const categories = Object.entries(props.demos)
+const categories = Object.entries(p.demos)
 ---
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -21,7 +22,7 @@ const categories = Object.entries(props.demos)
         <ul class="list-disc pl-4 space-y-1">
           {pages.map((page) => (
             <li class={classArr(classesTextLink)}>
-              <a href={`/${category}/${page}`}>{page.replace(/_/g, " ").replaceAll("demo ", "")}</a>
+              <a href={`${p.urlPrefix ?? ""}/${category}/${page}`}>{page.replace(/_/g, " ").replaceAll("demo ", "")}</a>
             </li>
           ))}
         </ul>
