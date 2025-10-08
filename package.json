@@ -1,6 +1,6 @@
 {
   "name": "@adaptive-sm/astro-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "astro": "astro",
     "dev": "nice -5 astro dev",
@@ -9,7 +9,11 @@
     "deploy": "bun run build && bun run upload && bun run tag",
     "upload": "bun run wrangler pages deploy ./dist --project-name=adaptive-astro-ui --commit-dirty",
     "tag": "git branch -f deployed",
-    "publish": "bunx npm publish --access public",
+    "publish": "npm publish --access public",
+    "changelog:preview": "git cliff --unreleased",
+    "release:changelog": "mkdir -p changelogs && git cliff --unreleased -o \"changelogs/$(date +%Y-%m-%d)_v$(npm pkg get version --silent).md\"",
+    "release": "npm version && npm run release:changelog && git add changelogs/ && git commit --amend --no-edit && git push && git push origin v$(npm pkg get version --silent) && gh release create v$(npm pkg get version --silent) --notes-file \"changelogs/$(date +%Y-%m-%d)_v$(npm pkg get version --silent).md\"",
+    "generateChangelog": "ls changelogs/*.md | sort -r | xargs cat > CHANGELOG.md",
     "generateDemoList": "bun run ./src/pages/demos/generateDemoList.cli.ts",
     "generateImageList": "bun run ./src/pages/images/generateImageList.cli.ts",
     "generateAiRulesLib": "bash ./lib/generate_ai_rules/generate_agent_rules_1_lib.bash",
