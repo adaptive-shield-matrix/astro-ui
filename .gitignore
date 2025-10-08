@@ -91,3 +91,7 @@ AGENTS.md
 
 # npm publishing
 .npmrc
+
+# project specific
+/*.json
+/*.sh
