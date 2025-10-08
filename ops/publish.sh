@@ -59,16 +59,16 @@ git tag -a "$TAG" -m "Release v$NEW_VERSION"
 git push origin main
 git push gitlab main
 
-# --- Step 6: Publish to npm ---
-echo "📦 Publishing to npm..."
-bunx npm publish --access public
-
-# --- Step 7: Create GitHub release ---
+# --- Step 6: Create GitHub release ---
 echo "☁️ Creating GitHub release..."
 gh release create "$TAG" \
   --title "v$NEW_VERSION" \
   --notes-file "$FULL_CHANGELOG" \
   --repo "$(basename "$REPO_URL")"
+
+# --- Step 7: Publish to npm ---
+echo "📦 Publishing to npm..."
+bunx npm publish --access public
 
 echo "✅ Release v$NEW_VERSION complete!"
 echo "📄 Changelog: $CHANGELOG_FILE"
