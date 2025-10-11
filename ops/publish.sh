@@ -5,6 +5,7 @@ set -e # Exit immediately if a command exits with a non-zero status
 # --- Configuration ---
 CHANGELOGS_DIR="changelogs"
 REPO_URL=$(git remote get-url origin | sed 's/\.git$//')
+REPO_NAME=$(echo "$REPO_URL" | sed 's/.*://')
 PACKAGE_JSON="package.json"
 
 # --- Helper: get current version from package.json ---
@@ -64,7 +65,7 @@ echo "☁️ Creating GitHub release..."
 gh release create "$TAG" \
   --title "v$NEW_VERSION" \
   --notes-file "$FULL_CHANGELOG" \
-  --repo "$(basename "$REPO_URL")"
+  --repo "$REPO_NAME"
 
 # --- Step 7: Publish to npm ---
 echo "📦 Publishing to npm..."
