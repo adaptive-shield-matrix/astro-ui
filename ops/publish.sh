@@ -27,7 +27,7 @@ echo "----------------------------------------"
 echo "📦 Current version: $CURRENT_VERSION"
 
 # --- Step 2: Prompt for new version ---
-read -p "🔖 Enter new version (e.g., 1.2.4): " NEW_VERSION
+read -p "🔖 Enter new version (e.g., 0.2.1): " NEW_VERSION
 
 if [[ -z "$NEW_VERSION" ]]; then
   echo "❌ Version is required. Aborting."
@@ -40,34 +40,47 @@ if ! [[ "$NEW_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
   exit 1
 fi
 
-# --- Step 3: Update package.json ---
+# --- Step 3: Generate changelog file ---
+DATE=$(date +%Y-%m-%d)
+CHANGELOG_FILE="$CHANGELOGS_DIR/${DATE}_v${NEW_VERSION}.md"
+mkdir -p "$CHANGELOGS_DIR"
+FULL_CHANGELOG="## [${NEW_VERSION}] - ${DATE}
+
+${CHANGELOG_BODY}"
+echo "$FULL_CHANGELOG" > "$CHANGELOG_FILE"
+echo "📄 Changelog saved to: $CHANGELOG_FILE"
+
+# --- Step 4: Review changelog ---
+echo "📄 Review the generated changelog:"
+cat "$CHANGELOG_FILE"
+read -p "✅ Proceed with publishing? (y/N): " CONFIRM
+if [[ "$CONFIRM" != "y" && "$CONFIRM" != "Y" ]]; then
+  echo "❌ Aborted by user."
+  exit 1
+fi
+
+# --- Step 5: Update package.json ---
 echo "🔄 Updating $PACKAGE_JSON to v$NEW_VERSION..."
 jq --arg v "$NEW_VERSION" '.version = $v' "$PACKAGE_JSON" > tmp.$$.json && mv tmp.$$.json "$PACKAGE_JSON"
 TAG="v$NEW_VERSION"
 
-# --- Step 4: Generate changelog file ---
-DATE=$(date +%Y-%m-%d)
-CHANGELOG_FILE="$CHANGELOGS_DIR/${DATE}_v${NEW_VERSION}.md"
-mkdir -p "$CHANGELOGS_DIR"
-FULL_CHANGELOG=$(git cliff --tag "$NEW_VERSION" --strip all)
-echo "$FULL_CHANGELOG" > "$CHANGELOG_FILE"
-echo "📄 Changelog saved to: $CHANGELOG_FILE"
-
-# --- Step 5: Git Commit and push ---
+# --- Step 6: Git Commit and push ---
 git add "$CHANGELOG_FILE" "$PACKAGE_JSON"
 git commit -m "build(release): v$NEW_VERSION"
 git tag -a "$TAG" -m "Release v$NEW_VERSION"
 git push origin main
+git push origin --tags
 git push gitlab main
+git push gitlab --tags
 
-# --- Step 6: Create GitHub release ---
+# --- Step 7: Create GitHub release ---
 echo "☁️ Creating GitHub release..."
 gh release create "$TAG" \
   --title "v$NEW_VERSION" \
-  --notes-file "$FULL_CHANGELOG" \
+  --notes-file "$CHANGELOG_FILE" \
   --repo "$REPO_NAME"
 
-# --- Step 7: Publish to npm ---
+# --- Step 8: Publish to npm ---
 echo "📦 Publishing to npm..."
 #bunx npm publish --access public
 bun pm publish --access public
