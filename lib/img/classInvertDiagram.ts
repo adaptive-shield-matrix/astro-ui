@@ -1,1 +1,1 @@
-export const classInvertDiagram = "invert-diagram"
+export const classInvertBlack = "invert-black"

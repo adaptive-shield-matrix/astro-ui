@@ -60,3 +60,13 @@
     margin: 0;
   }
 }
+
+/* Invert svg colors in dark mode */
+/* https://stackoverflow.com/questions/39761120/invert-svg-image-using-css */
+/* https://forums.ankiweb.net/t/invert-only-specific-color-of-svg-file/26092/2 */
+@layer base {
+  .dark img.invert-black,
+  .dark svg.invert-black {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}

@@ -2,15 +2,18 @@
 import { classArr } from "~/utils/ui/classArr"
 import type { ImageType } from "./ImageType"
 import Img from "./Img.astro"
-import { classInvertDiagram } from "~/img/classInvertDiagram"
+import { classInvertBlack } from "~/img/classInvertDiagram"
 
 interface Props {
   img: ImageType
   zoomIn?: boolean
+  invertColorsInDarkMode?: boolean
   class?: string
 }
-const props = Astro.props
-const isSvg = props.img.path.endsWith(".svg")
+const p = Astro.props
+const isSvg = p.img.path.endsWith(".svg")
+// const invert = isSvg && p.invertColorsInDarkMode
+const invert = p.invertColorsInDarkMode
 
 function imageUrl(p: string) {
   return "/media-b2/" + p
@@ -18,9 +21,9 @@ function imageUrl(p: string) {
 ---
 
 <Img
-  src={imageUrl(props.img.path)}
-  alt={props.img.alt}
-  class={classArr(isSvg ? classInvertDiagram : "", props.class)}
-  width={isSvg ? null : props.img.width}
-  height={isSvg ? null : props.img.height}
+  src={imageUrl(p.img.path)}
+  alt={p.img.alt}
+  class={classArr(invert ? classInvertBlack : "", p.class)}
+  width={isSvg ? null : p.img.width}
+  height={isSvg ? null : p.img.height}
 />
