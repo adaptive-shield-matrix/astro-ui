@@ -11,11 +11,10 @@ interface Props {
   class?: string
   summaryClass?: string
 }
-const props = Astro.props
-const icon = props.icon
-const title = props.title
-const subtitle = props.subtitle
-const summaryClass = props.summaryClass
+const p = Astro.props
+const icon = p.icon
+const title = p.title
+const subtitle = p.subtitle
 const hasSummary = Astro.slots.has("summary")
 ---
 
@@ -26,14 +25,15 @@ const hasSummary = Astro.slots.has("summary")
     "rounded-lg border border-gray-200",
     "shadow-sm",
     "overflow-hidden",
-    props.class,
+    p.class,
   )}
 >
   <summary
     class={classArr(
       "flex flex-col sm:flex-row items-center justify-between gap-4",
-      "p-6",
+      "p-4 sm:p-6",
       "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors",
+      p.summaryClass,
     )}
   >
     {
