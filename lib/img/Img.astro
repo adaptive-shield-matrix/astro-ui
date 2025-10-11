@@ -1,5 +1,5 @@
 ---
-import { classesImgZoomInOnHover } from "./classesImgZoomInOnHover"
+import { classesImgZoomInOnHover10 } from "./classesImgZoomInOnHover10"
 import { classMerge } from "~/utils/ui/classMerge"
 
 interface Props {
@@ -19,7 +19,7 @@ const p = Astro.props
 <img
   src={p.src}
   alt={p.alt}
-  class={classMerge(p.zoomIn && classesImgZoomInOnHover, p.class)}
+  class={classMerge(p.zoomIn && classesImgZoomInOnHover10, p.class)}
   loading={p.loadingLazy ?? true ? "lazy" : undefined}
   decoding={p.decodeAsync ?? true ? "async" : undefined}
   width={p.size ?? p.width}
