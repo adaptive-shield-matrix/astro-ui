@@ -94,19 +94,19 @@ const variantClasses = {
   // filled colors
   //
   filledYellow: classArr(
-    "text-white dark:text-yellow-100 ", // text
+    "text-white", // text
     "bg-yellow-500 dark:bg-yellow-800 ", // bg
     "hover:bg-yellow-700 dark:hover:bg-yellow-600", // bg hover
     "focus:ring-yellow-400 dark:focus:ring-yellow-400", // focus
   ),
   filledAmber: classArr(
-    "text-white dark:text-amber-100 ", // text
+    "text-white", // text
     "bg-amber-500 dark:bg-amber-800 ", // bg
     "hover:bg-amber-700 dark:hover:bg-amber-600", // bg hover
     "focus:ring-amber-400 dark:focus:ring-amber-400", // focus
   ),
   filledOrange: classArr(
-    "text-white dark:text-orange-100 ", // text
+    "text-white", // text
     "bg-orange-500 dark:bg-orange-800 ", // bg
     "hover:bg-orange-700 dark:hover:bg-orange-600", // bg hover
     "focus:ring-orange-400 dark:focus:ring-orange-400", // focus
@@ -128,7 +128,7 @@ const variantClasses = {
     "focus:ring-sky-400 dark:focus:ring-sky-400", // focus
   ),
   filledIndigo: classArr(
-    "text-white dark:text-indigo-100 ", // text
+    "text-white", // text
     "bg-indigo-500 dark:bg-indigo-800 ", // bg
     "hover:bg-indigo-700 dark:hover:bg-indigo-600", // bg hover
     "focus:ring-indigo-400 dark:focus:ring-indigo-400", // focus
