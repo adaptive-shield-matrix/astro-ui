@@ -13,7 +13,7 @@ CURRENT_VERSION=$(jq -r '.version' "$PACKAGE_JSON")
 
 # --- Step 1: Generate changelog draft using git-cliff ---
 echo "📝 Generating changelog since last release..."
-CHANGELOG_BODY=$(git cliff --unreleased --strip all)
+CHANGELOG_BODY=$(git cliff --unreleased --strip all | sed '1{/^## \[unreleased\]$/d};2{/^$/d}')
 
 if [[ -z "$CHANGELOG_BODY" || "$CHANGELOG_BODY" == *"No commits found"* ]]; then
   echo "⚠️ No new commits since last release. Exiting."
@@ -83,7 +83,7 @@ gh release create "$TAG" \
 # --- Step 8: Publish to npm ---
 echo "📦 Publishing to npm..."
 #bunx npm publish --access public
-bun pm publish --access public
+bun publish --access public
 
 echo "✅ Release v$NEW_VERSION complete!"
 echo "📄 Changelog: $CHANGELOG_FILE"
