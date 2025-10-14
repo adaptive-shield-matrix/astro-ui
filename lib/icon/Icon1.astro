@@ -15,7 +15,7 @@ const ariaHidden = props.ariaHidden ?? !props.title
 <svg
   viewBox={"0 0 24 24"}
   aria-hidden={ariaHidden}
-  class={classMerge("size-6 align-middle dark:fill-white", props.class)}
+  class={classMerge("size-6 flex-shrink-0 align-middle dark:fill-white", props.class)}
 >
   <path d={props.path}></path>
 </svg>
