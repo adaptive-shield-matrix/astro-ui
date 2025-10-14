@@ -21,7 +21,7 @@ Generated at: 2025-10-01 09:18
 - ~/img/Img.astro
 - ~/img/classesImgZoomInOnHover.ts
 - ~/img/TypedImg.astro
-- ~/img/classInvertDiagram.ts
+- ~/img/classInvertBlack.ts
 - ~/img/ImageType.ts
 - ~/layouts/MinimalLayout.astro
 - ~/layouts/parts/astroElementId.ts
