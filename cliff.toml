@@ -3,7 +3,7 @@
 
 [git]
 conventional_commits = true
-require_conventional = true
+require_conventional = false
 filter_unconventional = false
 tag_pattern = "v[0-9].*"
 # Split commits on newlines, treating each line as an individual commit.
