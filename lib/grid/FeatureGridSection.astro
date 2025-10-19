@@ -1,0 +1,80 @@
+---
+import Icon1 from "~/icon/Icon1.astro"
+import { classArr } from "~/utils/ui/classArr"
+import { mdiLink } from "@mdi/js"
+import type { GridFeatureType } from "./GridFeatureType"
+import { classMerge } from "~/utils/ui/classMerge"
+
+interface Props {
+  id: string
+  title: string
+  subtitle1: string
+  subtitle2?: string
+  features: GridFeatureType[]
+  class?: string
+  gridClass?: string
+  cardClass?: string
+}
+const p = Astro.props
+---
+
+<section id={p.id} class={classMerge("w-full", "py-25 px-4", p.class)}>
+  <div class={classArr("max-w-7xl mx-auto", "text-center mb-8")}>
+    <h2 class={classArr("text-3xl sm:text-4xl font-bold", "mb-4", "group flex items-center justify-center")}>
+      <span>{p.title}</span>
+      <button
+        onclick={`copyLink('${p.id}')`}
+        class="opacity-0 group-hover:opacity-100 ml-2 p-1 rounded hidden sm:flex"
+        title="Copy link to this section"
+      >
+        <Icon1 path={mdiLink} class="size-4" />
+      </button>
+    </h2>
+    <p class="text-xl text-muted-foreground mx-auto">
+      {p.subtitle1}
+    </p>
+    {p.subtitle2 && <p class="text-xl text-muted-foreground mx-auto mt-1">{p.subtitle2}</p>}
+  </div>
+
+  <div class={classMerge("grid md:grid-cols-2 lg:grid-cols-3 gap-8", "max-w-7xl mx-auto", p.gridClass)}>
+    {
+      p.features.map((feature, index) => (
+        <div
+          class={classMerge(
+            "bg-white dark:bg-gray-800", // bg
+            "rounded-lg p-6", // padding
+            // "border", // border
+            "shadow-sm hover:shadow-lg transition-shadow", // shadow
+            p.cardClass,
+          )}
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <Icon1 path={feature.icon} class="size-8" />
+            <h3 class="text-xl font-semibold">{feature.title}</h3>
+          </div>
+          <p class="text-muted-foreground">{feature.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  declare global {
+    interface Window {
+      copyLink?: (id: string) => void
+    }
+  }
+  window.copyLink = function (id: string) {
+    const url = window.location.href.split("#")[0] + "#" + id
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        // Optional: show a toast or feedback
+        console.log("Link copied:", url)
+      })
+      .catch((err) => {
+        console.error("Failed to copy link:", err)
+      })
+  }
+</script>

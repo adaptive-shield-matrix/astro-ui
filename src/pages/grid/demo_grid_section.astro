@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { classArr } from "~/utils/ui/classArr"
+import FeatureGridSection from "~/grid/FeatureGridSection.astro"
+import { technicalFeatures } from "@/pages/grid/technicalFeatures"
+import { classesBg50 } from "~/page/classesBg50"
+
+const p = Astro.props
+---
+
+<BaseLayout title="Demo Feature Grid">
+  <FeatureGridSection
+    id="TechnicalFeatures"
+    title="Technical Features of Plattform"
+    subtitle1="Built with modern technology and user experience in mind. Fast, efficient, and reliable."
+    features={technicalFeatures}
+    class={classArr(classesBg50.emerald, p.class)}
+  />
+</BaseLayout>

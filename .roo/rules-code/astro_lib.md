@@ -1,7 +1,7 @@
 # Available Astro UI Components and utility functions
 
 These components from @adaptive-sm/astro-ui can be imported using the `~/` alias.
-Generated at: 2025-10-01 09:18
+Generated at: 2025-10-19 10:11
 
 - ~/dev/TailwindIndicator.astro
 - ~/select/Select.astro
@@ -19,10 +19,11 @@ Generated at: 2025-10-01 09:18
 - ~/text/classesTextGray.ts
 - ~/text/classesTextHeader.ts
 - ~/img/Img.astro
-- ~/img/classesImgZoomInOnHover.ts
+- ~/img/classesImgZoomInOnHover5.ts
+- ~/img/classesImgZoomInOnHover10.ts
 - ~/img/TypedImg.astro
-- ~/img/classInvertBlack.ts
 - ~/img/ImageType.ts
+- ~/img/classInvertBlack.ts
 - ~/layouts/MinimalLayout.astro
 - ~/layouts/parts/astroElementId.ts
 - ~/layouts/parts/ThemeToggle.astro
@@ -33,13 +34,16 @@ Generated at: 2025-10-01 09:18
 - ~/popover/Popover1.astro
 - ~/popover/setupPopoverListeners.ts
 - ~/generate_image_list/generateImageList.ts
+- ~/grid/GridFeatureType.ts
 - ~/grid/classesGridCols.ts
+- ~/grid/FeatureGridSection.astro
 - ~/modal/modal.ts
 - ~/modal/ModalButton.astro
 - ~/modal/Modal.astro
-- ~/page/classesBg.ts
 - ~/page/PageCentered.astro
+- ~/page/classesBg100.ts
 - ~/page/classesPageCentered.ts
+- ~/page/classesBg50.ts
 - ~/page/PageCenteredCard.astro
 - ~/card/classesCardWrapper.ts
 - ~/card/CardWrapper.astro
