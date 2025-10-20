@@ -1,13 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import Modal from "~/modal/Modal.astro"
 import { classArr } from "~/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo Modal">
-  <BgColorSelect/>
-
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Basic Modal</h3>
@@ -35,9 +32,9 @@ import { classArr } from "~/utils/ui/classArr"
         Open Custom Modal
       </button>
 
-      <Modal 
-        triggerId="custom-modal-trigger" 
-        title="Custom Styled Modal" 
+      <Modal
+        triggerId="custom-modal-trigger"
+        title="Custom Styled Modal"
         classContentArea="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg"
       >
         <div class="space-y-3">
@@ -57,15 +54,15 @@ import { classArr } from "~/utils/ui/classArr"
         Open Large Modal
       </button>
 
-      <Modal 
-        triggerId="large-modal-trigger" 
+      <Modal
+        triggerId="large-modal-trigger"
         title="Large Modal with More Content"
         class="max-w-4xl"
         classContentArea="p-8"
       >
         <div class="space-y-6">
           <p>This is a larger modal that can accommodate more complex content layouts.</p>
-          
+
           <div class="grid grid-cols-2 gap-4">
             <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
               <h4 class="font-semibold mb-2">Left Panel</h4>
@@ -91,9 +88,9 @@ import { classArr } from "~/utils/ui/classArr"
         Open Custom Title Modal
       </button>
 
-      <Modal 
-        triggerId="title-modal-trigger" 
-        title="Custom Title Styling" 
+      <Modal
+        triggerId="title-modal-trigger"
+        title="Custom Title Styling"
         titleClass="text-2xl font-bold text-red-600 dark:text-red-400 underline"
       >
         <p>This modal features a custom styled title with larger font, bold weight, color, and underline.</p>

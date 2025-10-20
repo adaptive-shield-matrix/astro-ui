@@ -1,15 +1,12 @@
 ---
 import { mdiInformationOutline, mdiAlertOutline } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import { buttonVariant } from "~/button/buttonCva"
 import ModalButton from "~/modal/ModalButton.astro"
 import { classArr } from "~/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo ModalButton">
-  <BgColorSelect/>
-
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Simple ModalButton</h3>
@@ -63,7 +60,7 @@ import { classArr } from "~/utils/ui/classArr"
       >
         <div class="space-y-4">
           <p>This is a parent modal containing a nested child modal.</p>
-          
+
           <ModalButton
             title="Nested Child Modal"
             button={{

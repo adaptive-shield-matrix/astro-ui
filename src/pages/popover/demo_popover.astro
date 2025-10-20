@@ -1,15 +1,12 @@
 ---
 import { mdiInformationOutline, mdiAlertOutline, mdiCodeTags } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import Popover1 from "~/popover/Popover1.astro"
 import { buttonVariant } from "~/button/buttonCva"
 import { classArr } from "~/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo Popover1">
-  <BgColorSelect/>
-
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Popover</h3>
@@ -33,7 +30,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Ghost Variant Popover</h3>
-      <Popover1 
+      <Popover1
         id="ghost-popover"
         icon={mdiAlertOutline}
         title="Ghost Variant"
@@ -48,7 +45,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Link Variant Popover</h3>
-      <Popover1 
+      <Popover1
         id="link-popover"
         icon={mdiCodeTags}
         title="Link Style Popover"
@@ -65,7 +62,7 @@ import { classArr } from "~/utils/ui/classArr"
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Multiple Popovers</h3>
       <div class="space-y-3 flex flex-col items-start">
-        <Popover1 
+        <Popover1
           id="multi-1"
           icon={mdiInformationOutline}
           title="Popover 1"
@@ -119,7 +116,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Long Title Popover</h3>
-      <Popover1 
+      <Popover1
         id="long-title-popover"
         icon={mdiCodeTags}
         title="This is a very long popover title that demonstrates wrapping behavior in the summary area"

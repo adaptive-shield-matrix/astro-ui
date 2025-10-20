@@ -7,19 +7,17 @@ import { classArr } from "~/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo Details">
-  <BgColorSelect/>
+  <BgColorSelect />
 
   <div class={classArr("mt-4 space-y-4")}>
-    <Details 
-      icon={mdiInformationOutline}
-      title="Example Title"
-      subtitle="Example subtitle"
-    >
-      <p>This is the content inside the details element.</p>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
+    <Details icon={mdiInformationOutline} title="Example Title" subtitle="Example subtitle">
+      <div class="p-4 sm:p-6">
+        <p>This is the content inside the details element.</p>
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+        </ul>
+      </div>
     </Details>
 
     <Details title="No Icon">
