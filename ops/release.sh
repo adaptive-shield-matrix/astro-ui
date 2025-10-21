@@ -25,19 +25,20 @@ echo "----------------------------------------"
 echo "$CHANGELOG_BODY"
 echo "----------------------------------------"
 
-# --- Step 2: Prompt for new version ---
-read -p "🔖 Enter new version (previous: $CURRENT_VERSION): " NEW_VERSION
-
-if [[ -z "$NEW_VERSION" ]]; then
-  echo "❌ Version is required. Aborting."
-  exit 1
+# --- Step 2: Generate new version automatically ---
+if echo "$CHANGELOG_BODY" | grep -q "### 🚀 Features"; then
+  echo "🚀 Features detected: bumping minor version"
+  # Bump minor version
+  IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+  NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
+else
+  echo "🐛 Patch changes: bumping patch version"
+  # Bump patch version
+  IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+  NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
 fi
 
-# Validate semver-ish format (basic check)
-if ! [[ "$NEW_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
-  echo "❌ Invalid version format. Must be like 1.2.3 or 1.2.3-beta.1"
-  exit 1
-fi
+echo "🔖 New version: $NEW_VERSION (previous: $CURRENT_VERSION)"
 
 # --- Step 3: Generate changelog file ---
 DATE=$(date +%Y-%m-%d)
