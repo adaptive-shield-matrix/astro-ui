@@ -1,13 +1,13 @@
 ---
 import { classesFieldset } from "./classesFieldset"
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   title: string
   titleClass?: string
   subtitles?: string | string[]
   subtitleClass?: string
-  class?: string
 }
 const props = Astro.props
 ---

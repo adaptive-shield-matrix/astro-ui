@@ -2,8 +2,9 @@
 import { classMerge } from "~/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
 import type { MobileTableClassses } from "~/table/MobileTableClassses"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   row: string
   columns: TableColumnDef[]
   mobileClasses?: MobileTableClassses

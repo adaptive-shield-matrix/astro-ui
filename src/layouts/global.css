@@ -50,7 +50,7 @@
   }
 }
 
-/* remove number input native spinner */
+/* Remove number input native spinner */
 /* https://stackoverflow.com/questions/71296535/how-to-remove-arrow-on-input-type-number-with-tailwind-css */
 @layer base {
   input[type="number"]::-webkit-outer-spin-button,

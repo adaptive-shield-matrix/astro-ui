@@ -3,11 +3,11 @@ import { classesTextLink } from "~/link/classesTextLink"
 import { classArr } from "~/utils/ui/classArr"
 import { type DemoListType } from "./DemoListType"
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   demos: DemoListType
   urlPrefix?: string
-  class?: string
 }
 const p = Astro.props
 

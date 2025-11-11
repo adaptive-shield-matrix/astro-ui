@@ -3,8 +3,9 @@ import { buttonCva2, buttonVariant, type ButtonSize, type ButtonVariant } from "
 import { buttonIconCva } from "~/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~/button/classesButtonClickAnimation"
 import Icon1 from "~/icon/Icon1.astro"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   title?: string
   href: string
   variant?: ButtonVariant
@@ -13,7 +14,6 @@ interface Props {
   iconRight?: string
   iconClass?: string
   newTab?: boolean
-  class?: string
   id?: string
   clickAnimation?: boolean
 }

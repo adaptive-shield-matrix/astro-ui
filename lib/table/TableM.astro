@@ -3,13 +3,13 @@ import { classMerge } from "~/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
 import TableMEntry from "./TableMEntry.astro"
 import type { MobileTableClassses } from "~/table/MobileTableClassses"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   rows: string[]
   noEntriesText?: string
   columns: TableColumnDef[]
   mobileClasses?: MobileTableClassses
-  class?: string
 }
 const props = Astro.props
 const rows = props.rows

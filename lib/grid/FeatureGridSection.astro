@@ -4,14 +4,14 @@ import { classArr } from "~/utils/ui/classArr"
 import { mdiLink } from "@mdi/js"
 import type { GridFeatureType } from "./GridFeatureType"
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   id: string
   title: string
   subtitle1: string
   subtitle2?: string
   features: GridFeatureType[]
-  class?: string
   gridClass?: string
   cardClass?: string
 }
@@ -38,7 +38,7 @@ const p = Astro.props
 
   <div class={classMerge("grid md:grid-cols-2 lg:grid-cols-3 gap-8", "max-w-7xl mx-auto", p.gridClass)}>
     {
-      p.features.map((feature, index) => (
+      p.features.map((feature) => (
         <div
           class={classMerge(
             "bg-white dark:bg-gray-800", // bg

@@ -1,7 +1,8 @@
 ---
-interface Props {
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+
+interface Props extends MayHaveClass {
   lines: string[] | Readonly<string[]>
-  class?: string
 }
 const props = Astro.props
 const lines = props.lines

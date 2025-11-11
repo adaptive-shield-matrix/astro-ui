@@ -4,8 +4,9 @@ import { buttonIconCva } from "~/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~/button/classesButtonClickAnimation"
 import Icon1 from "~/icon/Icon1.astro"
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   id?: string
   textId?: string
   contentId?: string
@@ -17,7 +18,6 @@ interface Props {
   icon?: string
   iconRight?: string
   iconClass?: string
-  class?: string
   onclick?: any
 }
 const props = Astro.props

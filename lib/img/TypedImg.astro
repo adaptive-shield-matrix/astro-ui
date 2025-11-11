@@ -3,12 +3,12 @@ import { classArr } from "~/utils/ui/classArr"
 import type { ImageType } from "./ImageType"
 import Img from "./Img.astro"
 import { classInvertBlack } from "~/img/classInvertBlack"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   img: ImageType
   zoomIn?: boolean
   invertColorsInDarkMode?: boolean
-  class?: string
 }
 const p = Astro.props
 const isSvg = p.img.path.endsWith(".svg")

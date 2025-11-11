@@ -1,10 +1,10 @@
 ---
 import LinkText from "~/link/LinkText.astro"
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   text: string
-  class?: string
 }
 const props = Astro.props
 const text = props.text

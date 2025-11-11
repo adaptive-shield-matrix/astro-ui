@@ -2,9 +2,9 @@
 import Icon1 from "~/icon/Icon1.astro"
 import { buttonVariant, type ButtonVariant, buttonCva2 } from "~/button/buttonCva"
 import { classArr } from "~/utils/ui/classArr"
-import { setupPopoverListeners } from "./setupPopoverListeners"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   id: string
   icon: string
   title: string

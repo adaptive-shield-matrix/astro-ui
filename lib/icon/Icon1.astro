@@ -1,9 +1,9 @@
 ---
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   path: string
-  class?: string
   title?: string
   ariaHidden?: boolean
 }

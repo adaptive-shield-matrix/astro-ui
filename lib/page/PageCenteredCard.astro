@@ -2,8 +2,9 @@
 import { classMerge } from "~/utils/ui/classMerge"
 import PageCentered from "./PageCentered.astro"
 import { classesCardWrapperPage } from "~/card/classesCardWrapper"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   class?: string
   classInner?: string
 }

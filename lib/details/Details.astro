@@ -3,12 +3,12 @@ import Icon1 from "~/icon/Icon1.astro"
 import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
 import { mdiChevronDown } from "@mdi/js"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   icon?: string
   title?: string
   subtitle?: string
-  class?: string
   summaryClass?: string
 }
 const p = Astro.props

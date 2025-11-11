@@ -3,10 +3,10 @@ import { mdiCircle } from "@mdi/js"
 import { classMerge } from "~/utils/ui/classMerge"
 import TextOrLink from "./TextOrLink.astro"
 import Icon1 from "~/icon/Icon1.astro"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   points: string[] | Readonly<string[]>
-  class?: string
   classText?: string
   classBullet?: string
 }

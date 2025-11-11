@@ -1,11 +1,11 @@
 ---
 import { classMerge } from "~/utils/ui/classMerge"
+import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props {
+interface Props extends MayHaveClass {
   title?: string
   href: string
   newTab?: boolean
-  class?: string
 }
 const props = Astro.props
 const title = props.title
@@ -19,5 +19,5 @@ const newTab = props.newTab
   target={newTab ? "_blank" : undefined}
   title={title}
 >
-  <slot/>
+  <slot />
 </a>
