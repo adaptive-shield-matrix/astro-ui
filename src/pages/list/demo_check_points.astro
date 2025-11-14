@@ -2,8 +2,8 @@
 import { mdiCheck } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import CheckPoints from "~/list/CheckPoints.astro"
-import { classArr } from "~/utils/ui/classArr"
+import CheckPoints from "~ui/list/CheckPoints.astro"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo CheckPoints">
@@ -12,7 +12,7 @@ import { classArr } from "~/utils/ui/classArr"
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Check Points List</h3>
-      <CheckPoints 
+      <CheckPoints
         points={[
           "First completed task with green check icon",
           "Second completed task",
@@ -23,7 +23,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Text Styling</h3>
-      <CheckPoints 
+      <CheckPoints
         points={[
           "Styled completed items",
           "Another styled completed task"
@@ -34,7 +34,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Check Icon Styling</h3>
-      <CheckPoints 
+      <CheckPoints
         points={[
           "Custom sized check icon",
           "Custom colored check icon"
@@ -45,7 +45,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Comprehensive List Example</h3>
-      <CheckPoints 
+      <CheckPoints
         points={[
           "Project planning phase completed",
           "Design mockups approved by stakeholders",
@@ -60,7 +60,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Mixed Content with Potential Links</h3>
-      <CheckPoints 
+      <CheckPoints
         points={[
           "Task completed with link reference: https://docs.example.com",
           "Standard completed task without special formatting",

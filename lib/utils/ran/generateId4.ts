@@ -1,4 +1,4 @@
-import { generateReadableId } from "~/utils/ran/generateReadableId"
+import { generateReadableId } from "~ui/utils/ran/generateReadableId"
 
 const gen = generateReadableId(4)
 

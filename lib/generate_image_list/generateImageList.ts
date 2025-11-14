@@ -1,8 +1,8 @@
 import imageSize from "image-size"
 import { promises as fs } from "node:fs"
 import path from "node:path"
-import type { ImageType } from "~/img/ImageType"
-import { runCmdAsync } from "~/utils/bun/runCmdAsync"
+import type { ImageType } from "~ui/img/ImageType"
+import { runCmdAsync } from "~ui/utils/bun/runCmdAsync"
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".tiff", ".svg"])
 
@@ -42,7 +42,7 @@ export async function generateImageList(
 
 async function writeGeneratedImagesFile(imageMap: Record<string, ImageType>, outputPath: string): Promise<void> {
   const outputContent = `
-  import type { ImageType } from "~/img/ImageType"
+  import type { ImageType } from "~ui/img/ImageType"
   // Auto-generated, manual changes will be lost
 export const imageList = ${JSON.stringify(imageMap, null, 2)} as const satisfies Record<string, ImageType>;
 `

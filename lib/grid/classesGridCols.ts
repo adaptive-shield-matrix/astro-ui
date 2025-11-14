@@ -1,4 +1,4 @@
-import { classArr } from "~/utils/ui/classArr"
+import { classArr } from "~ui/utils/ui/classArr"
 
 export const classesGridCols2ContentFr = "grid grid-cols-[max-content_1fr]"
 export const classesGridCols3MaxMinFr = "grid grid-cols-[max-content_min-content_1fr]"

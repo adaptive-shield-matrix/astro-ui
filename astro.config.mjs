@@ -23,7 +23,7 @@ export default defineConfig({
     resolve: {
       alias: {
         "@": new URL("src", import.meta.url).pathname,
-        "~": new URL("lib", import.meta.url).pathname,
+        "~ui": new URL("lib", import.meta.url).pathname,
       },
     },
     plugins: [tailwindcss()],

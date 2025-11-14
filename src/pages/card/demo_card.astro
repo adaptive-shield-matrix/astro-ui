@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import CardWrapper from "~/card/CardWrapper.astro"
-import { classArr } from "~/utils/ui/classArr"
+import CardWrapper from "~ui/card/CardWrapper.astro"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo Card">
   <BgColorSelect/>
 
-  <div class={classArr("mt-4")}> 
+  <div class={classArr("mt-4")}>
     <CardWrapper id="demo-card" class="p-4">
       This is card content.
     </CardWrapper>

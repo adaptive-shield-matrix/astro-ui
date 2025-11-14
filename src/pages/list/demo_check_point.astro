@@ -2,8 +2,8 @@
 import { mdiCheck } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import CheckPoint from "~/list/CheckPoint.astro"
-import { classArr } from "~/utils/ui/classArr"
+import CheckPoint from "~ui/list/CheckPoint.astro"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo CheckPoint">
@@ -22,11 +22,11 @@ import { classArr } from "~/utils/ui/classArr"
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Text Class</h3>
       <div class="space-y-2">
-        <CheckPoint 
+        <CheckPoint
           point="Custom text styling applied"
           classText="text-blue-600 font-semibold"
         />
-        <CheckPoint 
+        <CheckPoint
           point="Another custom styled point"
           classText="text-red-500 italic"
         />
@@ -36,11 +36,11 @@ import { classArr } from "~/utils/ui/classArr"
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Bullet (Check Icon) Class</h3>
       <div class="space-y-2">
-        <CheckPoint 
+        <CheckPoint
           point="Larger check icon"
           classBullet="size-6 fill-green-800 mr-2"
         />
-        <CheckPoint 
+        <CheckPoint
           point="Smaller check icon with different color"
           classBullet="size-4 fill-blue-500 mr-3"
         />

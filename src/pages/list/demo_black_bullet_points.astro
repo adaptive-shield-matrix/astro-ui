@@ -2,8 +2,8 @@
 import { mdiCircle } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import BlackBulletPoints from "~/list/BlackBulletPoints.astro"
-import { classArr } from "~/utils/ui/classArr"
+import BlackBulletPoints from "~ui/list/BlackBulletPoints.astro"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo BlackBulletPoints">
@@ -12,7 +12,7 @@ import { classArr } from "~/utils/ui/classArr"
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Black Bullet Points</h3>
-      <BlackBulletPoints 
+      <BlackBulletPoints
         points={[
           "First bullet point with default styling",
           "Second bullet point",
@@ -23,7 +23,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Bullet Class</h3>
-      <BlackBulletPoints 
+      <BlackBulletPoints
         points={[
           "Custom bullet color and size",
           "Another custom bullet point"
@@ -34,7 +34,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Text Class</h3>
-      <BlackBulletPoints 
+      <BlackBulletPoints
         points={[
           "Text with custom styling",
           "Another point with different text styling"
@@ -45,7 +45,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Longer List with Wrapping</h3>
-      <BlackBulletPoints 
+      <BlackBulletPoints
         points={[
           "This is a much longer bullet point that will demonstrate how the component handles text wrapping and maintains proper alignment with the bullet points",
           "Another long item that spans multiple lines when the container width is constrained",
@@ -58,7 +58,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Mixed Content (with potential links)</h3>
-      <BlackBulletPoints 
+      <BlackBulletPoints
         points={[
           "Item that could contain a link: https://example.com",
           "Regular text item without any special formatting",

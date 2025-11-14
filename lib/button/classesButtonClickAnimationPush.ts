@@ -1,4 +1,4 @@
-import { classArr } from "~/utils/ui/classArr"
+import { classArr } from "~ui/utils/ui/classArr"
 
 /**
  * disable hover because popovers move with it

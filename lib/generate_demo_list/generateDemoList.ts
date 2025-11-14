@@ -1,6 +1,6 @@
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
-import { runCmdAsync } from "~/utils/bun/runCmdAsync"
+import { runCmdAsync } from "~ui/utils/bun/runCmdAsync"
 import type { DemoListType } from "./DemoListType"
 
 export async function generateDemoList(demosPath: string, outputPath: string) {
@@ -20,7 +20,7 @@ export async function generateDemoList(demosPath: string, outputPath: string) {
   }
   sortDemoPageList(demoPageList)
 
-  const outputContent = `import type { DemoListType } from "~/generate_demo_list/DemoListType"
+  const outputContent = `import type { DemoListType } from "~ui/generate_demo_list/DemoListType"
 
 export const demoList = ${JSON.stringify(demoPageList, null, 2)} satisfies DemoListType;
 `

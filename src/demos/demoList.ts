@@ -1,4 +1,4 @@
-import type { DemoListType } from "~/generate_demo_list/DemoListType"
+import type { DemoListType } from "~ui/generate_demo_list/DemoListType"
 
 export const demoList = {
   select: ["demo_select"],

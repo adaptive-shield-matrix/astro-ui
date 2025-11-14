@@ -38,7 +38,7 @@ In your `tsconfig.json`, set up the `~` alias to point to the library:
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "~/*": ["node_modules/@adaptive-sm/astro-ui/lib/*"]
+      "~ui/*": ["node_modules/@adaptive-sm/astro-ui/lib/*"]
     }
   }
 }
@@ -81,7 +81,7 @@ Import and use components directly in your Astro files. For example:
 
 ```astro
 ---
-import { Button } from "~/button/Button.astro"
+import { Button } from "~ui/button/Button.astro"
 ---
 
 <Button variant="primary">Click me</Button>
@@ -91,7 +91,7 @@ import { Button } from "~/button/Button.astro"
 
 ```astro
 ---
-import { CardWrapper } from "~/card/CardWrapper.astro"
+import { CardWrapper } from "~ui/card/CardWrapper.astro"
 ---
 
 <CardWrapper> Card content here. </CardWrapper>
@@ -101,7 +101,7 @@ import { CardWrapper } from "~/card/CardWrapper.astro"
 
 ```astro
 ---
-import { Img } from "~/img/Img.astro"
+import { Img } from "~ui/img/Img.astro"
 ---
 
 <Img src="/path/to/image.jpg" alt="Description" />

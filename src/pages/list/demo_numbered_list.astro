@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import NumberedList from "~/list/NumberedList.astro"
-import { classArr } from "~/utils/ui/classArr"
+import NumberedList from "~ui/list/NumberedList.astro"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo NumberedList">
@@ -11,7 +11,7 @@ import { classArr } from "~/utils/ui/classArr"
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Numbered List</h3>
-      <NumberedList 
+      <NumberedList
         points={[
           "First step in the process",
           "Second step with some additional description",
@@ -22,7 +22,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Text Styling</h3>
-      <NumberedList 
+      <NumberedList
         points={[
           "Styled numbered list item",
           "Another styled item with different formatting"
@@ -33,7 +33,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Comprehensive Numbered List</h3>
-      <NumberedList 
+      <NumberedList
         points={[
           "Project initialization and setup",
           "Requirements gathering and analysis",
@@ -48,7 +48,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Short List Example</h3>
-      <NumberedList 
+      <NumberedList
         points={[
           "Item one",
           "Item two",
@@ -59,7 +59,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Long Wrapping Items</h3>
-      <NumberedList 
+      <NumberedList
         points={[
           "This is a very long numbered list item that will wrap to multiple lines when the container width is constrained, showing proper indentation and alignment",
           "Another long item that spans multiple lines for demonstration purposes",

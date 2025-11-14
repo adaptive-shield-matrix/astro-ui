@@ -2,9 +2,9 @@
 import { mdiArrowRight, mdiInformationOutline } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import LinkButton from "~/link/LinkButton.astro"
-import { buttonVariant } from "~/button/buttonCva"
-import { classArr } from "~/utils/ui/classArr"
+import LinkButton from "~ui/link/LinkButton.astro"
+import { buttonVariant } from "~ui/button/buttonCva"
+import { classArr } from "~ui/utils/ui/classArr"
 ---
 
 <BaseLayout title="Demo LinkButton">
@@ -23,7 +23,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Link with Icon Left</h3>
-      <LinkButton 
+      <LinkButton
         href="/"
         variant={buttonVariant.outline}
         icon={mdiInformationOutline}
@@ -34,7 +34,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Link with Icon Right</h3>
-      <LinkButton 
+      <LinkButton
         href="/"
         variant={buttonVariant.ghost}
         iconRight={mdiArrowRight}
@@ -45,7 +45,7 @@ import { classArr } from "~/utils/ui/classArr"
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">New Tab Link</h3>
-      <LinkButton 
+      <LinkButton
         href="https://example.com"
         variant={buttonVariant.link}
         newTab={true}
