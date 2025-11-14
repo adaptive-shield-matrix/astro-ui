@@ -19,6 +19,7 @@
     "reset": "rm -rf ./node_modules"
   },
   "devDependencies": {
+    "@adaptive-sm/utils": "^0.4.2",
     "@astrojs/check": "^0.9.5",
     "@biomejs/biome": "^2.3.5",
     "@mdi/js": "^7.4.47",
