@@ -1,6 +1,5 @@
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-
-export interface MobileTableClassses extends MayHaveClass {
+export type MobileTableClassses = {
+  class?: string
   entry?: string
   first?: string
   header?: string

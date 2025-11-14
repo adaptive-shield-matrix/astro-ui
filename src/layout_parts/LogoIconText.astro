@@ -2,9 +2,9 @@
 import Img from "~/img/Img.astro"
 import LinkButton from "~/link/LinkButton.astro"
 import { classMerge } from "~/utils/ui/classMerge"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
+  class?: string
   imageClass?: string
   textClass?: string
 }

@@ -5,9 +5,8 @@ import Modal from "./Modal.astro"
 import { classesTextGray } from "~/text/classesTextGray"
 import { classArr } from "~/utils/ui/classArr"
 import Button from "~/button/Button.astro"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   button: {
     title?: string
     text?: string
@@ -20,6 +19,7 @@ interface Props extends MayHaveClass {
   }
   id?: string
   title?: string
+  class?: string
   classContentArea?: string
 }
 const props = Astro.props

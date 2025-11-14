@@ -7,14 +7,14 @@ import { type TailwindBreakpoint, tailwindBreakpoint } from "~/utils/ui/tailwind
 import type { TableColumnDef } from "./TableColumnDef"
 import TableD from "./TableD.astro"
 import TableM from "./TableM.astro"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   rows: string[]
   columns: TableColumnDef[]
   mobileClasses?: MobileTableClassses
   desktopClasses?: DesktopTableClassses
   breakpoint?: TailwindBreakpoint
+  class?: string
   noEntriesText?: string
 }
 const props = Astro.props

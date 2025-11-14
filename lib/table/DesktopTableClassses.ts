@@ -1,6 +1,5 @@
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
-
-export interface DesktopTableClassses extends MayHaveClass {
+export type DesktopTableClassses = {
+  class?: string
   row?: string
   header?: string
   data?: string

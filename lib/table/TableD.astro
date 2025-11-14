@@ -4,13 +4,13 @@ import { sharedTableRowClasses } from "./sharedTableRowClasses"
 // import { t4table } from "~/ui_tables/table3/t4table"
 import { classMerge } from "~/utils/ui/classMerge"
 import { type TableColumnDef } from "./TableColumnDef"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   rows: string[]
   noEntriesText?: string
   columns: TableColumnDef[]
   desktopClasses?: DesktopTableClassses
+  class?: string
 }
 const props = Astro.props
 const rows = props.rows

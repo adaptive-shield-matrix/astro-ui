@@ -8,12 +8,12 @@ import LogoIconText from "./LogoIconText.astro"
 import LinkButton from "~/link/LinkButton.astro"
 import { iconGithub } from "@/layout_parts/iconGithub"
 import { iconNpm } from "@/layout_parts/iconNpm"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   logoClass?: string
   logoImgClass?: string
   logoTextClass?: string
+  class?: string
   innerClass?: string
   themeToggleClass?: string
 }

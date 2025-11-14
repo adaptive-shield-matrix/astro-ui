@@ -1,10 +1,10 @@
 ---
 import { classMerge } from "~/utils/ui/classMerge"
 import { classesPageCentered } from "./classesPageCentered"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
-  id?: string
+interface Props {
+  id?:string
+  class?: string
 }
 const p = Astro.props
 ---

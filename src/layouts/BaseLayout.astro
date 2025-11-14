@@ -2,12 +2,12 @@
 import "./global.css"
 import Navbar from "@/layout_parts/Navbar.astro"
 import MinimalLayout from "~/layouts/MinimalLayout.astro"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-export interface Props extends MayHaveClass {
+export interface Props {
   title: string
   description?: string
   meta?: Record<string, string>
+  class?: string
   showNavbar?: boolean
   showFooter?: boolean
 }

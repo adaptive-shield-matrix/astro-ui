@@ -2,12 +2,12 @@
 import { classArr } from "../utils/ui/classArr"
 import { objectKeys } from "~/utils/obj/objectKeys"
 import TailwindIndicator from "~/dev/TailwindIndicator.astro"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-export interface Props extends MayHaveClass {
+export interface Props {
   title: string
   description?: string
   meta?: Record<string, string>
+  class?: string
 }
 
 const props = Astro.props

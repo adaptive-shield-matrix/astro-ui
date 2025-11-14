@@ -5,7 +5,6 @@ import Button from "~/button/Button.astro"
 import Icon1 from "~/icon/Icon1.astro"
 import { classArr } from "~/utils/ui/classArr"
 import { astroElementId } from "~/layouts/parts/astroElementId"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
 /*
  * have to use "is:inline" script to run/apply theme before page render -> white flash on page reload otherwise
@@ -14,7 +13,8 @@ import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
  * https://docs.astro.build/en/tutorials/add-view-transitions/#update-scripts
  * https://github.com/Toxocious/toxocious.github.io/blob/main/src/components/theme_toggle/theme_toggle.astro
  */
-interface Props extends MayHaveClass {
+interface Props {
+  class?: string
   iconClass?: string
   iconLightClass?: string
   iconDarkClass?: string

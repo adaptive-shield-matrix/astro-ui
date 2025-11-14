@@ -2,10 +2,10 @@
 import { classesCardWrapperP4 } from "~/card/classesCardWrapper"
 import { classArr } from "~/utils/ui/classArr"
 import { classMerge } from "~/utils/ui/classMerge"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   id?:string
+  class?: string
 }
 const p = Astro.props
 ---

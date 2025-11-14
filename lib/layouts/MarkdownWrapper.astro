@@ -2,10 +2,12 @@
 import PageCenteredCard from "~/page/PageCenteredCard.astro"
 import { classMerge } from "~/utils/ui/classMerge"
 import { classArr } from "~/utils/ui/classArr"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
+
 import "./parts/markdown.css"
 
-interface Props extends MayHaveClass {}
+interface Props {
+  class?: string
+}
 
 const p = Astro.props
 ---

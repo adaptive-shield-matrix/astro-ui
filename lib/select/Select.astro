@@ -1,18 +1,18 @@
 ---
 import { classArr } from "~/utils/ui/classArr"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
 type ValueDisplayFn = (value: string) => string
 
-interface Props extends MayHaveClass {
+type NativeSingleSelectProps = {
   initialValue: string
   options: string[]
   optionClass?: string
   valueDisplay?: ValueDisplayFn
   id?: string
+  class?: string
 }
 
-const props = Astro.props
+const props = Astro.props as NativeSingleSelectProps
 
 const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
   if (!valueDisplay) return itemValue

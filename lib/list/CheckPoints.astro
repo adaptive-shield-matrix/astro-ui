@@ -3,10 +3,10 @@ import { mdiCheck } from "@mdi/js"
 import { classMerge } from "~/utils/ui/classMerge"
 import Icon1 from "~/icon/Icon1.astro"
 import TextOrLink from "./TextOrLink.astro"
-import type { MayHaveClass } from "~/utils/ui/MayHaveClass"
 
-interface Props extends MayHaveClass {
+interface Props {
   points: string[] | Readonly<string[]>
+  class?: string
   classText?: string
   classBullet?: string
 }
@@ -16,10 +16,7 @@ const props = Astro.props
 {
   props.points.map((p) => (
     <div class={classMerge("flex flex-row flex-nowrap", props.class)}>
-      <Icon1
-        path={mdiCheck}
-        class={classMerge("fill-green-600 dark:fill-green-600 mr-1 flex-none", props.classBullet)}
-      />
+      <Icon1 path={mdiCheck} class={classMerge("fill-green-600 dark:fill-green-600 mr-1 flex-none", props.classBullet)} />
       <TextOrLink text={p} class={props.classText} />
     </div>
   ))
