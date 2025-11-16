@@ -1,0 +1,22 @@
+---
+import { classMerge } from "~ui/utils/ui/classMerge"
+
+interface Props {
+  title: string
+  subtitle?: string
+  titleClass?: string
+  subtitleClass?: string
+  innerClass?: string
+  class?: string
+}
+
+const props = Astro.props
+---
+
+<header class={props.class}>
+  <div class={classMerge("flex flex-wrap justify-between items-center gap-4", props.innerClass)}>
+    <h1 class={classMerge("text-2xl font-semibold", props.titleClass)}>{props.title}</h1>
+    <slot />
+  </div>
+  {props.subtitle && <p class={classMerge("text-lg mb-4", props.subtitleClass)}>{props.subtitle}</p>}
+</header>
