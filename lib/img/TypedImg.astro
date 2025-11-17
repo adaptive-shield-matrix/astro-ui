@@ -9,6 +9,8 @@ interface Props {
   zoomIn?: boolean
   invertColorsInDarkMode?: boolean
   class?: string
+  src?: string
+  srcPrefix?: string
 }
 const p = Astro.props
 const isSvg = p.img.path.endsWith(".svg")
@@ -21,7 +23,7 @@ function imageUrl(p: string) {
 ---
 
 <Img
-  src={imageUrl(p.img.path)}
+  src={(p.src ?? p.srcPrefix) ? p.srcPrefix + p.img.path : imageUrl(p.img.path)}
   alt={p.img.alt}
   class={classArr(invert ? classInvertBlack : "", p.class)}
   width={isSvg ? null : p.img.width}
