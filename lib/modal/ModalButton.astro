@@ -1,5 +1,4 @@
 ---
-import { generateRandomId } from "~ui/utils/ran/generateRandomId"
 import type { ButtonSize, ButtonVariant } from "~ui/button/buttonCva"
 import Modal from "./Modal.astro"
 import { classesTextGray } from "~ui/text/classesTextGray"
@@ -23,6 +22,20 @@ interface Props {
   classContentArea?: string
 }
 const props = Astro.props
+
+/**
+ * Generates a random alphanumeric string ID
+ *
+ * Uses Math.random() converted to base-36 to create a string of letters and numbers.
+ * The substring(2, 11) removes the "0." prefix and takes 9 characters for a good balance
+ * of uniqueness and brevity (approximately 10^36 possible combinations).
+ *
+ * @returns {string} A 9-character random alphanumeric string
+ */
+function generateRandomId(): string {
+  return Math.random().toString(36).substring(2, 11)
+}
+
 const id = props.id ?? `modal-id-${generateRandomId()}`
 const button = props.button
 const title = props.title ?? "Dialog Title"

@@ -1,6 +1,6 @@
 import { readdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
-import { runCmdAsync } from "~ui/utils/bun/runCmdAsync"
+import { runCmdAsync } from "~utils/bun/runCmdAsync"
 import type { DemoListType } from "./DemoListType"
 
 export async function generateDemoList(demosPath: string, outputPath: string) {

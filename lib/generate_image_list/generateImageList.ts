@@ -2,7 +2,7 @@ import imageSize from "image-size"
 import { promises as fs } from "node:fs"
 import path from "node:path"
 import type { ImageType } from "~ui/img/ImageType"
-import { runCmdAsync } from "~ui/utils/bun/runCmdAsync"
+import { runCmdAsync } from "~utils/bun/runCmdAsync"
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".tiff", ".svg"])
 
