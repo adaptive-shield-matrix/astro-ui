@@ -1,5 +1,5 @@
 ---
-import { generateId5 } from "~ui/utils/ran/generateId5"
+import { generateRandomId } from "~ui/utils/ran/generateRandomId"
 import type { ButtonSize, ButtonVariant } from "~ui/button/buttonCva"
 import Modal from "./Modal.astro"
 import { classesTextGray } from "~ui/text/classesTextGray"
@@ -23,7 +23,7 @@ interface Props {
   classContentArea?: string
 }
 const props = Astro.props
-const id = props.id ?? `modal-id-${generateId5()}`
+const id = props.id ?? `modal-id-${generateRandomId()}`
 const button = props.button
 const title = props.title ?? "Dialog Title"
 const classContentArea = props.classContentArea

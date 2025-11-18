@@ -1,6 +1,6 @@
 ---
 import TailwindIndicator from "~ui/dev/TailwindIndicator.astro"
-import { objectKeys } from "~ui/utils/obj/objectKeys"
+
 import { classMerge } from "~ui/utils/ui/classMerge"
 import { classArr } from "../utils/ui/classArr"
 
@@ -42,8 +42,8 @@ const p = Astro.props
     {
       p.meta && (
         <Fragment>
-          {objectKeys(p.meta).map((k) => (
-            <meta property={k} content={p.meta![k]} />
+          {Object.entries(p.meta).map(([k, v]) => (
+            <meta property={k} content={v} />
           ))}
         </Fragment>
       )
