@@ -21,7 +21,7 @@ interface Props {
   class?: string
   classContentArea?: string
 }
-const props = Astro.props
+const p = Astro.props
 
 /**
  * Generates a random alphanumeric string ID
@@ -36,10 +36,10 @@ function generateRandomId(): string {
   return Math.random().toString(36).substring(2, 11)
 }
 
-const id = props.id ?? `modal-id-${generateRandomId()}`
-const button = props.button
-const title = props.title ?? "Dialog Title"
-const classContentArea = props.classContentArea
+const id = p.id ?? `modal-id-${generateRandomId()}`
+const button = p.button
+const title = p.title ?? "Dialog Title"
+const classContentArea = p.classContentArea
 ---
 
 <Button id={id} {...button} />
@@ -47,7 +47,7 @@ const classContentArea = props.classContentArea
   triggerId={id}
   title={title}
   titleClass={classArr(classesTextGray, "text-xl", "mb-2")}
-  class={props.class}
+  class={p.class}
   classContentArea={classContentArea}
 >
   <slot />
