@@ -1,0 +1,16 @@
+---
+import { classArr } from "~ui/utils/ui/classArr"
+
+import "./markdown.css"
+
+interface Props {
+  id?: string
+  class?: string
+}
+
+const p = Astro.props
+---
+
+<div class={classArr("markdown-body", p.class)}>
+  <slot />
+</div>

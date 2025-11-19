@@ -1,0 +1,19 @@
+---
+import { classMerge } from "~ui/utils/ui/classMerge"
+import { classesCardWrapperPage } from "~ui/card/classesCardWrapper"
+import MarkdownDiv from "~ui/md/MarkdownDiv.astro"
+import PageCentered from "~ui/page/PageCentered.astro"
+
+interface Props {
+  class?: string
+  innerClass?: string
+}
+
+const p = Astro.props
+---
+
+<PageCentered class={classMerge("max-w-5xl my-12", p.class)}>
+  <MarkdownDiv class={classMerge(classesCardWrapperPage, p.innerClass)}>
+    <slot />
+  </MarkdownDiv>
+</PageCentered>

@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import MarkdownWrapper from "~ui/layouts/MarkdownWrapper.astro"
+import MarkdownPageWrapper from "~ui/layouts/MarkdownPageWrapper.astro"
 import { classArr } from "~ui/utils/ui/classArr"
 ---
 
-<BaseLayout title="Demo MarkdownWrapper">
+<BaseLayout title="Demo MarkdownPageWrapper">
   <BgColorSelect/>
 
   <div class={classArr("mt-4")}>
-    <MarkdownWrapper>
+    <MarkdownPageWrapper>
       # Heading 1
 
       ## Heading 2
@@ -32,6 +32,6 @@ import { classArr } from "~ui/utils/ui/classArr"
       ```
 
       ![Image alt text](https://via.placeholder.com/300x200/007bff/ffffff?text=Sample+Image)
-    </MarkdownWrapper>
+    </MarkdownPageWrapper>
   </div>
 </BaseLayout>

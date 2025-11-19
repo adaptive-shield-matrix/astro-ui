@@ -153,7 +153,7 @@ usage:
 ### Layouts
 
 - [MinimalLayout.astro](lib/layouts/MinimalLayout.astro)
-- [MarkdownWrapper.astro](lib/layouts/MarkdownWrapper.astro)
+- [MarkdownPageWrapper.astro](lib/layouts/MarkdownPageWrapper.astro)
 
 ### Navigation bar
 
