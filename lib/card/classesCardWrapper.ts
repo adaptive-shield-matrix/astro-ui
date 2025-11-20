@@ -10,15 +10,18 @@ export const classesCardWrapper = classArr(
   classesCardWrapperBorderDark, // border
 )
 
-export const classesCardWrapperP4 = classArr(classesCardWrapper, "p-4 lg:p-8")
-export const classesCardWrapperP8 = classArr(classesCardWrapper, "p-4 sm:p-8")
+export const classesPadding4Lg8 = "p-4 lg:p-8"
+export const classesPadding4sm8 = "p-4 sm:p-8"
+export const classesPadding4sm8md12 = "p-4 sm:p-8 md:p-12"
+
+export const classesCardWrapperP4 = classArr(classesCardWrapper, classesPadding4Lg8)
+export const classesCardWrapperP8 = classArr(classesCardWrapper, classesPadding4sm8)
 
 export const classesRoundedShadowXl = "rounded-xl shadow-xl"
 
 export const classesCardWrapperPage = classArr(
   classesRoundedShadowXl, // rounded border + shadow
-  "p-4 sm:p-8 md:p-12", // padding
-  // "sm:mx-auto", // center
+  classesPadding4sm8md12, // padding
   classesCardWrapperBg, // bg
   classesCardWrapperBorderDark, // border
 )
