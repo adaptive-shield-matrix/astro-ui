@@ -5,6 +5,7 @@ import { classMerge } from "~ui/utils/ui/classMerge"
 import { classArr } from "../utils/ui/classArr"
 
 export interface Props {
+  lang?:string
   title: string
   description?: string
   meta?: Record<string, string>
@@ -16,7 +17,7 @@ const p = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={p.lang ?? "en"}>
   <head>
     <!-- Base -->
     <meta charset="UTF-8" />
