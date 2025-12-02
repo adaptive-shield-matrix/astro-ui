@@ -18,5 +18,6 @@ const props = Astro.props
     <h1 class={classMerge("text-2xl font-semibold", props.titleClass)}>{props.title}</h1>
     <slot />
   </div>
-  {props.subtitle && <p class={classMerge("text-lg mb-4", props.subtitleClass)}>{props.subtitle}</p>}
+  {props.subtitle && <p class={classMerge("text-lg", props.subtitleClass)}>{props.subtitle}</p>}
+  <slot name="subtitle" />
 </header>
