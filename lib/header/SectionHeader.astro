@@ -1,11 +1,17 @@
 ---
+import { buttonVariant } from "~ui/button/buttonCva"
+import LinkButton from "~ui/link/LinkButton.astro"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import { classMerge } from "~ui/utils/ui/classMerge"
 
-interface Props {
+interface Props extends MayHaveClass {
+  icon: string
+  href?: string
   title: string
-  subtitle?: string
   titleClass?: string
+  subtitle?: string
   subtitleClass?: string
+  innerClass?: string
   class?: string
 }
 
@@ -13,7 +19,17 @@ const props = Astro.props
 ---
 
 <div class={classMerge("flex flex-wrap items-center justify-between gap-4", props.class)}>
-  <h2 class={classMerge("text-2xl font-semibold", props.titleClass)}>{props.title}</h2>
+  <h2 class={classMerge("text-2xl font-semibold", props.titleClass)}>
+    {
+      props.href ? (
+        <LinkButton href={props.href} icon={props.icon} variant={buttonVariant.link} class="pl-0">
+          {props.title}
+        </LinkButton>
+      ) : (
+        props.title
+      )
+    }
+  </h2>
   {props.subtitle && <p class={classMerge("text-lg", props.subtitleClass)}>{props.subtitle}</p>}
   <slot />
 </div>
