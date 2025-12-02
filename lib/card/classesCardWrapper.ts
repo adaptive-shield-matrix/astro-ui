@@ -1,4 +1,4 @@
-import { classArr } from "~ui/utils/ui/classArr"
+import { classArr } from "~ui/utils/classArr"
 
 export const classesRoundedShadowLg = "rounded-lg shadow-lg"
 export const classesCardWrapperBorderDark = "dark:border dark:border-gray-500"

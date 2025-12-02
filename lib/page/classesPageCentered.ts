@@ -1,4 +1,4 @@
-import { classArr } from "~ui/utils/ui/classArr"
+import { classArr } from "~ui/utils/classArr"
 
 export const classesPageCentered = classArr(
   "flex flex-col justify-center items-center my-auto", // align center
