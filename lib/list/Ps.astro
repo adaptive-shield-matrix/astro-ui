@@ -1,12 +1,15 @@
 ---
-interface Props {
-  lines: string[] | Readonly<string[]>
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+
+interface Props extends MayHaveClass {
+  text?: string
+  lines?: string[]
   class?: string
 }
-const props = Astro.props
-const lines = props.lines
+const p = Astro.props
+const lines = p.lines ?? (p.text ? p.text.split("\n") : [])
 ---
 
 <>
-  {lines.map((line) => <p class={props.class}>{line}</p>)}
+  {lines.map((line) => <p class={p.class}>{line}</p>)}
 </>
