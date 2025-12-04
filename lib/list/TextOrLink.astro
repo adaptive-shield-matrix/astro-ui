@@ -10,10 +10,4 @@ const props = Astro.props
 const text = props.text
 ---
 
-{
-  text.startsWith("http") ? (
-    <LinkText href={text}>{text}</LinkText>
-  ) : (
-    <p class={classMerge("leading-relaxed", props.class)}>{text}</p>
-  )
-}
+{text.startsWith("http") ? <LinkText href={text}>{text}</LinkText> : <p class={classMerge(props.class)}>{text}</p>}
