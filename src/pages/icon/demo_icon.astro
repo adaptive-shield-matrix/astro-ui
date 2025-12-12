@@ -2,7 +2,7 @@
 import { mdiInformationOutline, mdiArrowRight } from "@mdi/js"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 import { classArr } from "~ui/utils/classArr"
 ---
 
@@ -11,17 +11,17 @@ import { classArr } from "~ui/utils/classArr"
 
   <div class={classArr("mt-4 space-y-4")}>
     <div class="flex items-center gap-4">
-      <Icon1 path={mdiInformationOutline} class="size-6" title="Info icon"/>
+      <Icon path={mdiInformationOutline} class="size-6" title="Info icon"/>
       <span>Default icon</span>
     </div>
 
     <div class="flex items-center gap-4">
-      <Icon1 path={mdiArrowRight} class="size-8 text-blue-500" aria-hidden="true"/>
+      <Icon path={mdiArrowRight} class="size-8 text-blue-500" aria-hidden="true"/>
       <span>Larger custom color icon</span>
     </div>
 
     <div class="flex items-center gap-4">
-      <Icon1 path={mdiInformationOutline} class="size-6 rotate-45"/>
+      <Icon path={mdiInformationOutline} class="size-6 rotate-45"/>
       <span>Rotated icon</span>
     </div>
   </div>

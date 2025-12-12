@@ -1,5 +1,5 @@
 ---
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 import { buttonVariant, type ButtonVariant, buttonCva2 } from "~ui/button/buttonCva"
 import { classArr } from "~ui/utils/classArr"
 import { setupPopoverListeners } from "./setupPopoverListeners"
@@ -23,7 +23,7 @@ const summaryClasses = buttonCva2(variant, null, "flex flex-wrap gap-2 text-xl f
   )}
 >
   <summary class={summaryClasses}>
-    <Icon1 path={icon} />
+    <Icon path={icon} />
     {title}
   </summary>
   <div

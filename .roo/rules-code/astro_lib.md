@@ -73,4 +73,4 @@ Generated at: 2025-11-19 12:21
 - ~/button/buttonIconCva.ts
 - ~/button/classesButtonClickAnimationPush.ts
 - ~/button/classesButtonClickAnimation.ts
-- ~/icon/Icon1.astro
+- ~/icon/Icon.astro

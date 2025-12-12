@@ -2,7 +2,7 @@
 import { buttonCva2, type ButtonSize, type ButtonVariant } from "~ui/button/buttonCva"
 import { buttonIconCva } from "~ui/button/buttonIconCva"
 import { classesButtonClickAnimation } from "~ui/button/classesButtonClickAnimation"
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
@@ -30,7 +30,7 @@ const hasContent = hasChildren || props.text
 <button id={props.id} title={props.title} class={classes} onclick={props.onclick}>
   {
     props.icon && (
-      <Icon1
+      <Icon
         path={props.icon}
         class={classMerge(hasContent && "mr-2", buttonIconCva(props.variant, props.iconClass))}
       />
@@ -52,7 +52,7 @@ const hasContent = hasChildren || props.text
   }
   {
     props.iconRight && (
-      <Icon1 path={props.iconRight} class={buttonIconCva(props.variant, hasContent && "ml-2", props.iconClass)} />
+      <Icon path={props.iconRight} class={buttonIconCva(props.variant, hasContent && "ml-2", props.iconClass)} />
     )
   }
 </button>

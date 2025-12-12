@@ -130,7 +130,7 @@ Refer to individual component documentation in the source code for props and var
 
 ### Icons
 
-- [Icon1.astro](lib/icon/Icon1.astro) (replaces SVG icons)
+- [Icon.astro](lib/icon/Icon.astro) (replaces SVG icons)
 
 usage:
 

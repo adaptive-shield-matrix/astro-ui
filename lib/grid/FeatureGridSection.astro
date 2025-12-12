@@ -1,5 +1,5 @@
 ---
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 import { classArr } from "~ui/utils/classArr"
 import { mdiLink } from "@mdi/js"
 import type { GridFeatureType } from "./GridFeatureType"
@@ -27,7 +27,7 @@ const p = Astro.props
         class="opacity-0 group-hover:opacity-100 ml-2 p-1 rounded hidden sm:flex"
         title="Copy link to this section"
       >
-        <Icon1 path={mdiLink} class="size-4" />
+        <Icon path={mdiLink} class="size-4" />
       </button>
     </h2>
     <p class="text-xl text-muted-foreground mx-auto">
@@ -49,7 +49,7 @@ const p = Astro.props
           )}
         >
           <div class="flex items-center gap-3 mb-4">
-            <Icon1 path={feature.icon} class="size-8" />
+            <Icon path={feature.icon} class="size-8" />
             <h3 class="text-xl font-semibold">{feature.title}</h3>
           </div>
           <p class="text-muted-foreground">{feature.description}</p>

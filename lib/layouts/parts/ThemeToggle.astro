@@ -2,7 +2,7 @@
 import { mdiMoonWaxingCrescent, mdiWhiteBalanceSunny } from "@mdi/js"
 import { buttonVariant, type ButtonVariant } from "~ui/button/buttonCva"
 import Button from "~ui/button/Button.astro"
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 import { classArr } from "~ui/utils/classArr"
 import { astroElementId } from "~ui/layouts/parts/astroElementId"
 
@@ -40,8 +40,8 @@ const textDark = p.textDark ?? "Dark"
   class={classArr(p.class)}
   contentClass={classArr("flex flex-row gap-1")}
 >
-  <Icon1 path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", p.iconClass, p.iconLightClass)} />
-  <Icon1 path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", p.iconClass, p.iconDarkClass)} />
+  <Icon path={mdiWhiteBalanceSunny} class={classArr("size-6 dark:hidden mr-2", p.iconClass, p.iconLightClass)} />
+  <Icon path={mdiMoonWaxingCrescent} class={classArr("hidden size-6 dark:block mr-2", p.iconClass, p.iconDarkClass)} />
   <p id="theme-toggle-text-light" class={classArr("dark:hidden", p.textClass, p.textLightClass)}>{textLight}</p>
   <p id="theme-toggle-text-dark" class={classArr("hidden dark:block", p.textClass, p.textDarkClass)}>{textDark}</p>
 </Button>

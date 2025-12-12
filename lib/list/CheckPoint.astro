@@ -2,7 +2,7 @@
 import { mdiCheck } from "@mdi/js"
 import { classMerge } from "~ui/utils/classMerge"
 import TextOrLink from "./TextOrLink.astro"
-import Icon1 from "~ui/icon/Icon1.astro"
+import Icon from "~ui/icon/Icon.astro"
 
 interface Props {
   point: string
@@ -14,7 +14,7 @@ const p = Astro.props
 ---
 
 <div class={classMerge("flex flex-row flex-nowrap", p.class)}>
-  <Icon1 path={mdiCheck} class={classMerge("fill-green-600 dark:fill-green-600 mr-1 flex-none", p.classBullet)} />
+  <Icon path={mdiCheck} class={classMerge("fill-green-600 dark:fill-green-600 mr-1 flex-none", p.classBullet)} />
   <TextOrLink text={p.point} class={p.classText} />
   <slot />
 </div>
