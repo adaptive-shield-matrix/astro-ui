@@ -2,16 +2,16 @@
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
-  id?:string
-  pathId?:string
+  id?: string
+  pathId?: string
   path: string
   class?: string
   title?: string
   ariaHidden?: boolean
+  restProps?: Record<string, string>
 }
 const p = Astro.props
 const ariaHidden = p.ariaHidden ?? !p.title
-// TODO: maybe re-add title={title}
 ---
 
 <svg
@@ -19,6 +19,7 @@ const ariaHidden = p.ariaHidden ?? !p.title
   viewBox={"0 0 24 24"}
   aria-hidden={ariaHidden}
   class={classMerge("size-6 flex-shrink-0 align-middle dark:fill-white", p.class)}
+  {...p.restProps}
 >
   <path id={p.pathId} d={p.path}></path>
 </svg>
