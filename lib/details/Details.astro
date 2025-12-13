@@ -40,10 +40,10 @@ const hasSummary = Astro.slots.has("summary")
       !hasSummary && title && (
         <>
           {icon && <Icon path={icon} class="size-7 mt-1" />}
-          <div class="flex-1">
+          <span class="flex-1">
             <h3 class={"text-xl font-semibold"}>{title}</h3>
-            {subtitle && <p class={"text-muted-foreground mt-1"}>{subtitle}</p>}
-          </div>
+            {subtitle && <span class={"text-muted-foreground mt-1"}>{subtitle}</span>}
+          </span>
         </>
       )
     }
