@@ -6,23 +6,16 @@ import Icon from "~ui/icon/Icon.astro"
 import { classArr } from "~ui/utils/classArr"
 ---
 
-<BaseLayout title="Demo Icon">
-  <BgColorSelect/>
+<BaseLayout title="Demo Icon" class="space-y-4">
+  <BgColorSelect />
 
-  <div class={classArr("mt-4 space-y-4")}>
-    <div class="flex items-center gap-4">
-      <Icon path={mdiInformationOutline} class="size-6" title="Info icon"/>
-      <span>Default icon</span>
-    </div>
+  <div class="flex items-center gap-4">
+    <Icon path={mdiInformationOutline} class="size-6" title="Info icon" />
+    <span>Default icon</span>
+  </div>
 
-    <div class="flex items-center gap-4">
-      <Icon path={mdiArrowRight} class="size-8 text-blue-500" aria-hidden="true"/>
-      <span>Larger custom color icon</span>
-    </div>
-
-    <div class="flex items-center gap-4">
-      <Icon path={mdiInformationOutline} class="size-6 rotate-45"/>
-      <span>Rotated icon</span>
-    </div>
+  <div class="flex items-center gap-4">
+    <Icon path={mdiArrowRight} class="size-8 fill-blue-500 dark:fill-blue-500" aria-hidden="true" />
+    <span>Custom color</span>
   </div>
 </BaseLayout>
