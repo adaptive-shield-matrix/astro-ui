@@ -3,51 +3,33 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import Img from "~ui/img/Img.astro"
 import { classArr } from "~ui/utils/classArr"
+import { classesGridCols2md } from "~ui/grid/classesGridCols"
+
+const imagePath = "/placeholder.svg"
 ---
 
 <BaseLayout title="Demo Img">
-  <BgColorSelect/>
+  <BgColorSelect />
 
-  <div class={classArr("mt-4 space-y-6")}>
+  <div class={classArr(classesGridCols2md, "gap-8")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Image</h3>
-      <Img
-        src="https://via.placeholder.com/400x200/007bff/ffffff?text=Default+Image"
-        alt="Default placeholder image"
-        width={400}
-        height={200}
-      />
+      <Img src={imagePath} alt="Default placeholder image" width={400} height={200} />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Image with Zoom on Hover</h3>
-      <Img
-        src="https://via.placeholder.com/400x200/28a745/ffffff?text=Zoom+Image"
-        alt="Zoom on hover image"
-        zoomIn={true}
-        width={400}
-        height={200}
-      />
+      <Img src={imagePath} alt="Zoom on hover image" zoomIn={true} width={400} height={200} />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Small Square Image</h3>
-      <Img
-        src="https://via.placeholder.com/150x150/dc3545/ffffff?text=Small+Image"
-        alt="Small square image"
-        size={150}
-      />
+      <Img src={imagePath} alt="Small square image" size={150} />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Class and Size</h3>
-      <Img
-        src="https://via.placeholder.com/300x100/ffc107/000000?text=Custom+Class"
-        alt="Image with custom class"
-        class="rounded-lg shadow-md border"
-        width={300}
-        height={100}
-      />
+      <Img src={imagePath} alt="Image with custom class" class="rounded-lg shadow-md border" width={300} height={100} />
     </div>
   </div>
 </BaseLayout>
