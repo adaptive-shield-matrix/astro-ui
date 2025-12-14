@@ -1,7 +1,10 @@
 ---
-import "../global.css"
 import Navbar from "@/layout_parts/Navbar.astro"
 import MinimalLayout from "~ui/layouts/MinimalLayout.astro"
+import { classMerge } from "~ui/utils/classMerge"
+import "../global.css"
+import { classesBg100 } from "~ui/page/classesBg100"
+import { classesBg50 } from "~ui/page/classesBg50"
 
 export interface Props {
   title: string
@@ -10,6 +13,7 @@ export interface Props {
   class?: string
   showNavbar?: boolean
   showFooter?: boolean
+  bodyClass?: string
 }
 
 const p = Astro.props
@@ -17,7 +21,14 @@ const showNavbar = p.showNavbar ?? true
 const showFooter = p.showFooter ?? true
 ---
 
-<MinimalLayout title={p.title} description={p.description} meta={p.meta} class={p.class}>
+<MinimalLayout
+  title={p.title}
+  description={p.description}
+  meta={p.meta}
+  class={p.class}
+  class={classMerge(p.class)}
+  bodyClass={classMerge("px-4 pb-8", classesBg50.orange, p.bodyClass)}
+>
   {showNavbar && <Navbar slot="navbar" />}
 
   <slot />
