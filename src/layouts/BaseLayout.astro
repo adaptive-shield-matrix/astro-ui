@@ -27,7 +27,7 @@ const showFooter = p.showFooter ?? true
   meta={p.meta}
   class={p.class}
   class={classMerge(p.class)}
-  bodyClass={classMerge("px-4 pb-8", classesBg50.orange, p.bodyClass)}
+  bodyClass={classMerge("px-4 pb-8", "max-w-7xl mx-auto", classesBg50.orange, p.bodyClass)}
 >
   {showNavbar && <Navbar slot="navbar" />}
 
