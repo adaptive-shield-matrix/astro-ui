@@ -1,13 +1,13 @@
 ---
+import { iconGithub } from "@/layout_parts/iconGithub"
+import { iconNpm } from "@/layout_parts/iconNpm"
 import { buttonVariant } from "~ui/button/buttonCva"
 import { astroElementId } from "~ui/layouts/parts/astroElementId"
 import ThemeToggle from "~ui/layouts/parts/ThemeToggle.astro"
+import LinkButton from "~ui/link/LinkButton.astro"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import LogoIconText from "./LogoIconText.astro"
-import LinkButton from "~ui/link/LinkButton.astro"
-import { iconGithub } from "@/layout_parts/iconGithub"
-import { iconNpm } from "@/layout_parts/iconNpm"
 
 interface Props {
   logoClass?: string
@@ -19,6 +19,7 @@ interface Props {
 }
 
 const p = Astro.props
+const buttonClasses = "px-0"
 const iconClass = ""
 const textClass = ""
 
@@ -26,15 +27,20 @@ const githubUrl = "https://github.com/adaptive-shield-matrix/astro-ui"
 const npmUrl = "https://www.npmjs.com/package/@adaptive-sm/astro-ui"
 ---
 
-<nav id={astroElementId.navbar} class={classMerge("w-full pt-1 px-6 pb-4", p.class)}>
-  <div class={classArr("flex flex-wrap gap-2 justify-between items-center", "max-w-7xl mx-auto", p.innerClass)}>
+<nav id={astroElementId.navbar} class={classMerge("w-full pt-1 pb-4", p.class)}>
+  <div class={classArr("flex flex-wrap gap-x-2 justify-between items-center", "max-w-7xl mx-auto", p.innerClass)}>
     <LogoIconText
-      class={p.logoClass}
+      class={classArr(buttonClasses, p.logoClass)}
       imageClass={classArr(iconClass, p.logoImgClass)}
       textClass={classArr(textClass, p.logoTextClass)}
     />
-    <LinkButton icon={iconGithub} href={githubUrl} title="Github">Code</LinkButton>
-    <LinkButton icon={iconNpm} iconClass="size-8" href={npmUrl} title="NPM">Package</LinkButton>
-    <ThemeToggle class={p.themeToggleClass} iconClass={iconClass} textClass={textClass} variant={buttonVariant.link} />
+    <LinkButton icon={iconGithub} href={githubUrl} class={buttonClasses}>Code</LinkButton>
+    <LinkButton icon={iconNpm} iconClass="size-8" href={npmUrl} class={buttonClasses}>Package</LinkButton>
+    <ThemeToggle
+      class={classArr(buttonClasses, p.themeToggleClass)}
+      iconClass={iconClass}
+      textClass={textClass}
+      variant={buttonVariant.link}
+    />
   </div>
 </nav>
