@@ -15,8 +15,8 @@ const props = Astro.props
 
 {
   props.points.map((p) => (
-    <div class={classMerge("flex flex-row flex-nowrap", props.class)}>
-      <Icon path={mdiCircle} class={classMerge("w-1.5 h-1.5 mt-3 mx-1.5 shrink-0", props.classBullet)} />
+    <div class={classMerge("flex gap-1", props.class)}>
+      <Icon path={mdiCircle} class={classMerge("size-1.5 mt-2.5 shrink-0", props.classBullet)} />
       <TextOrLink text={p} class={props.classText} />
     </div>
   ))

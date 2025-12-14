@@ -12,7 +12,7 @@ export const demoList = {
   page: ["demo_page_centered", "demo_page_centered_card"],
   card: ["demo_card"],
   details: ["demo_details"],
-  list: ["demo_ps", "demo_check_point", "demo_check_points", "demo_numbered_list", "demo_black_bullet_points"],
+  list: ["demo_ps", "demo_check_points", "demo_numbered_list", "demo_black_bullet_points"],
   link: ["demo_link_text", "demo_link_button"],
   button: ["demo_buttons"],
   icon: ["demo_icon"],
