@@ -2,65 +2,17 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import PageCentered from "~ui/page/PageCentered.astro"
-import { classArr } from "~ui/utils/classArr"
 ---
 
-<BaseLayout title="Demo PageCentered">
-  <BgColorSelect/>
+<BaseLayout title="Demo PageCentered" class="space-y-6">
+  <BgColorSelect />
 
-  <div class={classArr("mt-4 space-y-6")}>
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Basic PageCentered</h3>
-      <PageCentered id="basic-centered" class="max-w-2xl">
-        <div class="text-center p-8 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <h2 class="text-2xl font-bold mb-4">Centered Content</h2>
-          <p>This content is horizontally and vertically centered on the page using the PageCentered component.</p>
-        </div>
-      </PageCentered>
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">With Custom Class</h3>
-      <PageCentered class="max-w-md p-4">
-        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border">
-          <p class="text-center">Custom width and padding applied.</p>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Additional content that demonstrates multiple lines.</p>
-        </div>
-      </PageCentered>
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Full Width Example</h3>
-      <PageCentered class="w-full">
-        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded">
-          <p class="text-center">Full width centered content.</p>
-        </div>
-      </PageCentered>
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">With ID and Multiple Elements</h3>
-      <PageCentered id="multi-centered">
-        <div class="space-y-4 text-center">
-          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded">
-            <p>First centered element.</p>
-          </div>
-          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded">
-            <p>Second centered element below the first.</p>
-          </div>
-        </div>
-      </PageCentered>
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Responsive Centering</h3>
-      <PageCentered class="max-w-4xl md:max-w-6xl">
-        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-8 rounded-lg">
-          <h2 class="text-xl font-semibold mb-3">Responsive Content</h2>
-          <p>This content adjusts its maximum width based on screen size, always staying centered.</p>
-          <p class="text-sm mt-2">On mobile: max-w-4xl, on md and up: max-w-6xl.</p>
-        </div>
-      </PageCentered>
-    </div>
+  <div class="space-y-2">
+    <h3 class="text-lg font-semibold">Full Width Example</h3>
+    <PageCentered class="w-full">
+      <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded">
+        <p class="text-center">Full width centered content.</p>
+      </div>
+    </PageCentered>
   </div>
 </BaseLayout>
