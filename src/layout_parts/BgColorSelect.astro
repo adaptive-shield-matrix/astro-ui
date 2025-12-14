@@ -1,16 +1,15 @@
 ---
+import { classesGridCols2sm } from "~ui/grid/classesGridCols"
 import { classesBg100 } from "~ui/page/classesBg100"
 import Select from "~ui/select/Select.astro"
+import { classArr } from "~ui/utils/classArr"
 
 const options = Object.keys(classesBg100)
 ---
 
-<div class="mb-4">
-  <p>Select a background color for the page:</p>
-</div>
-
-<div class="mb-4">
-  <Select initialValue="white" options={options} id="bg-select" />
+<div class={classArr("flex", "items-center", "justify-center", "gap-4", "mb-4")}>
+  <p>Select a bg color</p>
+  <Select initialValue="orange" options={options} id="bg-select" class="max-w-[20ch]" />
 </div>
 
 <script define:vars={{ classesBg100 }}>
@@ -22,9 +21,8 @@ const options = Object.keys(classesBg100)
     const value = e.target.value
     const bgClass = classesBg100[value]
     // const previousClasses = mainElement.className
-    const baseClasses = "relative min-h-dvh w-full flex flex-col items-center"
+    const baseClasses = "relative min-h-dvh w-full"
     const newClasses = `${baseClasses} ${bgClass}`
-
     mainElement.className = newClasses
   })
 </script>
