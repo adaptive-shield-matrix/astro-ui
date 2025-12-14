@@ -2,90 +2,22 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
 import Table from "~ui/table/Table.astro"
-import type { TableColumnDef } from "~ui/table/TableColumnDef"
-import { classArr } from "~ui/utils/classArr"
 ---
 
 <BaseLayout title="Demo Table">
-  <BgColorSelect/>
+  <BgColorSelect />
 
-  <div class={classArr("mt-4 space-y-6")}>
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Default Table</h3>
-      <Table
-        rows={[
-          "Row 1 data 1, Row 1 data 2, Row 1 data 3",
-          "Row 2 data 1, Row 2 data 2, Row 2 data 3",
-          "Row 3 data 1, Row 3 data 2, Row 3 data 3"
-        ]}
-        columns={[
-          { id: "col1", name: "Column 1", cell: (row) => row.split(',')[0]?.trim() ?? '' },
-          { id: "col2", name: "Column 2", cell: (row) => row.split(',')[1]?.trim() ?? '' },
-          { id: "col3", name: "Column 3", cell: (row) => row.split(',')[2]?.trim() ?? '' }
-        ]}
-      />
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Table with No Entries</h3>
-      <Table
-        rows={[]}
-        columns={[
-          { id: "col1", name: "Empty Column 1", cell: (row) => row },
-          { id: "col2", name: "Empty Column 2", cell: (row) => row }
-        ]}
-        noEntriesText="No data available"
-      />
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Custom Classes Table</h3>
-      <Table
-        rows={[
-          "Custom row 1, data 1, custom data 2",
-          "Custom row 2, data 1, custom data 2"
-        ]}
-        columns={[
-          { id: "custom1", name: "Custom Header 1", cell: (row) => row.split(',')[0]?.trim() ?? '' },
-          { id: "custom2", name: "Custom Header 2", cell: (row) => row.split(',')[1]?.trim() ?? '' },
-          { id: "custom3", name: "Custom Header 3", cell: (row) => row.split(',')[2]?.trim() ?? '' }
-        ]}
-        class="border-2 border-blue-500"
-      />
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Larger Dataset Table</h3>
-      <Table
-        rows={[
-          "Product 1, $10.00, In Stock",
-          "Product 2, $25.50, Out of Stock",
-          "Product 3, $99.99, In Stock",
-          "Product 4, $15.00, In Stock",
-          "Product 5, $75.25, Out of Stock"
-        ]}
-        columns={[
-          { id: "product", name: "Product Name", cell: (row) => row.split(',')[0]?.trim() ?? '' },
-          { id: "price", name: "Price", cell: (row) => row.split(',')[1]?.trim() ?? '' },
-          { id: "status", name: "Status", cell: (row) => row.split(',')[2]?.trim() ?? '' }
-        ]}
-      />
-    </div>
-
-    <div class="space-y-2">
-      <h3 class="text-lg font-semibold">Custom Breakpoint Table</h3>
-      <p class="text-sm text-gray-600">Uses 'md' breakpoint (default is 'sm')</p>
-      <Table
-        rows={[
-          "Breakpoint row 1, data 1, data 2",
-          "Breakpoint row 2, data 1, data 2"
-        ]}
-        columns={[
-          { id: "bp1", name: "Breakpoint Col 1", cell: (row) => row.split(',')[0]?.trim() ?? '' },
-          { id: "bp2", name: "Breakpoint Col 2", cell: (row) => row.split(',')[1]?.trim() ?? '' }
-        ]}
-        breakpoint="md"
-      />
-    </div>
-  </div>
+  <h1 class="text-lg font-semibold">Table</h1>
+  <Table
+    rows={[
+      "Row 1 data 1, Row 1 data 2, Row 1 data 3",
+      "Row 2 data 1, Row 2 data 2, Row 2 data 3",
+      "Row 3 data 1, Row 3 data 2, Row 3 data 3",
+    ]}
+    columns={[
+      { id: "col1", name: "Column 1", cell: (row) => row.split(",")[0]?.trim() ?? "" },
+      { id: "col2", name: "Column 2", cell: (row) => row.split(",")[1]?.trim() ?? "" },
+      { id: "col3", name: "Column 3", cell: (row) => row.split(",")[2]?.trim() ?? "" },
+    ]}
+  />
 </BaseLayout>
