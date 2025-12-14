@@ -1,9 +1,11 @@
 ---
 import { classArr } from "~ui/utils/classArr"
+import type { MayHaveClass } from "~ui/utils/MayHaveClass"
+import type { MayHaveId } from "~ui/utils/MayHaveId"
 
 type ValueDisplayFn = (value: string) => string
 
-type NativeSingleSelectProps = {
+export interface Props extends MayHaveId, MayHaveClass {
   initialValue: string
   options: string[]
   optionClass?: string
@@ -11,8 +13,7 @@ type NativeSingleSelectProps = {
   id?: string
   class?: string
 }
-
-const props = Astro.props as NativeSingleSelectProps
+const p = Astro.props
 
 const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
   if (!valueDisplay) return itemValue
@@ -23,7 +24,7 @@ const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
 ---
 
 <select
-  id={props.id}
+  id={p.id}
   class={classArr(
     "block w-full p-2.5",
     "text-gray-900 dark:text-white text-sm",
@@ -31,14 +32,14 @@ const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
     "bg-gray-50 dark:bg-gray-700",
     "rounded-lg border border-gray-300 dark:border-gray-600",
     "focus:ring-blue-500 focus:border-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500",
-    props.class,
+    p.class,
   )}
-  value={props.initialValue}
+  value={p.initialValue}
 >
   {
-    props.options.map((option: string) => (
-      <option value={option} class={props.optionClass}>
-        {getDisplayValue(option, props.valueDisplay)}
+    p.options.map((option: string) => (
+      <option value={option} class={p.optionClass} selected={option === p.initialValue}>
+        {getDisplayValue(option, p.valueDisplay)}
       </option>
     ))
   }
