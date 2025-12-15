@@ -22,22 +22,22 @@ const img: ImageType = {
   <div class={classArr("mt-4 space-y-6")}>
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Default Typed Image (JPEG)</h3>
-      <TypedImg img={img} srcPrefix={""} src={imagePath} />
+      <TypedImg img={img} />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">SVG Image (No dimensions)</h3>
-      <TypedImg img={img} srcPrefix={""} src={imagePath} class="invert" />
+      <TypedImg img={img} class="invert" />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">With Zoom on Hover</h3>
-      <TypedImg img={img} srcPrefix={""} src={imagePath} zoomIn={true} />
+      <TypedImg img={img} zoomIn={true} />
     </div>
 
     <div class="space-y-2">
       <h3 class="text-lg font-semibold">Custom Class</h3>
-      <TypedImg img={img} srcPrefix={""} src={imagePath} class="rounded-full shadow-lg border-2 border-gray-200" />
+      <TypedImg img={img} class="rounded-full shadow-lg border-2 border-gray-200" />
     </div>
   </div>
 </BaseLayout>
