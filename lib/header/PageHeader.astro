@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
@@ -8,16 +9,17 @@ interface Props {
   subtitleClass?: string
   innerClass?: string
   class?: string
+  restProps?: HTMLAttributes<"header">
 }
 
-const props = Astro.props
+const p = Astro.props
 ---
 
-<header class={props.class}>
-  <div class={classMerge("flex flex-wrap justify-between items-center gap-4", props.innerClass)}>
-    <h1 class={classMerge("text-2xl font-semibold", props.titleClass)}>{props.title}</h1>
+<header class={p.class}>
+  <div class={classMerge("flex flex-wrap justify-between items-center gap-4", p.innerClass)} {...p.restProps}>
+    <h1 class={classMerge("text-2xl font-semibold", p.titleClass)}>{p.title}</h1>
     <slot />
   </div>
-  {props.subtitle && <p class={classMerge("text-lg", props.subtitleClass)}>{props.subtitle}</p>}
+  {p.subtitle && <p class={classMerge("text-lg", p.subtitleClass)}>{p.subtitle}</p>}
   <slot name="subtitle" />
 </header>

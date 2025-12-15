@@ -1,17 +1,19 @@
 ---
+import type { HTMLAttributes } from "astro/types"
+import { classesCardWrapperPage } from "~ui/card/classesCardWrapper"
 import { classMerge } from "~ui/utils/classMerge"
 import PageCentered from "./PageCentered.astro"
-import { classesCardWrapperPage } from "~ui/card/classesCardWrapper"
 
 interface Props {
   class?: string
   classInner?: string
+  restProps?: HTMLAttributes<"div">
 }
-const props = Astro.props
+const p = Astro.props
 ---
 
-<PageCentered class={props.class}>
-  <div class={classMerge(classesCardWrapperPage, props.classInner)}>
+<PageCentered class={p.class} restProps={p.restProps}>
+  <div class={classMerge(classesCardWrapperPage, p.classInner)}>
     <slot />
   </div>
 </PageCentered>

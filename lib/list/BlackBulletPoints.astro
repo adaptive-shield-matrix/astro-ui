@@ -1,8 +1,8 @@
 ---
 import { mdiCircle } from "@mdi/js"
+import Icon from "~ui/icon/Icon.astro"
 import { classMerge } from "~ui/utils/classMerge"
 import TextOrLink from "./TextOrLink.astro"
-import Icon from "~ui/icon/Icon.astro"
 
 interface Props {
   points: string[] | Readonly<string[]>
@@ -10,14 +10,14 @@ interface Props {
   classText?: string
   classBullet?: string
 }
-const props = Astro.props
+const p = Astro.props
 ---
 
 {
-  props.points.map((p) => (
-    <div class={classMerge("flex gap-1", props.class)}>
-      <Icon path={mdiCircle} class={classMerge("size-1.5 mt-2.5 shrink-0", props.classBullet)} />
-      <TextOrLink text={p} class={props.classText} />
+  p.points.map((point) => (
+    <div class={classMerge("flex gap-1", p.class)}>
+      <Icon path={mdiCircle} class={classMerge("size-1.5 mt-2.5 shrink-0", p.classBullet)} />
+      <TextOrLink text={point} class={p.classText} />
     </div>
   ))
 }

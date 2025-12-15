@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classArr } from "~ui/utils/classArr"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 import type { MayHaveId } from "~ui/utils/MayHaveId"
@@ -12,6 +13,7 @@ export interface Props extends MayHaveId, MayHaveClass {
   valueDisplay?: ValueDisplayFn
   id?: string
   class?: string
+  restProps?: HTMLAttributes<"select">
 }
 const p = Astro.props
 
@@ -35,6 +37,7 @@ const getDisplayValue = (itemValue: string, valueDisplay?: ValueDisplayFn) => {
     p.class,
   )}
   value={p.initialValue}
+  {...p.restProps}
 >
   {
     p.options.map((option: string) => (

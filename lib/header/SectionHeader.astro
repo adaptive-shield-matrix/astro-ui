@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { buttonVariant } from "~ui/button/buttonCva"
 import LinkButton from "~ui/link/LinkButton.astro"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
@@ -13,23 +14,24 @@ interface Props extends MayHaveClass {
   subtitleClass?: string
   innerClass?: string
   class?: string
+  restProps?: HTMLAttributes<"header">
 }
 
-const props = Astro.props
+const p = Astro.props
 ---
 
-<div class={classMerge("flex flex-wrap items-center justify-between gap-4", props.class)}>
-  <h2 class={classMerge("text-2xl font-semibold", props.titleClass)}>
+<div class={classMerge("flex flex-wrap items-center justify-between gap-4", p.class)} {...p.restProps}>
+  <h2 class={classMerge("text-2xl font-semibold", p.titleClass)}>
     {
-      props.href ? (
-        <LinkButton href={props.href} icon={props.icon} variant={buttonVariant.link} class="pl-0">
-          {props.title}
+      p.href ? (
+        <LinkButton href={p.href} icon={p.icon} variant={buttonVariant.link} class="pl-0">
+          {p.title}
         </LinkButton>
       ) : (
-        props.title
+        p.title
       )
     }
   </h2>
-  {props.subtitle && <p class={classMerge("text-lg", props.subtitleClass)}>{props.subtitle}</p>}
+  {p.subtitle && <p class={classMerge("text-lg", p.subtitleClass)}>{p.subtitle}</p>}
   <slot />
 </div>

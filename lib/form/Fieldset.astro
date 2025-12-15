@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classesFieldset } from "./classesFieldset"
 import { classMerge } from "~ui/utils/classMerge"
 
@@ -8,13 +9,15 @@ interface Props {
   subtitles?: string | string[]
   subtitleClass?: string
   class?: string
+  restProps?: HTMLAttributes<"fieldset">
+  legendProps?: HTMLAttributes<"legend">
 }
-const props = Astro.props
+const p = Astro.props
 ---
 
-<fieldset class={classMerge(classesFieldset, props.class)}>
-  <legend class={classMerge("px-1", props.titleClass)}>
-    {props.title}
+<fieldset class={classMerge(classesFieldset, p.class)} {...p.restProps}>
+  <legend class={classMerge("px-1", p.titleClass)} {...p.legendProps}>
+    {p.title}
     <!--{props.subtitles && <PopoverI title={props.title} points={props.subtitles} />}-->
   </legend>
   <slot />

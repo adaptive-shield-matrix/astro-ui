@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
@@ -6,18 +7,20 @@ interface Props {
   href: string
   newTab?: boolean
   class?: string
+  restProps?: HTMLAttributes<"a">
 }
-const props = Astro.props
-const title = props.title
-const href = props.href
-const newTab = props.newTab
+const p = Astro.props
+const title = p.title
+const href = p.href
+const newTab = p.newTab
 ---
 
 <a
   href={href}
-  class={classMerge("text-blue-500 no-underline hover:underline", props.class)}
+  class={classMerge("text-blue-500 no-underline hover:underline", p.class)}
   target={newTab ? "_blank" : undefined}
   title={title}
+  {...p.restProps}
 >
-  <slot/>
+  <slot />
 </a>

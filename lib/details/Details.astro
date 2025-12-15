@@ -3,6 +3,7 @@ import Icon from "~ui/icon/Icon.astro"
 import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 import { mdiChevronDown } from "@mdi/js"
+import type { HTMLAttributes } from "astro/types"
 
 interface Props {
   icon?: string
@@ -10,6 +11,8 @@ interface Props {
   subtitle?: string
   class?: string
   summaryClass?: string
+  restProps?: HTMLAttributes<"details">
+  summaryProps?: HTMLAttributes<"summary">
 }
 const p = Astro.props
 const icon = p.icon
@@ -27,6 +30,7 @@ const hasSummary = Astro.slots.has("summary")
     "overflow-hidden",
     p.class,
   )}
+  {...p.restProps}
 >
   <summary
     class={classArr(
@@ -35,6 +39,7 @@ const hasSummary = Astro.slots.has("summary")
       "cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors",
       p.summaryClass,
     )}
+    {...p.summaryProps}
   >
     {
       !hasSummary && title && (

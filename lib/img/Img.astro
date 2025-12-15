@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classesImgZoomInOnHover10 } from "./classesImgZoomInOnHover10"
 import { classMerge } from "~ui/utils/classMerge"
 
@@ -10,8 +11,9 @@ interface Props {
   size?: number
   width?: number | null | undefined
   height?: number | null | undefined
-  loadingLazy?:boolean
-  decodeAsync?:boolean
+  loadingLazy?: boolean
+  decodeAsync?: boolean
+  restProps?: HTMLAttributes<"img">
 }
 const p = Astro.props
 ---
@@ -20,8 +22,9 @@ const p = Astro.props
   src={p.src}
   alt={p.alt}
   class={classMerge(p.zoomIn && classesImgZoomInOnHover10, p.class)}
-  loading={p.loadingLazy ?? true ? "lazy" : undefined}
-  decoding={p.decodeAsync ?? true ? "async" : undefined}
+  loading={(p.loadingLazy ?? true) ? "lazy" : undefined}
+  decoding={(p.decodeAsync ?? true) ? "async" : undefined}
   width={p.size ?? p.width}
   height={p.size ?? p.height}
+  {...p.restProps}
 />

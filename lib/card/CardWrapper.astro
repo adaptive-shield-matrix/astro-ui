@@ -1,15 +1,16 @@
 ---
+import type { HTMLAttributes } from "astro/types"
 import { classesCardWrapperP4 } from "~ui/card/classesCardWrapper"
-import { classArr } from "~ui/utils/classArr"
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
-  id?:string
+  id?: string
   class?: string
+  restProps?: HTMLAttributes<"div">
 }
 const p = Astro.props
 ---
 
-<div id={p.id} class={classMerge(classesCardWrapperP4, p.class)}>
+<div id={p.id} class={classMerge(classesCardWrapperP4, p.class)} {...p.restProps}>
   <slot />
 </div>

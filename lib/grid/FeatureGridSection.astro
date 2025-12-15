@@ -4,6 +4,7 @@ import { classArr } from "~ui/utils/classArr"
 import { mdiLink } from "@mdi/js"
 import type { GridFeatureType } from "./GridFeatureType"
 import { classMerge } from "~ui/utils/classMerge"
+import type { HTMLAttributes } from "astro/types"
 
 interface Props {
   id: string
@@ -14,21 +15,22 @@ interface Props {
   class?: string
   gridClass?: string
   cardClass?: string
+  restProps?: HTMLAttributes<"section">
 }
 const p = Astro.props
 ---
 
-<section id={p.id} class={classMerge("w-full", "py-25 px-4", p.class)}>
+<section id={p.id} class={classMerge("w-full", "py-25 px-4", p.class)} {...p.restProps}>
   <div class={classArr("max-w-7xl mx-auto", "text-center mb-8")}>
     <h2 class={classArr("text-3xl sm:text-4xl font-bold", "mb-4", "group flex items-center justify-center")}>
       <span>{p.title}</span>
-      <button
-        onclick={`copyLink('${p.id}')`}
-        class="opacity-0 group-hover:opacity-100 ml-2 p-1 rounded hidden sm:flex"
-        title="Copy link to this section"
+      <a
+        href={"#" + p.id}
+        class="opacity-0 group-hover:opacity-100 p-1 rounded hidden sm:flex"
+        title="Link to this section"
       >
-        <Icon path={mdiLink} class="size-4" />
-      </button>
+        <Icon path={mdiLink} class="size-6 fill-gray-500 dark:fill-gray-500" />
+      </a>
     </h2>
     <p class="text-xl text-muted-foreground mx-auto">
       {p.subtitle1}
@@ -58,23 +60,3 @@ const p = Astro.props
     }
   </div>
 </section>
-
-<script>
-  declare global {
-    interface Window {
-      copyLink?: (id: string) => void
-    }
-  }
-  window.copyLink = function (id: string) {
-    const url = window.location.href.split("#")[0] + "#" + id
-    navigator.clipboard
-      .writeText(url)
-      .then(() => {
-        // Optional: show a toast or feedback
-        console.log("Link copied:", url)
-      })
-      .catch((err) => {
-        console.error("Failed to copy link:", err)
-      })
-  }
-</script>

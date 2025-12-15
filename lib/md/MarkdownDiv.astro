@@ -1,16 +1,18 @@
 ---
 import { classArr } from "~ui/utils/classArr"
 
+import type { HTMLAttributes } from "astro/types"
 import "./markdown.css"
 
 interface Props {
   id?: string
   class?: string
+  restProps?: HTMLAttributes<"div">
 }
 
 const p = Astro.props
 ---
 
-<div class={classArr("markdown-body", p.class)}>
+<div id={p.id} class={classArr("markdown-body", p.class)} {...p.restProps}>
   <slot />
 </div>
