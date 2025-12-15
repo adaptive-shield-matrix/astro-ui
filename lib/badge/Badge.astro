@@ -1,12 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types"
-import { type BadgeVariant, badgeCva, badgeIconCva } from "~ui/badge/classesBadge"
+import { type BadgeVariant, badgeCva, badgeIconCva, badgeVariant } from "~ui/badge/classesBadge"
 import Icon from "~ui/icon/Icon.astro"
 import type { MayHaveClass } from "~ui/utils/MayHaveClass"
 
 interface Props extends MayHaveClass {
   id?: string
-  variant: BadgeVariant
+  variant?: BadgeVariant
 
   icon?: string
   iconRight?: string
@@ -17,10 +17,11 @@ interface Props extends MayHaveClass {
 }
 
 const p = Astro.props
+const v = p.variant ?? badgeVariant.outline
 ---
 
-<span id={p.id} class={badgeCva(p.variant, p.class)} {...p.restProps}>
-  {p.icon && <Icon path={p.icon} class={badgeIconCva(p.variant, p.iconClass)} />}
+<span id={p.id} class={badgeCva(v, p.class)} {...p.restProps}>
+  {p.icon && <Icon path={p.icon} class={badgeIconCva(v, p.iconClass)} />}
   <slot />
-  {p.iconRight && <Icon path={p.iconRight} class={badgeIconCva(p.variant, p.iconClass)} />}
+  {p.iconRight && <Icon path={p.iconRight} class={badgeIconCva(v, p.iconClass)} />}
 </span>
