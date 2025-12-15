@@ -1,0 +1,60 @@
+---
+import { mdiCheck, mdiInformationOutline, mdiStar } from "@mdi/js"
+import BgColorSelect from "@/layout_parts/BgColorSelect.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Badge from "~ui/badge/Badge.astro"
+import { type BadgeVariant, badgeVariant } from "~ui/badge/classesBadge"
+import { classArr } from "~ui/utils/classArr"
+
+const variants = Object.values(badgeVariant).filter((v) => v !== badgeVariant.base)
+---
+
+<BaseLayout title={"Demo badges"}>
+  <BgColorSelect />
+
+  <div class={classArr("grid grid-cols-4 gap-4 text-center items-center", "mt-4")}>
+    <span>variant</span>
+    <span>text only</span>
+    <span>icon + text</span>
+    <span>text + icon</span>
+    {
+      variants.map((v) => (
+        <>
+          <span>{v}</span>
+          <Badge variant={v} id={`${v}-text`}>
+            {v}
+          </Badge>
+          <Badge variant={v} id={`${v}-icon-text`} icon={mdiCheck}>
+            {v}
+          </Badge>
+          <Badge variant={v} id={`${v}-text-icon`} iconRight={mdiStar}>
+            {v}
+          </Badge>
+        </>
+      ))
+    }
+  </div>
+
+  <div class={classArr("grid grid-cols-4 gap-4 text-center items-center", "mt-8")}>
+    <span>variant</span>
+    <span>both icons</span>
+    <span>custom icon class</span>
+    <span>no gap</span>
+    {
+      variants.map((v) => (
+        <>
+          <span>{v}</span>
+          <Badge variant={v} id={`${v}-both-icons`} icon={mdiCheck} iconRight={mdiStar}>
+            {v}
+          </Badge>
+          <Badge variant={v} id={`${v}-custom-icon`} icon={mdiInformationOutline} iconClass="size-8">
+            {v}
+          </Badge>
+          <Badge variant={v} id={`${v}-no-gap`} icon={mdiCheck} class="gap-0">
+            {v}
+          </Badge>
+        </>
+      ))
+    }
+  </div>
+</BaseLayout>
