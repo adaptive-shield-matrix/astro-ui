@@ -5,23 +5,30 @@ import { mdiLink } from "@mdi/js"
 import type { GridFeatureType } from "./GridFeatureType"
 import { classMerge } from "~ui/utils/classMerge"
 import type { HTMLAttributes } from "astro/types"
+import type { CssProperties } from "node_modules/astro/dist/assets/fonts/definitions"
+import { classesShadowMdLg } from "~ui/card/classesShadow"
 
 interface Props {
   id: string
   title: string
+  titleClass?: string
   subtitle1: string
+  subtitle1Class?: string
   subtitle2?: string
+  subtitle2Class?: string
   features: GridFeatureType[]
   class?: string
+  headerClass?: string
   gridClass?: string
   cardClass?: string
   restProps?: HTMLAttributes<"section">
+  style?: CssProperties
 }
 const p = Astro.props
 ---
 
-<section id={p.id} class={classMerge("w-full", "py-25 px-4", p.class)} {...p.restProps}>
-  <div class={classArr("max-w-7xl mx-auto", "text-center mb-8")}>
+<section id={p.id} class={classMerge("w-full", "py-25 px-4", p.class)} style={p.style} {...p.restProps}>
+  <div class={classArr("max-w-7xl mx-auto", "text-center mb-8", p.headerClass)}>
     <h2 class={classArr("text-3xl sm:text-4xl font-bold", "mb-4", "group flex items-center justify-center")}>
       <span>{p.title}</span>
       <a
@@ -32,10 +39,14 @@ const p = Astro.props
         <Icon path={mdiLink} class="size-6 fill-gray-500 dark:fill-gray-500" />
       </a>
     </h2>
-    <p class="text-xl text-muted-foreground mx-auto">
+    <p class={classMerge("text-xl text-muted-foreground mx-auto", p.subtitle1Class)}>
       {p.subtitle1}
     </p>
-    {p.subtitle2 && <p class="text-xl text-muted-foreground mx-auto mt-1">{p.subtitle2}</p>}
+    {
+      p.subtitle2 && (
+        <p class={classMerge("text-xl text-muted-foreground mx-auto mt-1", p.subtitle2Class)}>{p.subtitle2}</p>
+      )
+    }
   </div>
 
   <div class={classMerge("grid md:grid-cols-2 lg:grid-cols-3 gap-8", "max-w-7xl mx-auto", p.gridClass)}>
@@ -46,7 +57,7 @@ const p = Astro.props
             "bg-white dark:bg-gray-800", // bg
             "rounded-lg p-6", // padding
             // "border", // border
-            "shadow-sm hover:shadow-lg transition-shadow", // shadow
+            classesShadowMdLg,
             p.cardClass,
           )}
         >
