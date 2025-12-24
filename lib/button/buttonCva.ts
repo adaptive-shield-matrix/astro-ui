@@ -5,6 +5,7 @@ import { classesButtonDisabled } from "./classesButtonDisabled"
 
 export type ButtonVariant = keyof typeof buttonVariant
 export const buttonVariant = {
+  none: "none",
   // transparent bg
   outline: "outline",
   ghost: "ghost",
@@ -54,6 +55,7 @@ const variantClasses = {
   //
   // transparent bg
   //
+  none: "",
   outline: classArr(
     "bg-transparent dark:bg-transparent",
     "dark:text-slate-100", // text
