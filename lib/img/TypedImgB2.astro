@@ -4,6 +4,7 @@ import type { ImageType } from "./ImageType"
 import TypedImg from "~ui/img/TypedImg.astro"
 
 interface Props {
+  id?: string
   img: ImageType
   zoomIn?: boolean
   invertColorsInDarkMode?: boolean
@@ -14,6 +15,7 @@ const p = Astro.props
 ---
 
 <TypedImg
+  id={p.id}
   img={p.img}
   srcPrefix="/media-b2/"
   zoomIn={p.zoomIn}

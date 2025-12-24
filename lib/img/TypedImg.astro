@@ -6,6 +6,7 @@ import type { ImageType } from "./ImageType"
 import Img from "./Img.astro"
 
 interface Props {
+  id?: string
   img: ImageType
   zoomIn?: boolean
   invertColorsInDarkMode?: boolean
@@ -19,6 +20,7 @@ const imageUrl = (p.srcPrefix ? p.srcPrefix : "") + p.img.path
 ---
 
 <Img
+  id={p.id}
   src={imageUrl}
   alt={p.img.alt}
   class={classArr(p.invertColorsInDarkMode ? classInvertBlack : "", p.class)}

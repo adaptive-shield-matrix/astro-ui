@@ -4,6 +4,7 @@ import { classesImgZoomInOnHover10 } from "./classesImgZoomInOnHover10"
 import { classMerge } from "~ui/utils/classMerge"
 
 interface Props {
+  id?: string
   alt: string
   src: string
   zoomIn?: boolean
@@ -19,6 +20,7 @@ const p = Astro.props
 ---
 
 <img
+  id={p.id}
   src={p.src}
   alt={p.alt}
   class={classMerge(p.zoomIn && classesImgZoomInOnHover10, p.class)}
