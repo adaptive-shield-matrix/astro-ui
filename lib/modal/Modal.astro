@@ -1,9 +1,9 @@
 ---
-import "./Modal.module.css"
+import Button from "~ui/button/Button.astro"
+import { buttonVariant, type ButtonSize, type ButtonVariant } from "~ui/button/buttonCva"
 import { classesTextHeader } from "~ui/text/classesTextHeader"
 import { classMerge } from "~ui/utils/classMerge"
-import { buttonVariant } from "~ui/button/buttonCva"
-import Button from "~ui/button/Button.astro"
+import "./Modal.module.css"
 
 /**
  * https://github.com/markteekman/accessible-astro-components/blob/main/Modal.astro
@@ -13,16 +13,25 @@ interface Props {
   title: string
   titleClass?: string
   closeText?: string
+
+  close?: {
+    text?: string
+    variant?: ButtonVariant
+    size?: ButtonSize
+    class?: string
+    icon?: string
+    iconClass?: string
+  }
+
   class?: string
   classContentArea?: string
 }
 
-const props = Astro.props
-const triggerId = props.triggerId
-const title = props.title
-const titleClass = props.titleClass
-const closeText = props.closeText ?? "Close"
-const classContentArea = props.classContentArea
+const p = Astro.props
+const triggerId = p.triggerId
+const title = p.title
+const titleClass = p.titleClass
+const classContentArea = p.classContentArea
 const closeId = `${triggerId}-close`
 ---
 
@@ -33,7 +42,7 @@ const closeId = `${triggerId}-close`
     "max-w-5xl",
     "bg-white dark:bg-gray-900 text-black dark:text-white", // bg
     "border-1 border-black p-4 rounded-xl", // border
-    props.class,
+    p.class,
   )}
   aria-labelledby={triggerId}
 >
@@ -43,7 +52,14 @@ const closeId = `${triggerId}-close`
         {title}
       </h2>
       <slot>Modal description</slot>
-      <Button id={closeId} variant={buttonVariant.outline} class="modal-close w-full">{closeText}</Button>
+      <Button
+        id={closeId}
+        icon={p.close?.icon}
+        iconClass={p.close?.iconClass}
+        size={p.close?.size}
+        variant={p.close?.variant ?? buttonVariant.outline}
+        class={classMerge("modal-close w-full", p.close?.class)}>{p.close?.text ?? "Close"}</Button
+      >
     </div>
   </div>
 </dialog>
