@@ -19,6 +19,7 @@ interface Props {
   iconRight?: string
   iconClass?: string
   class?: string
+  onclick?: any
   restProps?: HTMLAttributes<"button">
 }
 const p = Astro.props
@@ -32,16 +33,16 @@ const hasContent = hasChildren || p.text
   {p.icon && <Icon path={p.icon} class={classMerge(hasContent && "mr-2", buttonIconCva(p.variant, p.iconClass))} />}
   {
     p.text && (
-      <span id={p.contentId} class={p.contentClass}>
+      <div id={p.contentId} class={p.contentClass}>
         {p.text}
-      </span>
+      </div>
     )
   }
   {
     hasContent && (
-      <span id={p.contentId} class={p.contentClass}>
+      <div id={p.contentId} class={p.contentClass}>
         <slot />
-      </span>
+      </div>
     )
   }
   {p.iconRight && <Icon path={p.iconRight} class={buttonIconCva(p.variant, hasContent && "ml-2", p.iconClass)} />}
