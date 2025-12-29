@@ -33,16 +33,16 @@ const hasContent = hasChildren || p.text
   {p.icon && <Icon path={p.icon} class={classMerge(hasContent && "mr-2", buttonIconCva(p.variant, p.iconClass))} />}
   {
     p.text && (
-      <div id={p.contentId} class={p.contentClass}>
+      <span id={p.contentId} class={p.contentClass}>
         {p.text}
-      </div>
+      </span>
     )
   }
   {
     hasContent && (
-      <div id={p.contentId} class={p.contentClass}>
+      <span id={p.contentId} class={p.contentClass}>
         <slot />
-      </div>
+      </span>
     )
   }
   {p.iconRight && <Icon path={p.iconRight} class={buttonIconCva(p.variant, hasContent && "ml-2", p.iconClass)} />}

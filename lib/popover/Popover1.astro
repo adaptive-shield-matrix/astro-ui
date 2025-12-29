@@ -6,25 +6,32 @@ import { setupPopoverListeners } from "./setupPopoverListeners"
 
 interface Props {
   id: string
-  icon: string
+  icon?: string
   title: string
   variant?: ButtonVariant
+  class?: string
+  innerClass?: string
 }
 
-const { id, icon, title, variant = buttonVariant.link } = Astro.props
-const summaryClasses = buttonCva2(variant, null, "flex flex-wrap gap-2 text-xl font-semibold list-none")
+const p = Astro.props
+const summaryClasses = buttonCva2(
+  p.variant ?? buttonVariant.link,
+  null,
+  "flex flex-wrap gap-2",
+)
 ---
 
 <details
-  id={id}
+  id={p.id}
   class={classArr(
     "relative",
     "popover-details", // used by popover
+    p.class,
   )}
 >
   <summary class={summaryClasses}>
-    <Icon path={icon} />
-    {title}
+    {p.icon && <Icon path={p.icon} />}
+    {p.title}
   </summary>
   <div
     class={classArr(
@@ -33,6 +40,7 @@ const summaryClasses = buttonCva2(variant, null, "flex flex-wrap gap-2 text-xl f
       "border border-gray-300 dark:border-gray-600 rounded shadow-lg", // borders/shadows
       "p-2 mt-1", // spacing
       "z-10", // z-index
+      p.innerClass,
     )}
   >
     <slot />
