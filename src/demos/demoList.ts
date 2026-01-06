@@ -4,6 +4,7 @@ export const demoList = {
   select: ["demo_select"],
   form: ["demo_fieldset"],
   table: ["demo_table"],
+  styles: ["demo_styles"],
   img: ["demo_img", "demo_typed_img"],
   layouts: ["demo_markdown_wrapper"],
   popover: ["demo_popover"],

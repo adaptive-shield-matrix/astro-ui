@@ -1,0 +1,28 @@
+---
+import CardWrapper from "~ui/card/CardWrapper.astro"
+
+interface Props {
+  name: string
+  bgStyles: astroHTML.JSX.CSSProperties
+  description?: string
+}
+
+const p = Astro.props
+---
+
+<section
+  id={p.name}
+  class="max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center py-8"
+  style={p.bgStyles}
+>
+  <h1 class="text-4xl font-bold mb-4">
+    <a href={"#" + p.name}>
+      {p.name}
+    </a>
+  </h1>
+  <CardWrapper class="max-w-md text-center">
+    <p class="text-gray-600 dark:text-gray-300">
+      {p.description || "Sample text to test readability on this background pattern."}
+    </p>
+  </CardWrapper>
+</section>

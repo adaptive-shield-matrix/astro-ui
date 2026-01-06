@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import StyleSection from "@/pages/styles/StyleSection.astro"
+import { stylesBgDotted } from "~ui/styles/stylesBgDotted"
+import { stylesBgGrid } from "~ui/styles/stylesBgGrid"
+import { stylesBgSlash } from "~ui/styles/stylesBgSlash"
+import { stylesBgSlashSparse } from "~ui/styles/stylesBgSlashSparse"
+import { stylesBgCube } from "~ui/styles/stylesBgCube"
+import { stylesBgWave } from "~ui/styles/stylesBgWave"
+import { stylesBgGridBlueprint } from "~ui/styles/stylesBgGridBlueprint"
+import { stylesBgSquareZig } from "~ui/styles/stylesBgSquareZig"
+import { stylesBgLeaf } from "~ui/styles/stylesBgLeaf"
+---
+
+<BaseLayout title="Demo Background Styles">
+  <StyleSection name="Dotted" bgStyles={stylesBgDotted} description="Subtle dot pattern for a clean, minimal look." />
+  <StyleSection name="Grid" bgStyles={stylesBgGrid} description="Graph paper style grid pattern." />
+  <StyleSection name="Slash" bgStyles={stylesBgSlash} description="Diagonal slash pattern for texture." />
+  <StyleSection name="SlashSparse" bgStyles={stylesBgSlashSparse} description="Sparse diagonal slash pattern with more spacing." />
+  <StyleSection name="Cube" bgStyles={stylesBgCube} description="Japanese pattern with interlocking cube shapes." />
+  <StyleSection name="Wave" bgStyles={stylesBgWave} description="Smooth wave pattern for a flowing feel." />
+  <StyleSection name="Leaf" bgStyles={stylesBgLeaf} description="Organic leaf-inspired pattern." />
+  <StyleSection name="GridBlueprint" bgStyles={stylesBgGridBlueprint} description="Blueprint-style grid with major and minor lines." />
+  <StyleSection name="SquareZig" bgStyles={stylesBgSquareZig} description="Zigzag square pattern." />
+</BaseLayout>

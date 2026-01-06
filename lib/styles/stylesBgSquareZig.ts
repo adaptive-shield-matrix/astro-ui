@@ -1,0 +1,3 @@
+export const stylesBgSquareZig: astroHTML.JSX.CSSProperties = {
+  "background-image": `url("data:image/svg+xml,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' width='20' height='20' patternTransform='scale(2)' patternUnits='userSpaceOnUse'><rect width='100%' height='100%' fill='#fff' fill-opacity='0'/><path fill='none' stroke='#aeaeae69' stroke-width='0.5' d='M-5-3 5 2l10-5 10 5M-5 17l10 5 10-5 10 5M-5 7l10 5 10-5 10 5M-2.5 24.5l5-10-5-10 5-10m15 30 5-10-5-10 5-10m-15 30 5-10-5-10 5-10'/></pattern></defs><rect width='800%' height='800%' fill='url(#a)'/></svg>")}`,
+}
