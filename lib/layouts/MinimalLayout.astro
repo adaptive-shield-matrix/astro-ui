@@ -11,9 +11,12 @@ export interface Props {
   meta?: Record<string, string>
   class?: string
   bodyClass?: string
+  showTailwindIndicator?: boolean
 }
 
 const p = Astro.props
+
+const showTailwindIndicator = p.showTailwindIndicator ?? true
 ---
 
 <!doctype html>
@@ -33,7 +36,6 @@ const p = Astro.props
     <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="icon" sizes="32x32" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Crawlers -->
@@ -69,6 +71,6 @@ const p = Astro.props
       <slot />
     </main>
     <slot name="footer" />
-    <TailwindIndicator />
+    {showTailwindIndicator && <TailwindIndicator />}
   </body>
 </html>
