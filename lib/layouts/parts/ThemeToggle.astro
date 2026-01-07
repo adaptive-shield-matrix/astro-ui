@@ -25,11 +25,14 @@ interface Props {
   textClass?: string
   textLightClass?: string
   textDarkClass?: string
+  includeThemeLoadingScript?:boolean
 }
 const p = Astro.props
 const title = p.title ?? "Toggle theme"
 const textLight = p.textLight ?? "Light"
 const textDark = p.textDark ?? "Dark"
+
+const includeThemeLoadingScript = p.includeThemeLoadingScript ?? true
 ---
 
 <Button
@@ -45,6 +48,7 @@ const textDark = p.textDark ?? "Dark"
   <span id="theme-toggle-text-dark" class={classArr("hidden dark:block", p.textClass, p.textDarkClass)}>{textDark}</span>
 </Button>
 
+{includeThemeLoadingScript &&
 <script is:inline>
   const log = false
 
@@ -134,3 +138,4 @@ const textDark = p.textDark ?? "Dark"
   window.addEventListener("storage", onStorage)
   if (log) console.log("theme-toggle script end")
 </script>
+}
