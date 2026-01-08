@@ -22,6 +22,7 @@ const baseClasses = classArr(
 )
 
 const buttonIconClasses = {
+  none: "",
   // transparent bg
   outline: classesBlackWhite,
   ghost: classesBlackWhite,
@@ -37,6 +38,7 @@ const buttonIconClasses = {
   filledRed: classArr(classesTextFillWhite, "dark:text-red-100 dark:fill-red-100"),
 
   filledGreen: classesWhiteWhite,
+  filledBlue: classArr(classesTextFillWhite, "dark:text-blue-100 dark:fill-blue-100"),
   filledIndigo: classArr(classesTextFillWhite, "dark:text-indigo-100 dark:fill-indigo-100"),
   // outlineRed: classesWhiteWhite,
   filledSky: classesWhiteWhite,

@@ -21,6 +21,7 @@ export const buttonVariant = {
   filledRed: "filledRed",
   filledGreen: "filledGreen",
   filledSky: "filledSky",
+  filledBlue: "filledBlue",
   filledIndigo: "filledIndigo",
   // outlined colors
   outlineRed: "outlineRed",
@@ -134,6 +135,12 @@ const variantClasses = {
     "bg-indigo-500 dark:bg-indigo-800 ", // bg
     "hover:bg-indigo-700 dark:hover:bg-indigo-600", // bg hover
     "focus:ring-indigo-400 dark:focus:ring-indigo-400", // focus
+  ),
+  filledBlue: classArr(
+    "text-white", // text
+    "bg-blue-500 dark:bg-blue-800 ", // bg
+    "hover:bg-blue-700 dark:hover:bg-blue-600", // bg hover
+    "focus:ring-blue-400 dark:focus:ring-blue-400", // focus
   ),
   //
   // outline toast colors
