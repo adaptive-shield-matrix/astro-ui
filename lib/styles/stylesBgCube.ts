@@ -1,4 +1,4 @@
-export const stylesBgCube: astroHTML.JSX.CSSProperties = {
+export const stylesBgCube = {
   "background-attachment": "fixed",
   "background-image": `url("data:image/svg+xml,${encodeURIComponent(`<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
     <defs>
@@ -8,4 +8,4 @@ export const stylesBgCube: astroHTML.JSX.CSSProperties = {
     </defs>
     <rect width='800%' height='800%' transform='translate(0,0)' fill='url(#a)' />
   </svg>`)}")`,
-}
+} as const satisfies astroHTML.JSX.CSSProperties

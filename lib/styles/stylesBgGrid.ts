@@ -1,5 +1,5 @@
-export const stylesBgGrid: astroHTML.JSX.CSSProperties = {
-  backgroundImage: `linear-gradient(to right, #aeaeae69 1px, transparent 1px),
+export const stylesBgGrid = {
+  "background-image": `linear-gradient(to right, #aeaeae69 1px, transparent 1px),
         linear-gradient(to bottom, #aeaeae69 1px, transparent 1px)`,
-  backgroundSize: "16px 16px",
-}
+  "background-size": "16px 16px",
+} as const satisfies astroHTML.JSX.CSSProperties
