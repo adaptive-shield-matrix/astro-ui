@@ -1,13 +1,13 @@
 
 (shared_config_astro_ui) {
-	handle_path /media-b2* {
+	handle_path /images/* {
 		rewrite * {path}
+		root * /home/david/Coding/adaptive-astro-ui/public-images
+		file_server
 		header {
-			Routed "astro-media-b2"
+			Routed "astro-images"
 			Cache-Control "public, max-age=60, immutable"
 		}
-		root * /home/david/Coding/adaptive-astro-ui-media
-		file_server
 	}
 }
 

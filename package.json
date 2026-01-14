@@ -6,7 +6,7 @@
     "dev": "nice -5 astro dev",
     "check": "clear && nice -15 astro check --minimumSeverity error",
     "build": "nice -15 astro build",
-    "deploy": "bun run build && bun run upload && bun run tag",
+    "deploy": "bash ./ops/deploy.bash",
     "upload": "bun run wrangler pages deploy ./dist --project-name=adaptive-astro-ui --commit-dirty",
     "tag": "git branch -f deployed",
     "release": "bash ./ops/release.sh",

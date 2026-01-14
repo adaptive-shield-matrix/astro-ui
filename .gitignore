@@ -98,3 +98,7 @@ AGENTS.md
 # project specific
 /*.json
 /*.sh
+
+# Images
+public-images
+public-image-versions
